@@ -29,18 +29,18 @@ class _SplashScreenState extends State<SplashScreen> {
       String screenWay = prefs.getString(SharedKeys.onBoardScreenOn).toString();
       debugPrint('sharedPref value is :  $screenWay');
 
-
-
-    if(screenWay == 'true' || screenWay == null || screenWay == ''){
       Timer(const Duration(seconds: 3), ()=>Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const FirstScreen())));
 
-    }else if(screenWay == 'false'){
-      Timer(const Duration(seconds: 3), ()=>Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const MainPage())));
-    }else{
+/*    if(screenWay == 'true' || screenWay == ''){
 
-    }
+
+
+     }else {
+      Timer(const Duration(seconds: 3), ()=>Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => MainPage(index: 0,))));
+    }*/
+
     });
   }
 

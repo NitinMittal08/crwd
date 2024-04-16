@@ -19,6 +19,7 @@ class _FeedLikesState extends State<FeedLikes> {
     return SafeArea(child: Scaffold(
       backgroundColor: Colour.bgColor,
       appBar: AppBar(
+          iconTheme: IconThemeData(color: Colour.black),
           backgroundColor: Colour.bgColor,
           title: CommonFun.textBold('Like', 16, TextAlign.start, color: Colour.black),
           automaticallyImplyLeading: true),

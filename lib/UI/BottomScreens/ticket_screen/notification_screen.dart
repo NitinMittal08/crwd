@@ -28,10 +28,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: Column(
         children: [
 
+           const SizedBox(height: 15),
           // tab_bar
           Container(
             margin:const  EdgeInsets.only(right: 15,left: 15),
-            height: 60,
+            height: 50,
             decoration: BoxDecoration(
                 border: Border.all(color: Colour.greyLine,width: 1),
                 color: Colour.bgColor,

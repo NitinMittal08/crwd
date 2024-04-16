@@ -21,7 +21,8 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
           backgroundColor: Colour.bgColor,
           appBar: AppBar(
             backgroundColor: Colour.bgColor,
-            title: const Text('Organizer Reviews'),
+            iconTheme: IconThemeData(color: Colour.black),
+            title:  CommonFun.textBold('Organizer Reviews', 16, TextAlign.center, color: Colour.black),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -66,13 +67,12 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
                             ],
                           ),
 
-
                           Container(
                             margin: EdgeInsets.only(top: 15),
                             width: 220,
                             height: 150,
                             child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: 5,
                               itemBuilder: (context, index) {
                                 return LinearPercentIndicator(
@@ -107,67 +107,64 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
 
 
 
-                    child: SizedBox(
-                      height: 580,
-                      width: double.infinity,
-                      child: ListView.builder(
-                        itemCount: 10,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return  Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(50),
-                                          child: Image.asset('assets/images/image_3.png',height: 35,width:35,fit: BoxFit.fill,),
+                    child: ListView.builder(
+                      itemCount: 10,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return  Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset('assets/images/image_3.png',height: 35,width:35,fit: BoxFit.fill,),
+                                      ),
+                                      Container(
+                                        margin:const EdgeInsets.only(left: 5),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            CommonFun.textMed("Afshin", 12, TextAlign.start, color: Colour.black),
+                                            CommonFun.textReg("Star rating", 12, TextAlign.start, color: Colour.greyText),
+
+                                          ],
                                         ),
-                                        Container(
-                                          margin:const EdgeInsets.only(left: 5),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              CommonFun.textMed("Afshin", 12, TextAlign.start, color: Colour.black),
-                                              CommonFun.textReg("Star rating", 12, TextAlign.start, color: Colour.greyText),
+                                      )
+                                    ],
+                                  ),
 
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-
-                                    CommonFun.textMed("2 month ago", 12, TextAlign.start, color: Colour.greyText),
-                                  ],
-                                ),
+                                  CommonFun.textMed("2 month ago", 12, TextAlign.start, color: Colour.greyText),
+                                ],
                               ),
+                            ),
 
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child:  CommonFun.textMed(qw, 12, TextAlign.start, color: Colour.greyText),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child:  CommonFun.textMed(qw, 12, TextAlign.start, color: Colour.greyText),
+                            ),
+
+                            Container(
+                              margin: const EdgeInsets.only(top: 5,bottom: 5),
+                              child: const Divider(
+                                height: 1,
+                                thickness: 1,
                               ),
+                            )
 
-                              Container(
-                                margin: const EdgeInsets.only(top: 5,bottom: 5),
-                                child: const Divider(
-                                  height: 1,
-                                  thickness: 1,
-                                ),
-                              )
-
-                            ],
-                          );
-                        },),
-                    ),
+                          ],
+                        );
+                      },),
                   )
 
                 ],

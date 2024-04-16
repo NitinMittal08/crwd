@@ -12,7 +12,7 @@ class CommonFun{
     return Text(
       stringName,
       style:
-      TextStyle(fontFamily: "poppins_bold", fontSize: fontSize, color: color),
+      TextStyle(fontFamily: "poppins_bold", fontSize: fontSize, color: color, decoration: TextDecoration.none, overflow: TextOverflow.ellipsis),
       textAlign: align,
     );
   }
@@ -22,7 +22,7 @@ class CommonFun{
     return Text(
       stringName,
       style:
-      TextStyle(fontFamily: "poppins_Med", fontSize: fontSize, color: color),
+      TextStyle(fontFamily: "poppins_Med", fontSize: fontSize, color: color , decoration: TextDecoration.none),
       textAlign: align,
     );
   }
@@ -32,7 +32,7 @@ class CommonFun{
     return Text(
       stringName,
       style:
-      TextStyle(fontFamily: "poppins_Reg", fontSize: fontSize, color: color),
+      TextStyle(fontFamily: "poppins_Reg", fontSize: fontSize, color: color,  decoration: TextDecoration.none),
       textAlign: align,
     );
   }

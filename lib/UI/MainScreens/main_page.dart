@@ -1,6 +1,5 @@
 
 import 'package:crwd/UI/BottomScreens/ticket_screen/notification_screen.dart';
-import 'package:crwd/UI/BottomScreens/profile/profile_screen.dart';
 import 'package:crwd/UI/BottomScreens/explore_event/explore_screen.dart';
 import 'package:crwd/UI/BottomScreens/feed_screen/feed_screen.dart';
 import 'package:crwd/Util/shared_keys.dart';
@@ -8,8 +7,11 @@ import 'package:crwd/values/colour.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../BottomScreens/profile/my_profile.dart';
+
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  int index;
+   MainPage({Key? key , required this.index}) : super(key: key);
 
   @override
   State<MainPage> createState() => _HomePageState();
@@ -25,12 +27,15 @@ class _HomePageState extends State<MainPage> {
     const SearchScreen(),
     const FeedScreen(),
     const NotificationScreen(),
-    const ProfileScreen(),
+    const MyProfile(),
   ];
 
   @override
   void initState() {
     super.initState();
+
+    pageIndex =widget.index;
+
     Future.delayed(Duration.zero,() async{
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString(SharedKeys.onBoardScreenOn, 'false');
@@ -38,238 +43,129 @@ class _HomePageState extends State<MainPage> {
 
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffC4DFCB),
+      // backgroundColor: const Color(0xffC4DFCB),
+      backgroundColor: Colour.white,
       body: pages[pageIndex],
-      bottomNavigationBar: buildMyNavBar(context),
+      bottomNavigationBar: buildMyBottomNav(context),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+
+      floatingActionButton: FloatingActionButton(
+        focusElevation: 0,
+        onPressed: () {},
+        child: Image.asset('assets/images/crwd_icon.png'),
+      ),
+
+
     );
   }
-
-  Container buildMyNavBar(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    return Container(
-      height: 80,
-      decoration: BoxDecoration(
-        color: Colour.white,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: SizedBox(
-              width: size.width,
-              height: 80,
-              child: Stack(
-                children: [
-                  CustomPaint(
-                    size: Size(size.width, 80),
-                    painter: BNBCustomPaint(),
-                  ),
-                  Center(
-                    heightFactor: 0.6,
-                    child: FloatingActionButton(
-                        shape: UnderlineInputBorder(borderRadius: BorderRadius.circular(50)),
-                        child: Image.asset('assets/images/crwd_icon.png'),
-                        onPressed: () {}),
-                  ),
-                  Container(
-                    width: size.width,
-                    height: 80,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              pageIndex = 0;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 25,
-                            child: Image.asset('assets/images/bottom_sheet/search.png',
-                                color:  pageIndex == 0 ? Colour.black : Colour.blackShade),
-                          ),
-                        ),
-
-
-
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              pageIndex = 1;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 25,
-                            child: Image.asset('assets/images/bottom_sheet/wifi.png',
-                                color:  pageIndex == 1 ? Colour.black : Colour.blackShade),
-                          ),
-                        ),
-
-
-                        Container(
-                          width: size.width * 0.20,
-                        ),
-
-
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              pageIndex = 2;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 18,
-                            child: Image.asset('assets/images/bottom_sheet/notification.png',
-                                color:  pageIndex == 2 ? Colour.black : Colour.blackShade),
-                          ),
-                        ),
-
-
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              pageIndex = 3;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 25,
-                            child: Image.asset('assets/images/bottom_sheet/profile.png',
-                                color:  pageIndex == 3 ? Colour.black : Colour.blackShade),
-                          ),
-                        ),
-
-
-                      ],
+ BottomAppBar buildMyBottomNav(BuildContext context) {
+   return BottomAppBar(
+      shape: const CircularNotchedRectangle(),
+      notchMargin: 5,
+      child: SizedBox(
+        height: 60,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Center(
+                child:  InkWell(
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  onTap: () {
+                    setState(() {
+                      pageIndex = 0;
+                    });
+                  },
+                  child: SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Center(
+                      child: Image.asset('assets/images/bottom_sheet/search.png',width: 25,height: 25,
+                          color:  pageIndex == 0 ? Colour.black : Colour.blackShade),
                     ),
-                  )
-                ],
+                  ),
+                ),
               ),
             ),
-          )
-        ],
-      )
+            Expanded(
+              flex: 1,
+              child: Center(
+                child: InkWell(
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  onTap: () {
+                    setState(() {
+                      pageIndex = 1;
+                    });
+                  },
+                  child: Container(
+                    transform: Matrix4.translationValues(-10, 0, 0),
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Center(
+                      child: Image.asset('assets/images/bottom_sheet/wifi.png',width: 25,height: 25,
+                          color:  pageIndex == 1 ? Colour.black : Colour.blackShade),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            Expanded(
+              flex: 1,
+              child: InkWell(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                onTap: () {
+                  setState(() {
+                    pageIndex = 2;
+                  });
+                },
+                child: Container(
+                  transform: Matrix4.translationValues(10, 0, 0),
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Center(
+                    child: Image.asset('assets/images/bottom_sheet/notification.png',width: 28,height: 28,
+                        color:  pageIndex == 2 ? Colour.black : Colour.blackShade),
+                  ),
+                ),
+              ),
+            ),
 
 
-     /* Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 0;
-              });
-            },
-            icon: pageIndex == 0
-                ? const Icon(
-              Icons.home_filled,
-              color: Colors.white,
-              size: 35,
-            )
-                : const Icon(
-              Icons.home_outlined,
-              color: Colors.white,
-              size: 35,
+            Expanded(
+              flex: 1,
+              child: InkWell(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                onTap: () {
+                  setState(() {
+                    pageIndex = 3;
+                  });
+                },
+                child: SizedBox(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Center(
+                    child: Image.asset('assets/images/bottom_sheet/profile.png',width: 25,height: 25,
+                        color:  pageIndex == 3 ? Colour.black : Colour.blackShade),
+                  ),
+                ),
+              ),
             ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 1;
-              });
-            },
-            icon: pageIndex == 1
-                ? const Icon(
-              Icons.work_rounded,
-              color: Colors.white,
-              size: 35,
-            )
-                : const Icon(
-              Icons.work_outline_outlined,
-              color: Colors.white,
-              size: 35,
-            ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 2;
-              });
-            },
-            icon: pageIndex == 2
-                ? const Icon(
-              Icons.widgets_rounded,
-              color: Colors.white,
-              size: 35,
-            )
-                : const Icon(
-              Icons.widgets_outlined,
-              color: Colors.white,
-              size: 35,
-            ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 3;
-              });
-            },
-            icon: pageIndex == 3
-                ? const Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 35,
-            )
-                : const Icon(
-              Icons.person_outline,
-              color: Colors.white,
-              size: 35,
-            ),
-          ),
-        ],
-      ),*/
+          ],
+        ),
+      ),
     );
   }
-}
-
-class BNBCustomPaint extends CustomPainter{
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill;
-
-    Path path = Path();
-    // path.moveTo(0,10);
-    path.quadraticBezierTo(size.width * 0.20, 0, size.width * 0.35, 0);
-    path.quadraticBezierTo(size.width * 0.40, 0, size.width * 0.40, 20);
-    path.arcToPoint(Offset(size.width * 0.60, 20), radius: const Radius.circular(40.0), clockwise: false);
-    path.quadraticBezierTo(size.width * 0.60, 0, size.width * 0.65, 0);
-    path.quadraticBezierTo(size.width, 0, size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.lineTo(0, 20);
-    canvas.drawShadow(path, Colors.black, 5, true);
-    canvas.drawPath(path, paint);
-
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-
-
 }

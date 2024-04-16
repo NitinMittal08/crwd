@@ -96,7 +96,7 @@ class _BioScreenState extends State<BioScreen> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const InterestScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>   InterestScreen(from: 0,)));
                     },
                   ),
                 ),

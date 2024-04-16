@@ -12,8 +12,20 @@ class LanguageScreen extends StatefulWidget {
 
 class _LanguageScreenState extends State<LanguageScreen> {
 
-  bool selectLanguage= false;
+  List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  List<bool> isSelected = List.generate(4, (index) => false);
 
+
+
+  @override
+  void initState() {
+    super.initState();
+    for(int i=0;i<items.length;i++){
+      if(i==2) {
+        isSelected[i] = true;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +45,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 5,
+              itemCount:items.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -43,8 +55,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     children: [
                       InkWell(
                         onTap: () {
-                          selectLanguage =!selectLanguage;
-                          setState(() { });
+                          setState(() {
+                            // Reset all selection to false
+                            isSelected = List.generate(4, (index) => false);
+                            // Set the current item's selection to true
+                            isSelected[index] = true;
+                          });
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,12 +77,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  CommonFun.textMed("English $index", 16, TextAlign.center, color: Colour.black)
+                                  CommonFun.textMed(items[index], 16, TextAlign.center, color: Colour.black)
                                 ],
                               ),
                             ),
 
-                            Icon(selectLanguage?
+                            Icon(!isSelected[index]?
                               Icons.radio_button_off:
                               Icons.radio_button_on
                               ,color: Colour.greyText,)
@@ -120,3 +136,5 @@ class _LanguageScreenState extends State<LanguageScreen> {
     ));
   }
 }
+
+

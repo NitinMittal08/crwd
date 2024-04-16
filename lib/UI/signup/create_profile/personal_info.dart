@@ -209,10 +209,6 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
 
 
-
-
-
-
                 Container(
                   decoration: BoxDecoration(
                       color: Colors.white,

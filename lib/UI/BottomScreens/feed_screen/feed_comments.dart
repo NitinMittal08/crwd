@@ -1,6 +1,4 @@
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import '../../../values/colour.dart';
@@ -20,6 +18,7 @@ class _FeedCommentsState extends State<FeedComments> {
     return SafeArea(child: Scaffold(
       backgroundColor: Colour.bgColor,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colour.black),
           backgroundColor: Colour.bgColor,
           title: CommonFun.textBold('Comment', 16, TextAlign.start, color: Colour.black),
           automaticallyImplyLeading: true),
@@ -45,7 +44,8 @@ class _FeedCommentsState extends State<FeedComments> {
                           color: Colour.white,
                           borderRadius: BorderRadius.circular(10)
                       ),
-                      child: Padding(
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 10),
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,10 +108,7 @@ class _FeedCommentsState extends State<FeedComments> {
                               ],
                             ),
 
-                            SizedBox(
-                              height: 30,
-                              child: Image.asset('assets/images/like.png',color: Colour.pink,height: 15,),
-                            ),
+                            Center(child: Image.asset('assets/images/like.png',color: Colour.pink,height: 15)),
 
                           ],
                         ),
