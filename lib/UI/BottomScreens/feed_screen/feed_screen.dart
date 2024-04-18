@@ -25,8 +25,14 @@ class _FeedScreenState extends State<FeedScreen> {
       backgroundColor: Colour.bgColor,
       appBar: AppBar(
           backgroundColor: Colour.bgColor,
-          title: CommonFun.textBold('Feed', 16, TextAlign.start, color: Colour.black),
+          title:  CommonFun.textBold('Story', 16, TextAlign.start, color: Colour.black),
+          elevation: 0,
           automaticallyImplyLeading: false),
+
+
+
+
+
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -49,7 +55,6 @@ class _FeedScreenState extends State<FeedScreen> {
                             height: 65,
                             width: 65,
                             margin: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), border: Border.all(color: Colour.pink, width: 3)),
                             child: Padding(
                               padding: const EdgeInsets.all(3.0),
                               child: ClipRRect(
@@ -71,7 +76,7 @@ class _FeedScreenState extends State<FeedScreen> {
                               ))
                         ],
                       ),
-                      CommonFun.textMed('Your Story', 12, TextAlign.center, color: Colour.black)
+                      CommonFun.textMed('Your Story', 12, TextAlign.center, color: Colour.greyText)
                     ],
                   ),
 
@@ -144,7 +149,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -166,14 +171,18 @@ class _FeedScreenState extends State<FeedScreen> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        CommonFun.textBold("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.black),
-                                        CommonFun.textReg("Sunday Sqool Comedy", 12, TextAlign.start, color: Colour.greyText),
+                                        CommonFun.textBold("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.blackNew),
+                                        CommonFun.textReg("2 hr ago", 12, TextAlign.start, color: Colour.greyText),
                                       ],
                                     ),
                                   )
                                 ],
                               ),
                               PopupMenuButton<SampleItem>(
+                                icon:Icon(
+                                  Icons.more_vert, // Change the icon here
+                                  color: Colour.greyText, // Change the color here
+                                ),
                                 initialValue: selectedItem,
                                 onSelected: (SampleItem item) {
                                   setState(() {
@@ -205,11 +214,11 @@ class _FeedScreenState extends State<FeedScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(2.0),
-                          child: CommonFun.textReg("It is a long established fact that a reader.", 16, TextAlign.start, color: Colour.black),
+                          child: CommonFun.textReg("It is a long established fact that a reader.", 12, TextAlign.start, color: Colour.black),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(2.0),
-                          child: CommonFun.textReg("#reader #reader", 16, TextAlign.start, color: Colour.greyText),
+                          child: CommonFun.textReg("#reader #reader #reader #reader", 12, TextAlign.start, color: Colour.pink),
                         ),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(0),
@@ -224,7 +233,7 @@ class _FeedScreenState extends State<FeedScreen> {
                           height: 10,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
@@ -245,7 +254,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                           'assets/images/like.png',
                                           height: 10,
                                         ))),
-                                    CommonFun.textReg("124 Like", 12, TextAlign.start, color: Colour.black),
+                                    CommonFun.textReg("124 Likes", 12, TextAlign.start, color: Colour.black),
                                   ],
                                 ),
                               ),
@@ -268,7 +277,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                           'assets/images/comment_icon.png',
                                           height: 10,
                                         ))),
-                                    CommonFun.textReg("120 Comment", 12, TextAlign.start, color: Colour.black),
+                                    CommonFun.textReg("120 Comments", 12, TextAlign.start, color: Colour.black),
                                   ],
                                 ),
                               ),
@@ -345,8 +354,17 @@ class _FeedScreenState extends State<FeedScreen> {
           ],
         ),
       ),
+
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colour.pink,
+            child: Center(child: Image.asset('assets/images/icon/add.png',width: 29,height: 29,)),
+
+          ),
     ));
   }
+
+
 
   Widget deleteDialog() {
     return Dialog(
@@ -356,10 +374,13 @@ class _FeedScreenState extends State<FeedScreen> {
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: StatefulBuilder(builder: (BuildContext context, StateSetter myState) {
-        return Card(
-          color: Colour.white,
+        return Container(
+          decoration: BoxDecoration(
+              color: Colour.whiteApp,
+              borderRadius: BorderRadiusDirectional.circular(15)
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -370,15 +391,14 @@ class _FeedScreenState extends State<FeedScreen> {
                   height: 85,
                   width: 85,
                   decoration: BoxDecoration(color: Colour.pink, borderRadius: BorderRadius.circular(50)),
-                  child: const Icon(
-                    Icons.delete,
-                    size: 50,
+                  child: Center(
+                    child: Image.asset('assets/images/icon/delete.png',width: 50),
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Delete Feed', 21, TextAlign.center, color: Colour.black),
+                CommonFun.textBold('Delete Feed', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
-                CommonFun.textReg('Are you sure you want to  \n this feed', 12, TextAlign.center, color: Colour.black),
+                CommonFun.textReg('Are you sure you want to  \n this feed', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -386,17 +406,17 @@ class _FeedScreenState extends State<FeedScreen> {
                   children: [
                     Container(
                       width: 100,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(
+                      height: 40,
+                      decoration:  BoxDecoration(
+                        color: Colour.white,
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                       ),
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.pink),
+                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {
@@ -405,7 +425,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       ),
                     ),
                     Container(
-                      height: 50,
+                      height: 40,
                       width: 100,
                       decoration: BoxDecoration(
                         color: Colour.pink,

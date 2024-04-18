@@ -40,7 +40,23 @@ class _BookTicketState extends State<BookTicket> {
       appBar: AppBar(
         backgroundColor: Colour.bgColor,
         iconTheme: IconThemeData(color: Colour.black),
-        title:  CommonFun.textBold('Book Ticket', 16, TextAlign.center, color: Colour.black),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width/1.7,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+              const SizedBox(width: 8),
+              CommonFun.textBold('Book Ticket', 16, TextAlign.center, color: Colour.black),
+            ],
+          ),
+        ),
+
       ),
       body: Column(
         children: [
@@ -58,73 +74,77 @@ class _BookTicketState extends State<BookTicket> {
                         elevation: 1,
                         color: Colour.white,
                         shadowColor: Colour.bgColor,
+                        shape: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10)
+                        ),
                         child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadiusDirectional.circular(10)
+                          ),
                           height: 80,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          height: 80,
-                                          width: 50,
-                                          decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.only(topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
-                                            color: Colour.greyBorder,
-                                          ),
-                                          child: CommonFun.textBold(model[index].count.toString(), 21, TextAlign.center, color: Colour.greyText),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 80,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                                          color: Colour.greyBorder,
                                         ),
-                                        const SizedBox(width: 5),
-                                        Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: const EdgeInsets.only(top: 10),
-                                              child: CommonFun.textBold(model[index].name.toString(), 14, TextAlign.center, color: Colour.black),
-                                            ),
-                                            RichText(
-                                              textAlign: TextAlign.start,
-                                              text: TextSpan(
-                                                  text: "19 May 2022-",
-                                                  style: TextStyle(
-                                                      overflow: TextOverflow.ellipsis, fontFamily: "poppins_Med", color: Colour.greyText, fontSize: 12),
-                                                  children: <TextSpan>[
-                                                    TextSpan(
-                                                      text: "2:30am",
-                                                      style: TextStyle(fontFamily: "poppins_Med", color: Colour.greyText, fontSize: 12),
-                                                    ),
-                                                  ]),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  child: CommonFun.textReg("${model[index].count.toString()} * ", 14, TextAlign.start,
-                                                      color: Colour.greyText),
-                                                ),
-                                                Container(
-                                                  child: CommonFun.textReg("120 = ", 14, TextAlign.start, color: Colour.greyText),
-                                                ),
-                                                Container(
-                                                  child: CommonFun.textReg(model[index].totalPrice.toString(), 14, TextAlign.start,
-                                                      color: Colour.greyText),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                        child: CommonFun.textBold(model[index].count.toString(), 21, TextAlign.center, color: Colour.greyText),
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin: const EdgeInsets.only(top: 10),
+                                            child: CommonFun.textBold(model[index].name.toString(), 14, TextAlign.center, color: Colour.black),
+                                          ),
+                                          RichText(
+                                            textAlign: TextAlign.start,
+                                            text: TextSpan(
+                                                text: "19 May 2022-",
+                                                style: TextStyle(
+                                                    overflow: TextOverflow.ellipsis, fontFamily: "poppins_Med", color: Colour.greyText, fontSize: 12),
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: "2:30am",
+                                                    style: TextStyle(fontFamily: "poppins_Med", color: Colour.greyText, fontSize: 12),
+                                                  ),
+                                                ]),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                child: CommonFun.textReg("${model[index].count.toString()} * ", 14, TextAlign.start,
+                                                    color: Colour.pink),
+                                              ),
+                                              Container(
+                                                child: CommonFun.textReg("120 = ", 14, TextAlign.start, color: Colour.pink),
+                                              ),
+                                              Container(
+                                                child: CommonFun.textReg(model[index].totalPrice.toString(), 14, TextAlign.start,
+                                                    color: Colour.pink),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -141,6 +161,8 @@ class _BookTicketState extends State<BookTicket> {
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       InkWell(
+                                        splashColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () {
                                           if (model[index].count < 5) {
                                             model[index].count++;
@@ -156,7 +178,7 @@ class _BookTicketState extends State<BookTicket> {
                                         child: Container(
                                           alignment: Alignment.center,
                                           margin: const EdgeInsets.only(top: 10),
-                                          child: const Icon(Icons.add),
+                                          child: Icon(Icons.add,color: Colour.pink,),
                                         ),
                                       ),
                                       Container(
@@ -164,6 +186,8 @@ class _BookTicketState extends State<BookTicket> {
                                         child: const Divider(),
                                       ),
                                       InkWell(
+                                        splashColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () {
                                           if (model[index].count > 0) {
                                             model[index].count--;
@@ -179,7 +203,7 @@ class _BookTicketState extends State<BookTicket> {
                                         },
                                         child: Container(
                                           transform: Matrix4.translationValues(0, -10, 0),
-                                          child: const Icon(Icons.minimize),
+                                          child:   Icon(Icons.minimize,color: Colour.pink,),
                                         ),
                                       ),
                                     ],
@@ -212,13 +236,14 @@ class _BookTicketState extends State<BookTicket> {
                         child: CommonFun.textBold('Total : ', 14, TextAlign.start, color: Colour.black),
                       ),
                       Container(
-                        child: CommonFun.textBold(qwerty.toString(), 14, TextAlign.start, color: Colour.greyText),
+                        child: CommonFun.textBold("\$${qwerty.toString()}", 14, TextAlign.start, color: Colour.greyText),
                       ),
                     ],
                   ),
                   Container(
                     alignment: Alignment.center,
                     height: 44,
+                    padding: const EdgeInsets.only(right: 10,left: 10),
                     decoration: BoxDecoration(
                       color: Colour.pink,
                       borderRadius: const BorderRadius.all(

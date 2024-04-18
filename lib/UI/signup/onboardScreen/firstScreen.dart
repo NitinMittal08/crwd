@@ -185,19 +185,22 @@ class _FirstScreenState extends State<FirstScreen> {
                   children: [
                     Expanded(
                         flex: 4,
-                        child: Image.asset(
-                          currentTab ==0
-                              ? 'assets/images/onboard_screen/screen_one.png'
-                              :currentTab ==1
-                              ? 'assets/images/onboard_screen/screen_two.png'
-                              :currentTab ==2
-                              ? 'assets/images/onboard_screen/screen_three.png'
-                              : 'assets/images/onboard_screen/screen_one.png',
-                          width: double.infinity,
-                          fit: BoxFit.fill,
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 50),
+                          child: Image.asset(
+                            currentTab ==0
+                                ? 'assets/images/onboard_screen/screen_one.png'
+                                :currentTab ==1
+                                ? 'assets/images/onboard_screen/screen_two.png'
+                                :currentTab ==2
+                                ? 'assets/images/onboard_screen/screen_three.png'
+                                : 'assets/images/onboard_screen/screen_one.png',
+                            width: double.infinity,
+                            fit: BoxFit.fill,
+                          ),
                         )),
                     Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -205,15 +208,23 @@ class _FirstScreenState extends State<FirstScreen> {
                             PageViewDotIndicator(
                               currentItem: currentTab,
                               count: 3,
-                              margin: const EdgeInsets.only(right: 2,left: 2),
+
+                              size: const Size(25, 6),
+                              unselectedSize:  const Size(25, 6),
+
+                              margin: const EdgeInsets.only(right: 1,left: 2),
                               duration: const Duration(milliseconds: 200),
-                              boxShape: BoxShape.circle,
+                              boxShape: BoxShape.rectangle,
+                              
+                              borderRadius: BorderRadius.circular(5),
                               onItemClicked: (index) {
-                              }, unselectedColor: Colors.black, selectedColor: Colors.white,
+                              }, unselectedColor: Colour.indicatorColor, selectedColor: Colour.pink,
                             ),
 
                             const SizedBox(height: 25,),
                             InkWell(
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const LastScreen())),
                               child: CommonFun.textBold(
                                   "Skip"
@@ -231,7 +242,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
 
                 Container(
-                  margin:const EdgeInsets.only(top: 75),
+                  margin:const EdgeInsets.only(top: 50),
                   child: Align(
                     alignment: Alignment.center,
                     child: CarouselSlider(

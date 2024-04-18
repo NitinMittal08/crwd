@@ -16,10 +16,28 @@ class _PaymentMethodState extends State<PaymentMethod> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colour.bgColor,
       appBar: AppBar(
         backgroundColor: Colour.bgColor,
-        iconTheme: IconThemeData(color: Colour.black),
-        title: CommonFun.textBold('Payment Method', 16, TextAlign.center, color: Colour.black),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width/1.7,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+              const SizedBox(width: 10),
+              CommonFun.textBold('Payment Method', 16, TextAlign.center, color: Colour.black),
+            ],
+          ),
+        ),
+
+
         actions: <Widget>[
           TextButton(
             onPressed: () {
@@ -27,7 +45,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             },
             child: Row(
               children: [
-                Icon(Icons.add, color: Colour.black.withOpacity(.3)),
+                Icon(Icons.add, color: Colour.greyText),
               ],
             ),
           ),
@@ -54,7 +72,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadiusDirectional.circular(10),
                         border: Border.all(
-                          color: Colour.pink.withOpacity(.2),
+                          color: Colour.divideLine,
                           width: 1
                         )
                       ),
@@ -69,10 +87,13 @@ class _PaymentMethodState extends State<PaymentMethod> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(1==1?
-                                Icons.radio_button_off:
-                                Icons.radio_button_on
-                                    ,color: Colour.greyText,size: 20),
+
+
+                          Image.asset(
+                            1 !=index
+                                ? 'assets/images/icon/radio_off.png'
+                                : 'assets/images/icon/radio_on.png'
+                            ,width: 15,height: 15,fit: BoxFit.fill),
 
                                 Container(
                                   margin: const EdgeInsets.only(left: 8),
@@ -80,9 +101,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      CommonFun.textReg('**** **** ****2020', 14, TextAlign.center, color: Colour.black.withOpacity(.2)),
-                                      CommonFun.textReg('Expiry Month : 10', 12, TextAlign.center, color: Colour.black.withOpacity(.3)),
-                                      CommonFun.textReg('Expiry Year : 2026', 12, TextAlign.center, color: Colour.black.withOpacity(.3)),
+                                      CommonFun.textReg('**** **** ****2020', 14, TextAlign.center, color: Colour.black),
+                                      CommonFun.textReg('Expiry Month : 10', 12, TextAlign.center, color: Colour.greyText),
+                                      CommonFun.textReg('Expiry Year : 2026', 12, TextAlign.center, color: Colour.greyText),
                                     ],
                                   ),
                                 ),
@@ -100,9 +121,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
                                   },
                                 );
                               },
-                              child: Icon(
-                              Icons.delete
-                                  ,color: Colour.black.withOpacity(.2),size: 30),
+                              child: Container(
+                                  padding: const EdgeInsets.all(5),
+                                  child: Image.asset('assets/images/icon/delete.png',width: 15,height: 20,fit: BoxFit.fill,color: Colour.pink,)),
                             ),
 
                           ],
@@ -126,10 +147,13 @@ class _PaymentMethodState extends State<PaymentMethod> {
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: StatefulBuilder(builder: (BuildContext context, StateSetter myState) {
-        return Card(
-          color: Colour.white,
+        return Container(
+          decoration: BoxDecoration(
+            color: Colour.whiteApp,
+            borderRadius: BorderRadiusDirectional.circular(15)
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -140,15 +164,14 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   height: 85,
                   width: 85,
                   decoration: BoxDecoration(color: Colour.pink, borderRadius: BorderRadius.circular(50)),
-                  child: const Icon(
-                    Icons.delete,color: Colors.white,
-                    size: 50,
+                  child: Center(
+                    child: Image.asset('assets/images/icon/delete.png',width: 50),
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Delete Saved Card', 21, TextAlign.center, color: Colour.black),
+                CommonFun.textBold('Delete Saved Card', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
-                CommonFun.textReg('Are you sure you want to delete \n this card', 12, TextAlign.center, color: Colour.black),
+                CommonFun.textReg('Are you sure you want to delete \n this card', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -157,16 +180,16 @@ class _PaymentMethodState extends State<PaymentMethod> {
                     Container(
                       width: 100,
                       height: 40,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(
+                      decoration:  BoxDecoration(
+                        color: Colour.white,
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                       ),
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.pink),
+                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {

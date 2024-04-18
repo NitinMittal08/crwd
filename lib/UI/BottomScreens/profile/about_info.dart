@@ -16,11 +16,29 @@ class _AboutInfoState extends State<AboutInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
+      backgroundColor: Colour.bgColor,
       appBar: AppBar(
           iconTheme: IconThemeData(color: Colour.black),
           backgroundColor: Colour.bgColor,
-          title: CommonFun.textBold('About Information', 16, TextAlign.start, color: Colour.black),
-          automaticallyImplyLeading: true),
+
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width/1.7,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+
+                InkWell(
+                    onTap: () => Navigator.pop(context),
+                    child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                const SizedBox(width: 10),
+                CommonFun.textBold('About Information', 16, TextAlign.start, color: Colour.black),
+              ],
+            ),
+          ),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+           ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +87,7 @@ class _AboutInfoState extends State<AboutInfo> {
                   thickness: 1,
                 ),
                 Container(
-                  margin: const EdgeInsets.only(right: 10,left: 10),
+                  margin: const EdgeInsets.only(right: 10,left: 10,bottom: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,

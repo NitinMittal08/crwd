@@ -44,10 +44,23 @@ class _TermsPrivacyState extends State<TermsPrivacy> {
         backgroundColor: Colour.white,
         appBar: AppBar(
           backgroundColor: Colour.bgColor,
-          iconTheme: const IconThemeData(
-            color: Colors.black, //change your color here
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width/1.7,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+
+                InkWell(
+                    onTap: () => Navigator.pop(context),
+                    child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                const SizedBox(width: 10),
+                CommonFun.textBold((widget.from == 0) ?'Privacy': 'Terms & Conditions', 16, TextAlign.center, color: Colour.black),
+              ],
+            ),
           ),
-          title:CommonFun.textBold((widget.from == 0) ?'Privacy': 'Terms & Conditions', 16, TextAlign.center, color: Colour.black),
+          elevation: 0,
+          automaticallyImplyLeading: false,
         ),
 
 

@@ -27,7 +27,26 @@ class _MyFavState extends State<MyFav> {
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colour.black),
             backgroundColor: Colour.bgColor,
-            title:  CommonFun.textBold('My Favourite', 16, TextAlign.center, color: Colour.black),
+
+  title: SizedBox(
+              width: MediaQuery.of(context).size.width/1.7,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+
+                  InkWell(
+                      onTap: () => Navigator.pop(context),
+                      child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                  const SizedBox(width: 10),
+                  CommonFun.textBold('My Favourite', 16, TextAlign.center, color: Colour.black),
+                ],
+              ),
+            ),
+            elevation: 0,
+            automaticallyImplyLeading: false,
+
+
           ),
           body:    Column(
             children: [
@@ -98,7 +117,7 @@ class _MyFavState extends State<MyFav> {
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(1.0),
-                                          child:  CommonFun.textReg('20 Apr,2022', 8, TextAlign.center, color: Colour.black),
+                                          child:  CommonFun.textReg('20 Apr,2022', 8, TextAlign.center, color: Colour.pink),
                                         ),
                                       ),
 
@@ -144,16 +163,42 @@ class _MyFavState extends State<MyFav> {
                                           margin: const EdgeInsets.only(top: 4, left: 10),
                                           child: CommonFun.textBold(
                                               'Amie Rosie', 16, TextAlign.start, color: Colour.black)),
+
+
                                       Container(
-                                          width: 180,
-                                          margin: const EdgeInsets.only( left: 10),
-                                          child: CommonFun.textReg(
-                                              'Organized by Amie Rosie', 12, TextAlign.start, color: Colour.black)),
+                                        margin: const EdgeInsets.only(top: 2, left: 10),
+                                        child: RichText(
+                                          textAlign:TextAlign.start,
+                                          text:  TextSpan(
+                                              text:"Organized by ",
+                                              style: TextStyle(
+                                                  overflow: TextOverflow.ellipsis,
+                                                  fontFamily: "poppins_Reg",
+                                                  color: Colour.greyText2,
+                                                  fontSize: 12),
+                                              children:  <TextSpan>[
+                                                TextSpan(
+                                                  text:  "Amie Rosie",
+                                                  style: TextStyle(
+                                                      fontFamily: "poppins_Reg",
+                                                      color: Colour.black,
+                                                      fontSize: 12),
+                                                ),
+
+                                              ]),
+                                        ),
+                                      ),
+
                                       Container(
                                           width: 180,
                                           margin: const EdgeInsets.only(left: 10),
-                                          child: CommonFun.textReg(
-                                              '2241 Townhall, Columbia', 12, TextAlign.start, color: Colour.black)),
+                                          child: Row(
+                                            children: [
+                                              Image.asset('assets/images/icon/location.png',width: 9,height: 13,),
+                                              const SizedBox(width: 3,),
+                                              CommonFun.textReg('2241 Townhall, Columbia', 12, TextAlign.start, color: Colour.greyText2),
+                                            ],
+                                          )),
 
 
                                     ],

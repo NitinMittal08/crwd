@@ -31,142 +31,154 @@ class _HostBasicThreeState extends State<HostBasicThree> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+            backgroundColor: Colour.whiteApp,
             appBar: AppBar(
-              backgroundColor: Colour.bgColor,
-              title: CommonFun.textBold("Host Event", 16, TextAlign.start, color: Colour.black),
-              leading: BackButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  color: Colors.black),
+              backgroundColor: Colour.whiteApp,
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              title: SizedBox(
+                width: MediaQuery.of(context).size.width/1.7,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                    const SizedBox(width: 10),
+                    CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                  ],
+                ),
+              ),
             ),
             body: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
                   hasScrollBody: false,
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                          alignment: Alignment.centerLeft,
-                          margin: const EdgeInsets.all(15),
-                          child: CommonFun.textBold("Event Date and Time ", 18, TextAlign.start, color: Colour.black)),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
-                        margin: const EdgeInsets.only(left: 15, right: 15,top: 15),
-                        child: TextField(
-                          controller: dob,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            height: 1.0,
-                            fontFamily: "poppins_Reg",
-                            color: Colour.black,
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                          //Set keyboard type for email address. This will show @ button on the primary section of the keyboard.
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                            suffixIcon: Icon(
-                              Icons.calendar_month,
-                              color: Colour.grey,
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        CommonFun.textBold("Event Date and Time ", 18, TextAlign.start, color: Colour.black),
+
+
+                        //textField
+                        Container(
+                          decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
+                          margin: const EdgeInsets.only( top: 50),
+                          child: TextField(
+
+                            controller: dob,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "poppins_Reg",
+                              color: Colour.black,
                             ),
-                            border: const OutlineInputBorder(borderSide: BorderSide.none),
-                            focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
-                            labelText: "Event Date",
-                            labelStyle: const TextStyle(color: Colors.pink),
-                          ),
-                          readOnly: true,
-                          onTap: () async {
-                            pickedDate = await showDatePicker(
-                                builder: (context, child) {
-                                  return Theme(
-                                    data: Theme.of(context).copyWith(
-                                      colorScheme: ColorScheme.light(
-                                        primary: Colour.grey,
-                                        onPrimary: Colour.black,
-                                        onSurface: Colour.greyText,
-                                      ),
-                                      textButtonTheme: TextButtonThemeData(
-                                        style: TextButton.styleFrom(
-                                          foregroundColor: Colour.pink, // button text color
+                            keyboardType: TextInputType.visiblePassword,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
+                              suffixIcon:  Container(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Image.asset('assets/images/icon/event_date.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                              hintText: "Event Date",
+                              labelStyle: const TextStyle(color: Colors.pink),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              pickedDate = await showDatePicker(
+                                  builder: (context, child) {
+                                    return Theme(
+                                      data: Theme.of(context).copyWith(
+                                        colorScheme: ColorScheme.light(
+                                          primary: Colour.grey,
+                                          onPrimary: Colour.black,
+                                          onSurface: Colour.greyText,
+                                        ),
+                                        textButtonTheme: TextButtonThemeData(
+                                          style: TextButton.styleFrom(
+                                            foregroundColor: Colour.pink, // button text color
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: child!,
-                                  );
-                                },
-                                context: context,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime(1950),
-                                lastDate: DateTime(2101));
+                                      child: child!,
+                                    );
+                                  },
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime(2101));
 
-                            if (pickedDate != null) {
-                              debugPrint(pickedDate.toString());
-                              String formattedDate = DateFormat('MM/dd/yyyy').format(pickedDate!);
-                              debugPrint(formattedDate);
-                              dob.text = formattedDate.toString();
-                              setState(() {});
-                            } else {
-                              debugPrint("Date is not selected");
-                            }
-                          },
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
-                        margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                        child: TextField(
-                          controller: _timeController,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            height: 1.0,
-                            fontFamily: "poppins_Reg",
-                            color: Colour.black,
+                              if (pickedDate != null) {
+                                debugPrint(pickedDate.toString());
+                                String formattedDate = DateFormat('MM/dd/yyyy').format(pickedDate!);
+                                debugPrint(formattedDate);
+                                dob.text = formattedDate.toString();
+                                setState(() {});
+                              } else {
+                                debugPrint("Date is not selected");
+                              }
+                            },
                           ),
-                          keyboardType: TextInputType.emailAddress,
-                          //Set keyboard type for email address. This will show @ button on the primary section of the keyboard.
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                            suffixIcon: Icon(
-                              Icons.access_time,
-                              color: Colour.grey,
+                        ),
+
+//textField
+                        Container(
+                          decoration: BoxDecoration(color: Colour.white , borderRadius: BorderRadiusDirectional.circular(10)),
+                          margin: const EdgeInsets.only( top: 15),
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "poppins_Reg",
+                              color: Colour.black,
                             ),
-                            border: const OutlineInputBorder(borderSide: BorderSide.none),
-                            focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
-                            labelText: "Event Time",
-                            labelStyle: const TextStyle(color: Colors.pink),
-                          ),
-                          readOnly: true,
-                          onTap: () async {
-                            _selectTime(context);
-                          },
-                        ),
-                      ),
-                      Expanded(child: Container(color: Colors.transparent)),
-                      Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
-                        width: double.infinity,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colour.pink,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10.0),
+                            keyboardType: TextInputType.visiblePassword,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
+                              suffixIcon:  Container(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Image.asset('assets/images/icon/time.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                              hintText: "Event Time",
+                              labelStyle: const TextStyle(color: Colors.pink),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              _selectTime(context);
+                            },
                           ),
                         ),
-                        child: InkWell(
-                          child: SizedBox(
-                            width: double.infinity,
-                            height: double.infinity,
-                            child: Center(
-                              child: CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+
+
+                        Expanded(child: Container(color: Colors.transparent)),
+                        Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.only( bottom: 10),
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colour.pink,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
                           ),
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HostBasicFour()));
-                          },
+                          child: InkWell(
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: Center(
+                                child: CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const HostBasicFour()));
+                            },
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],

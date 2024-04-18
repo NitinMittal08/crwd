@@ -24,18 +24,28 @@ class _VerifyOtpState extends State<VerifyOtp> {
       child: Scaffold(
         backgroundColor: Colour.bgColor,
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colour.bgColor,
-          leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              color: Colors.black
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width/1.7,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                InkWell(
+                    onTap: () => Navigator.pop(context),
+                    child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                CommonFun.indicators(2),
+              ],
+            ),
           ),
+          automaticallyImplyLeading: false,
 
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: Container(
+            padding: const EdgeInsets.all(15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,10 +60,10 @@ class _VerifyOtpState extends State<VerifyOtp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
 
-                    CommonFun.textReg("Code", 16, TextAlign.center,color: Colour.pink),
+                    CommonFun.textReg("Code", 16, TextAlign.center,color: Colour.greyText),
                     const SizedBox(height: 10),
                     OtpTextField(
-                      fieldWidth: 63,
+                      fieldWidth: 58,
                       fillColor: Colour.pink,
                       borderWidth: 2.0,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -124,7 +134,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const CreatePassword()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreatePassword()));
                     },
                   ),
                 ),
@@ -132,9 +142,16 @@ class _VerifyOtpState extends State<VerifyOtp> {
               ],
             ),
           ),
-        ),),
+        )),
     ));
   }
+
+
+
+
+
+
+
 
 }
 

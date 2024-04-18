@@ -23,32 +23,34 @@ class _LastScreenState extends State<LastScreen> {
           Expanded(
               flex: 7,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RichText(
-                  textAlign:TextAlign.start,
-                  text:  TextSpan(
-                      text:"Welcome to ",
-                      style: TextStyle(
-                          overflow: TextOverflow.ellipsis,
-                          fontFamily: "poppins_Med",
-                          color: Colour.black,
-                          fontSize: 64),
-                      children:  <TextSpan>[
-                        TextSpan(
-                          text:  "crwd \n",
-                          style: TextStyle(
-                              fontFamily: "poppins_Med",
-                              color: Colour.pink,
-                              fontSize: 64),
-                        ),
-                        TextSpan(
-                          text:  "Let’s Love The Smarter Way",
-                          style: TextStyle(
-                              fontFamily: "poppins_Med",
-                              color: Colour.black,
-                              fontSize: 64),
-                        ),
-                      ]),
+                padding: const EdgeInsets.all(5.0),
+                child: SingleChildScrollView(
+                  child: RichText(
+                    textAlign:TextAlign.start,
+                    text:  TextSpan(
+                        text:"Welcome to ",
+                        style: TextStyle(
+                            overflow: TextOverflow.ellipsis,
+                            fontFamily: "poppins_Med",
+                            color: Colour.black,
+                            fontSize: 64),
+                        children:  <TextSpan>[
+                          TextSpan(
+                            text:  "crwd \n",
+                            style: TextStyle(
+                                fontFamily: "poppins_Med",
+                                color: Colour.pink,
+                                fontSize: 64),
+                          ),
+                          TextSpan(
+                            text:  "Let’s Love The Smarter Way",
+                            style: TextStyle(
+                                fontFamily: "poppins_Med",
+                                color: Colour.black,
+                                fontSize: 64),
+                          ),
+                        ]),
+                  ),
                 ),
               )),
           Expanded(

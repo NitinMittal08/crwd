@@ -5,6 +5,7 @@ import 'package:crwd/values/colour.dart';
 import 'package:flutter/material.dart';
 
 import '../../values/commonFun.dart';
+import '../MainScreens/main_page.dart';
 import 'forgot_password.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -20,23 +21,23 @@ class _SignInScreenState extends State<SignInScreen> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0,
+            automaticallyImplyLeading: false,
             backgroundColor: Colour.bgColor,
-            leading: BackButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                color: Colors.black
-            ),
+            title: InkWell(
+                onTap: () => Navigator.pop(context),
+                child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
 
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const LanguageScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> LanguageScreen(from: 0)));
                 },
                 child:   Row(
                   children: [
                     Icon(Icons.language,color: Colour.black,),
-                    CommonFun.textBold("EN", 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold("EN", 14, TextAlign.center, color: Colour.black),
+                    const SizedBox(width: 10),
                   ],
                 ),
               ),
@@ -58,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
 
               Expanded(
-                  flex: 5,
+                  flex:6,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,40 +81,39 @@ class _SignInScreenState extends State<SignInScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Sign Up With Email", 16, TextAlign.center,
+                              child: CommonFun.textBold("Sign In With Email", 16, TextAlign.center,
                                   color: Colour.white),
                             ),
                           ),
-                          onTap: () {
-
-                          },
+                          onTap: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MainPage(index: 0,))),
                         ),
                       ),
 
 
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 165,
-                            child: Divider(
-                              height: 0,
-                              color: Colour.greyLine,
-                              thickness: 1,
+                      Container(
+                        margin: const EdgeInsets.only(right: 20,left: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Divider(
+                                height: 0,
+                                color: Colour.greyLine,
+                                thickness: 1,
+                              ),
                             ),
-                          ),
-                          CommonFun.textReg(" or  ", 16, TextAlign.center, color: Colour.greyText),
-                          SizedBox(
-                            width: 165,
-                            child: Divider(
-                              height: 0,
-                              color: Colour.greyLine,
-                              thickness: 1,
+                            CommonFun.textReg(" or  ", 16, TextAlign.center, color: Colour.greyText),
+                            Flexible(
+                              child: Divider(
+                                height: 0,
+                                color: Colour.greyLine,
+                                thickness: 1,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
 
 
@@ -121,7 +121,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                       Container(
                         alignment: Alignment.center,
-                        margin: const EdgeInsets.only(right: 15, left: 15),
+                        margin: const EdgeInsets.only(right: 15, left: 15,top: 5,bottom: 15),
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
@@ -135,16 +135,25 @@ class _SignInScreenState extends State<SignInScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Sign Up With Facebook", 16, TextAlign.center,
-                                  color: Colour.white),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Image.asset('assets/images/icon/facebook.png',width: 8,height: 17,fit: BoxFit.fitHeight)),
+                                  CommonFun.textBold("Sign In With Facebook", 16, TextAlign.center,
+                                      color: Colour.white),
+                                ],
+                              ),
                             ),
                           ),
                           onTap: () {  },
                         ),
                       ),
-                      Container(
+                /*      Container(
                         alignment: Alignment.center,
-                        margin: const EdgeInsets.only(right: 15, left: 15),
+                        margin: const EdgeInsets.only(right: 15, left: 15,top: 10,bottom: 10),
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
@@ -158,38 +167,38 @@ class _SignInScreenState extends State<SignInScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Sign Up With Apple ID", 16, TextAlign.center,
+                              child: CommonFun.textBold("Sign In With Apple ID", 16, TextAlign.center,
                                   color: Colour.white),
                             ),
                           ),
                           onTap: () {  },
                         ),
-                      ),
+                      ),*/
 
                       InkWell(
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
 
                           },
-                          child: CommonFun.textReg("Forgot Password?", 16, TextAlign.center, color: Colour.greyText)),
+                          child: CommonFun.textReg("Forgot Password?", 12, TextAlign.center, color: Colour.greyText)),
 
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CommonFun.textReg("Are you new in crwd?", 16, TextAlign.center, color: Colour.greyText),
+                          CommonFun.textReg("Are you new in crwd?", 12, TextAlign.center, color: Colour.greyText),
                           InkWell(
                             onTap: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SignUpScreen())),
                             child: Column(
                               children: [
-                                CommonFun.textReg("  Sign Up", 16, TextAlign.center,
-                                    color: Colour.greyText),
+                                CommonFun.textReg("  Sign Up", 12, TextAlign.center,
+                                    color: Colour.pink),
                                 SizedBox(
-                                  width: 58,
+                                  width: 45,
                                   child: Divider(
                                     height: 0,
-                                    color: Colour.greyText,
+                                    color: Colour.pink,
                                     thickness: 1,
                                   ),
                                 )

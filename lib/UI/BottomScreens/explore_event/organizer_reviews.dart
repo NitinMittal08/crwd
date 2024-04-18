@@ -20,6 +20,7 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
         child: Scaffold(
           backgroundColor: Colour.bgColor,
           appBar: AppBar(
+            elevation: 0,
             backgroundColor: Colour.bgColor,
             iconTheme: IconThemeData(color: Colour.black),
             title:  CommonFun.textBold('Organizer Reviews', 16, TextAlign.center, color: Colour.black),

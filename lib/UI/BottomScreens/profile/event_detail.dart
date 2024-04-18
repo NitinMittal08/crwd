@@ -26,7 +26,17 @@ class _EventDetailState extends State<EventDetail> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(onTap: () => Navigator.pop(context), child: Icon(Icons.arrow_back, color: Colour.whiteApp)),
-                Container(width: 25, height: 25, color: Colour.white, child: Icon(Icons.share, color: Colour.black))
+
+                Container(width: 25, height: 25, decoration: BoxDecoration(
+                  color: Colour.white,
+                  borderRadius: BorderRadiusDirectional.circular(5)
+                ),
+                  child:   Container( 
+                    padding: const EdgeInsets.all(5),
+                    child: Image.asset('assets/images/icon/share.png', width: 20, height: 20, fit: BoxFit.fitWidth)),)
+
+
+
               ],
             ),
           ),
@@ -74,12 +84,14 @@ class _EventDetailState extends State<EventDetail> {
                                   ),
                                 ),
                               ),
-                              CommonFun.textMed('Sunday Sqool Comedy', 14, TextAlign.center, color: Colour.black),
+                              Container(
+                                  margin: const EdgeInsets.only(top: 5),
+                                  child: CommonFun.textMed('Sunday Sqool Comedy', 20, TextAlign.center, color: Colour.black)),
                             ],
                           ),
                           Container(
-                            height: 50,
-                            width: 50,
+                            height: 55,
+                            width: 55,
                             decoration: BoxDecoration(
                               color: Colour.pink,
                               borderRadius: const BorderRadius.all(
@@ -87,11 +99,11 @@ class _EventDetailState extends State<EventDetail> {
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(4.0),
                               child: InkWell(
                                 child: SizedBox(
                                   child: Center(
-                                    child: CommonFun.textMed("\$120", 12, TextAlign.center, color: Colour.white),
+                                    child: CommonFun.textMed("\$120", 18, TextAlign.center, color: Colour.white),
                                   ),
                                 ),
                                 onTap: () {
@@ -121,14 +133,40 @@ class _EventDetailState extends State<EventDetail> {
                                     height: 40,
                                     fit: BoxFit.fill,
                                   )),
+
+
+
                               Container(
-                                  margin: const EdgeInsets.only(left: 5),
-                                  child: CommonFun.textMed('Organized by Amie Rosie', 14, TextAlign.center, color: Colour.black)),
+                                margin: const EdgeInsets.only(left: 5),
+                                child: RichText(
+                                  textAlign:TextAlign.start,
+                                  text:  TextSpan(
+                                      text:"Organized by ",
+                                      style: TextStyle(
+                                          overflow: TextOverflow.ellipsis,
+                                          fontFamily: "poppins_Med",
+                                          color: Colour.greyText,
+                                          fontSize: 14),
+                                      children:  <TextSpan>[
+                                        TextSpan(
+                                          text:  "Amie Rosie",
+                                          style: TextStyle(
+                                              fontFamily: "poppins_Med",
+                                              color: Colour.black,
+                                              fontSize: 14),
+                                        ),
+
+                                      ]),
+                                ),
+                              ),
+
+
+
                             ],
                           ),
                           SizedBox(
                             child: Center(
-                              child: CommonFun.textMed("4.5 (200)", 12, TextAlign.center, color: Colour.black.withOpacity(.3)),
+                              child: CommonFun.textMed("4.5 (200)", 12, TextAlign.center, color: Colour.greyText),
                             ),
                           ),
                         ],
@@ -144,19 +182,16 @@ class _EventDetailState extends State<EventDetail> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.calendar_month_outlined,
-                                color: Colour.black.withOpacity(.3),
-                                size: 20,
-                              ),
+                          Image.asset('assets/images/icon/calender.png',width: 16,height: 16,fit: BoxFit.fitWidth,color: Colour.greyText,),
                               Container(
                                   margin: const EdgeInsets.only(left: 5),
-                                  child: CommonFun.textMed('19 May 2022', 12, TextAlign.center, color: Colour.black.withOpacity(.3))),
+                                  child: CommonFun.textMed('19 May 2022', 12, TextAlign.center, color: Colour.greyText)),
                             ],
                           ),
                           SizedBox(
                             height: 15,
                             child: VerticalDivider(
+                              color: Colour.divideLine,
                               thickness: 1,
                             ),
                           ),
@@ -166,12 +201,12 @@ class _EventDetailState extends State<EventDetail> {
                             children: [
                               Icon(
                                 Icons.access_time,
-                                color: Colour.black.withOpacity(.3),
+                                color: Colour.greyText,
                                 size: 20,
                               ),
                               Container(
                                   margin: const EdgeInsets.only(left: 5),
-                                  child: CommonFun.textMed('8:00pm-2:30am', 12, TextAlign.center, color: Colour.black.withOpacity(.3))),
+                                  child: CommonFun.textMed('8:00pm-2:30am', 12, TextAlign.center, color: Colour.greyText)),
                             ],
                           ),
                         ],
@@ -184,15 +219,11 @@ class _EventDetailState extends State<EventDetail> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.pin_drop,
-                            color: Colour.black.withOpacity(.3),
-                            size: 20,
-                          ),
+                          Image.asset('assets/images/icon/location.png',width: 9,height: 13,),
                           Container(
                               margin: const EdgeInsets.only(left: 5),
                               child: CommonFun.textMed('2241 Townhall, Columbia Boulevard Sydeny- 5800', 12, TextAlign.center,
-                                  color: Colour.black.withOpacity(.3))),
+                                  color: Colour.greyText)),
                         ],
                       ),
                     ),
@@ -210,7 +241,8 @@ class _EventDetailState extends State<EventDetail> {
                     Container(
                       margin: const EdgeInsets.only(right: 10,left: 10),
                       width: double.infinity,
-                      child: const Divider(
+                      child:   Divider(
+                        color: Colour.divideLine,
                         thickness: 1,
                       ),
                     ),
@@ -224,11 +256,11 @@ class _EventDetailState extends State<EventDetail> {
                         children: [
                           Container(
                               margin: const EdgeInsets.only(left: 5),
-                              child: CommonFun.textBold('Who’s Going', 14, TextAlign.center,
+                              child: CommonFun.textBold('Who’s Going', 16, TextAlign.center,
                                   color: Colour.black )),
                           Container(
                               margin: const EdgeInsets.only(left: 5),
-                              child: CommonFun.textBold('See All', 14, TextAlign.center,
+                              child: CommonFun.textBold('See All', 12, TextAlign.center,
                                   color: Colour.pink )),
                         ],
                       ),
@@ -244,7 +276,7 @@ class _EventDetailState extends State<EventDetail> {
                       return Column(
                         children: [
                           Container(
-                            margin: const EdgeInsets.only(right: 10,left: 10),
+                            margin: const EdgeInsets.only(right: 15,left: 15),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -253,7 +285,7 @@ class _EventDetailState extends State<EventDetail> {
                                   children: [
                                     ClipRRect(
                                         borderRadius: BorderRadiusDirectional.circular(50),
-                                        child: Image.asset('assets/images/onboard_screen/screen_two.png',width: 35,height: 35,fit: BoxFit.fill)),
+                                        child: Image.asset('assets/images/onboard_screen/screen_two.png',width: 26,height: 26,fit: BoxFit.fill)),
                                     Container(
                                       margin: const EdgeInsets.only(left: 5),
                                       child: Column(
@@ -261,7 +293,7 @@ class _EventDetailState extends State<EventDetail> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           CommonFun.textBold('Amie', 14, TextAlign.center, color: Colour.black),
-                                          CommonFun.textReg('Joined 10 hour ago', 14, TextAlign.center, color: Colour.black.withOpacity(.3)),
+                                          CommonFun.textReg('Joined 10 hour ago', 8, TextAlign.center, color: Colour.black.withOpacity(.3)),
                                         ],
                                       ),
                                     )
@@ -269,14 +301,15 @@ class _EventDetailState extends State<EventDetail> {
                                 ),
 
 
-                                CommonFun.textReg('VIP', 14, TextAlign.center, color: Colour.black),
+                                CommonFun.textReg('VIP', 10, TextAlign.center, color: Colour.greyText),
                               ],
                             ),
                           ),
                           Container(
                             margin: const EdgeInsets.only(right: 10,left: 10),
                             width: double.infinity,
-                            child: const Divider(
+                            child:   Divider(
+                              color: Colour.divideLine,
                               thickness: 1,
                             ),
                           ),
@@ -313,7 +346,7 @@ class _EventDetailState extends State<EventDetail> {
                           width: double.infinity,
                           decoration: BoxDecoration(color: Colour.grey, borderRadius: BorderRadiusDirectional.circular(10)),
                           margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                          child:  CommonFun.textBold('Edit', 14, TextAlign.center, color: Colour.black),
+                          child:  CommonFun.textBold('Edit', 14, TextAlign.center, color: Colour.greyText),
                         ),
                       ),
                     ),
@@ -336,7 +369,7 @@ class _EventDetailState extends State<EventDetail> {
                           width: double.infinity,
                           decoration: BoxDecoration(color: Colour.grey, borderRadius: BorderRadiusDirectional.circular(10)),
                           margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                          child:  CommonFun.textBold('Delete', 14, TextAlign.center, color: Colour.black),
+                          child:  CommonFun.textBold('Delete', 14, TextAlign.center, color: Colour.greyText),
                         ),
                       ),
                     ),
@@ -376,6 +409,8 @@ class _EventDetailState extends State<EventDetail> {
     ));
   }
 
+
+
   Widget deleteDialog() {
     return Dialog(
       shape: RoundedRectangleBorder(
@@ -384,10 +419,13 @@ class _EventDetailState extends State<EventDetail> {
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: StatefulBuilder(builder: (BuildContext context, StateSetter myState) {
-        return Card(
-          color: Colour.white,
+        return Container(
+          decoration: BoxDecoration(
+              color: Colour.whiteApp,
+              borderRadius: BorderRadiusDirectional.circular(15)
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -398,15 +436,14 @@ class _EventDetailState extends State<EventDetail> {
                   height: 85,
                   width: 85,
                   decoration: BoxDecoration(color: Colour.pink, borderRadius: BorderRadius.circular(50)),
-                  child: const Icon(
-                    Icons.delete,color: Colors.white,
-                    size: 50,
+                  child: Center(
+                    child: Image.asset('assets/images/icon/delete.png',width: 50),
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Delete Saved Card', 21, TextAlign.center, color: Colour.black),
+                CommonFun.textBold('Delete Event', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
-                CommonFun.textReg('Are you sure you want to delete \n this card', 12, TextAlign.center, color: Colour.black),
+                CommonFun.textReg('Are you sure you want to delete \n this event', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -415,16 +452,16 @@ class _EventDetailState extends State<EventDetail> {
                     Container(
                       width: 100,
                       height: 40,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(
+                      decoration:  BoxDecoration(
+                        color: Colour.white,
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                       ),
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.pink),
+                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {
@@ -465,8 +502,6 @@ class _EventDetailState extends State<EventDetail> {
       }),
     );
   }
-
-
 
 
 }

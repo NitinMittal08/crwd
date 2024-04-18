@@ -20,55 +20,69 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
       child: Scaffold(
         backgroundColor: Colour.bgColor,
         appBar: AppBar(
-          backgroundColor: Colour.bgColor,
-          leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              color: Colors.black
-          ),
+          automaticallyImplyLeading: false,
+          elevation: 0,
+          backgroundColor: Colour.bgColor, 
+          title: InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+
 
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CommonFun.textBold("Forgot Password Link Sent Sucessfuly", 16, TextAlign.center, color: Colour.black),
-              const SizedBox(height: 10,),
-              CommonFun.textMed("Forgot password link sent your registered \n email Id ${widget.email}", 12, TextAlign.center, color: Colour.greyText),
+        body: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
 
-
-              Container(
-                alignment: Alignment.center,
-                margin: const EdgeInsets.only(right: 15, left: 15,top: 100),
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colour.pink,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                child: InkWell(
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Center(
-                      child: CommonFun.textBold("Continue", 16, TextAlign.center,
-                          color: Colour.white),
+                  Container(
+                    transform: Matrix4.translationValues(0, MediaQuery.of(context).size.height/3, 0),
+                    child: Column(
+                      children: [
+                        CommonFun.textBold("Forgot Password Link Sent Sucessfuly", 16, TextAlign.center, color: Colour.blackNew),
+                        const SizedBox(height: 10,),
+                        CommonFun.textMed("Forgot password link sent your registered \n email Id ${widget.email}", 12, TextAlign.center, color: Colour.greyText),
+                      ],
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
 
-            ],
-          ),
-        ),),
+                  Expanded(child: Container(color: Colors.transparent)),
+
+                  Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colour.pink,
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    child: InkWell(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: Center(
+                          child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                              color: Colour.white),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     ));
   }
 }

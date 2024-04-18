@@ -11,7 +11,15 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-  TextEditingController emailId = TextEditingController();
+
+  TextEditingController oldPassword = TextEditingController();
+  TextEditingController newPassword = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+
+
+  bool oldPasswordVisible =false;
+  bool newPasswordVisible =false;
+  bool confirmPasswordVisible =false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +29,24 @@ class _ChangePasswordState extends State<ChangePassword> {
           appBar: AppBar(
               iconTheme: IconThemeData(color: Colour.black),
               backgroundColor: Colour.bgColor,
-              title: CommonFun.textBold('Change Password', 16, TextAlign.start, color: Colour.black),
-              automaticallyImplyLeading: true),
+              elevation: 0,
+
+              title: SizedBox(
+                width: MediaQuery.of(context).size.width/1.7,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+
+                    InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                    const SizedBox(width: 10),
+                    CommonFun.textBold('Change Password', 16, TextAlign.start, color: Colour.black),
+                  ],
+                ),
+              ),
+              automaticallyImplyLeading: false),
           body: CustomScrollView(
             slivers: [
               SliverFillRemaining(
@@ -38,7 +62,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                       decoration: BoxDecoration(color: Colour.whiteApp, borderRadius: BorderRadiusDirectional.circular(10)),
                       margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                       child: TextField(
-                        controller: emailId,
+                        obscureText: !oldPasswordVisible?true:false,
+                        controller: oldPassword,
                         style: TextStyle(
                           fontSize: 14.0,
                           height: 1.0,
@@ -48,34 +73,19 @@ class _ChangePasswordState extends State<ChangePassword> {
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                          suffixIcon: const Icon(Icons.visibility_off, color: Colors.pink),
+                          suffixIcon: InkWell(
+                            onTap: () {
+                              oldPasswordVisible =! oldPasswordVisible;
+                              setState(() { });
+                            },
+                            child: Container(
+                                padding: const EdgeInsets.all(12),
+                                child: Image.asset(
+                                    !oldPasswordVisible?
+                                    'assets/images/icon/password_hide.png':'assets/images/icon/password_show.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                          ),
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
                           hintText: "Old Password",
-                          labelStyle: const TextStyle(color: Colors.pink),
-                        ),
-                      ),
-                    ),
-
-                    Container(
-                      margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                      child: TextField(
-                        controller: emailId,
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          height: 1.0,
-                          fontFamily: "poppins_Reg",
-                          color: Colour.black,
-                        ),
-                        keyboardType: TextInputType.visiblePassword,
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                          suffixIcon: const Icon(Icons.visibility_off, color: Colors.pink),
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.pink, width: 1.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          labelText: "new Password",
                           labelStyle: const TextStyle(color: Colors.pink),
                         ),
                       ),
@@ -83,9 +93,10 @@ class _ChangePasswordState extends State<ChangePassword> {
 
                     Container(
                       decoration: BoxDecoration(color: Colour.whiteApp, borderRadius: BorderRadiusDirectional.circular(10)),
-                      margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                      margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
                       child: TextField(
-                        controller: emailId,
+                        obscureText: !newPasswordVisible?true:false,
+                        controller: newPassword,
                         style: TextStyle(
                           fontSize: 14.0,
                           height: 1.0,
@@ -95,9 +106,55 @@ class _ChangePasswordState extends State<ChangePassword> {
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                          suffixIcon: const Icon(Icons.visibility_off, color: Colors.pink),
+                          suffixIcon: InkWell(
+                            onTap: () {
+                              newPasswordVisible =! newPasswordVisible;
+                              setState(() { });
+                            },
+                            child: Container(
+                                padding: const EdgeInsets.all(12),
+                                child: Image.asset(
+                                    !newPasswordVisible?
+                                    'assets/images/icon/password_hide.png':'assets/images/icon/password_show.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                          ),
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-                          hintText: "Old Password",
+                          hintText: "New Password",
+                          labelStyle: const TextStyle(color: Colors.pink),
+                        ),
+                      ),
+                    ),
+
+
+
+
+                    Container(
+                      decoration: BoxDecoration(color: Colour.whiteApp, borderRadius: BorderRadiusDirectional.circular(10)),
+                      margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                      child: TextField(
+                        obscureText: !confirmPasswordVisible?true:false,
+                        controller: confirmPassword,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          height: 1.0,
+                          fontFamily: "poppins_Reg",
+                          color: Colour.black,
+                        ),
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
+                          suffixIcon: InkWell(
+                            onTap:() {
+                              confirmPasswordVisible = !confirmPasswordVisible;
+                              setState(() { });
+                            },
+                            child: Container(
+                                padding: const EdgeInsets.all(12),
+                                child: Image.asset(
+                                    !confirmPasswordVisible?
+                                    'assets/images/icon/password_hide.png':'assets/images/icon/password_show.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                          ),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                          hintText: "Confirm New Password",
                           labelStyle: const TextStyle(color: Colors.pink),
                         ),
                       ),

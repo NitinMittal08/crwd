@@ -18,13 +18,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0,
             backgroundColor: Colour.bgColor,
-            leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-                color: Colors.black
-            ),
+            title: InkWell(
+                onTap: () => Navigator.pop(context),
+                child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+            automaticallyImplyLeading: false,
           ),
       backgroundColor: Colour.bgColor,
       body: Column(
@@ -44,7 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 0),
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(right: 15, left: 15),
@@ -72,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.only(right: 15, left: 15),
+                    margin: const EdgeInsets.only(right: 15, left: 15,top: 15,bottom: 15),
                     width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
@@ -86,16 +85,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         width: double.infinity,
                         height: double.infinity,
                         child: Center(
-                          child: CommonFun.textBold("Sign Up With Facebook", 16, TextAlign.center,
-                              color: Colour.white),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Image.asset('assets/images/icon/facebook.png',width: 8,height: 17,fit: BoxFit.fitHeight)),
+                              CommonFun.textBold("Sign Up With Facebook", 16, TextAlign.center,
+                                  color: Colour.white),
+                            ],
+                          ),
                         ),
                       ),
                       onTap: () {  },
                     ),
                   ),
-                  Container(
+                 /* Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.only(right: 15, left: 15),
+                    margin: const EdgeInsets.only(right: 15, left: 15,top: 15,bottom: 15),
                     width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
@@ -115,24 +123,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       onTap: () {  },
                     ),
-                  ),
+                  ),*/
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CommonFun.textReg("Already have an account?", 16, TextAlign.center,
+                      CommonFun.textReg("Already have an account?", 12, TextAlign.center,
                           color: Colour.greyText),
+                      const SizedBox(width: 5),
                       InkWell(
                         onTap: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SignInScreen())),
                         child: Column(
                           children: [
-                            CommonFun.textReg(" Sign In", 16, TextAlign.center,
-                                color: Colour.greyText),
+                            CommonFun.textReg("Sign In", 12, TextAlign.center,
+                                color: Colour.pink),
                             SizedBox(
-                              width: 58,
+                              width: 40,
                               child: Divider(
                                 height: 0,
-                                color: Colour.greyText,
+                                color: Colour.pink,
                                 thickness: 1,
                               ),
                             )
@@ -141,10 +150,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 8),
                   Column(
                     children: [
                       CommonFun.textReg(
-                          "By tapping log in, you agree with our", 16, TextAlign.center,
+                          "By tapping log in, you agree with our", 12, TextAlign.center,
                           color: Colour.greyText),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -152,28 +162,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Column(
                             children: [
-                              CommonFun.textReg("Terms of Service", 16, TextAlign.center,
-                                  color: Colour.greyText),
+                              CommonFun.textReg("Terms of Service", 12, TextAlign.center,
+                                  color: Colour.pink),
                               SizedBox(
-                                width: 130,
+                                width: 100,
                                 child: Divider(
                                   height: 0,
-                                  color: Colour.greyText,
+                                  color: Colour.pink,
                                   thickness: 1,
                                 ),
                               )
                             ],
                           ),
-                          CommonFun.textReg(" and ", 16, TextAlign.center, color: Colour.greyText),
+                          CommonFun.textReg(" and ", 12, TextAlign.center, color: Colour.greyText),
                           Column(
                             children: [
-                              CommonFun.textReg("Privacy Policy", 16, TextAlign.center,
-                                  color: Colour.greyText),
+                              CommonFun.textReg("Privacy Policy", 12, TextAlign.center,
+                                  color: Colour.pink),
                               SizedBox(
-                                width: 120,
+                                width: 85,
                                 child: Divider(
                                   height: 0,
-                                  color: Colour.greyText,
+                                  color: Colour.pink,
                                   thickness: 1,
                                 ),
                               )

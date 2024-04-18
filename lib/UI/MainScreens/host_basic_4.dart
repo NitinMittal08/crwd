@@ -18,14 +18,26 @@ class _HostBasicFourState extends State<HostBasicFour> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+            backgroundColor: Colour.whiteApp,
             appBar: AppBar(
-              backgroundColor: Colour.bgColor,
-              title: CommonFun.textBold("Host Event", 16, TextAlign.start, color: Colour.black),
-              leading: BackButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  color: Colors.black),
+              backgroundColor: Colour.whiteApp,
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              title: SizedBox(
+                width: MediaQuery.of(context).size.width/1.7,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+
+                    InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                    const SizedBox(width: 10),
+                    CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                  ],
+                ),
+              ),
             ),
             body: CustomScrollView(
               slivers: [
@@ -46,7 +58,7 @@ class _HostBasicFourState extends State<HostBasicFour> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CommonFun.textMed("Normal Ticket Price", 14, TextAlign.start, color: Colour.black),
+                            CommonFun.textMed("Normal Ticket Price", 12, TextAlign.start, color: Colour.black),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +119,7 @@ class _HostBasicFourState extends State<HostBasicFour> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CommonFun.textMed("VIP Ticket Price ", 14, TextAlign.start, color: Colour.black),
+                            CommonFun.textMed("VIP Ticket Price ", 12, TextAlign.start, color: Colour.black),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

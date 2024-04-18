@@ -25,8 +25,27 @@ class _MyEventState extends State<MyEvent> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colour.blackShade),
         backgroundColor: Colour.bgColor,
-        title:CommonFun.textBold('My Event', 16, TextAlign.start, color: Colour.black),
-        automaticallyImplyLeading: true,
+
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width/1.7,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+              const SizedBox(width: 10),
+              CommonFun.textBold('My Event', 16, TextAlign.start, color: Colour.black),
+
+            ],
+          ),
+        ),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+
+
       ),
       body: Column(
         children: [
@@ -78,7 +97,7 @@ class _MyEventState extends State<MyEvent> {
             margin:const  EdgeInsets.only(right: 15,left: 15),
             height: 50,
             decoration: BoxDecoration(
-                border: Border.all(color: Colour.greyLine,width: 1),
+                border: Border.all(color: Colour.divideLine,width: 1),
                 color: Colour.bgColor,
                 borderRadius: BorderRadius.circular(30)
             ),
@@ -102,7 +121,7 @@ class _MyEventState extends State<MyEvent> {
                           color: currentTab == 0?Colour.pink: Colour.bgColor,
                           borderRadius: BorderRadius.circular(30)
                       ),
-                      child: CommonFun.textBold('Upcoming', 16, TextAlign.center, color: currentTab == 0?Colour.white: Colour.black),
+                      child: CommonFun.textBold('Upcoming', 16, TextAlign.center, color: currentTab == 0?Colour.white: Colour.greyText),
                     ),
                   ),
                 ),
@@ -122,7 +141,7 @@ class _MyEventState extends State<MyEvent> {
                           color: currentTab == 1?Colour.pink: Colour.bgColor,
                           borderRadius: BorderRadius.circular(30)
                       ),
-                      child: CommonFun.textBold('Past Event', 16, TextAlign.center,  color: currentTab == 1?Colour.white: Colour.black),
+                      child: CommonFun.textBold('Past Event', 16, TextAlign.center,  color: currentTab == 1?Colour.white: Colour.greyText ),
                     ),
                   ),
                 ),
@@ -165,7 +184,7 @@ class _MyEventState extends State<MyEvent> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(2.0),
-                                child: CommonFun.textReg('20 Apr, 2020', 12, TextAlign.center, color: Colour.black),
+                                child: CommonFun.textReg('20 Apr, 2020', 12, TextAlign.center, color: Colour.pink),
                               ),
                             ),
                           ],
@@ -185,7 +204,7 @@ class _MyEventState extends State<MyEvent> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
-                                    CommonFun.textBold('\$120', 14, TextAlign.center, color: Colour.pink),
+                                    CommonFun.textBold('\$120', 12, TextAlign.center, color: Colour.pink),
                                   ],
                                 ),
                               ),
@@ -195,8 +214,9 @@ class _MyEventState extends State<MyEvent> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Icon(Icons.not_listed_location_sharp,color: Colour.black.withOpacity(.3),size: 15,),
-                                    CommonFun.textReg('Sour Mouse  New York, NY', 12, TextAlign.center, color: Colour.pink),
+                                    Image.asset('assets/images/icon/location.png',width: 9,height: 13,),
+                                    const SizedBox(width: 3,),
+                                    CommonFun.textReg('Sour Mouse  New York, NY', 12, TextAlign.center, color: Colour.greyText2),
                                   ],
                                 ),
                               ),
@@ -221,67 +241,71 @@ class _MyEventState extends State<MyEvent> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Stack(
-                          alignment: FractionalOffset.topRight,
-                          children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                              child: Image.asset('assets/images/image_3.png',width: double.infinity,height: 200,fit: BoxFit.fill,),
-                            ),
-
-                            Container(
-                              margin: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colour.whiteApp,
-                                  borderRadius: BorderRadius.circular(2)
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: CommonFun.textReg('20 Apr, 2020', 12, TextAlign.center, color: Colour.black),
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colour.white,
-                              borderRadius: const BorderRadiusDirectional.only(bottomStart: Radius.circular(15),bottomEnd: Radius.circular(15))
-                          ),
-                          child: Column(
+                    child: InkWell(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const EventDetail())),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Stack(
+                            alignment: FractionalOffset.topRight,
                             children: [
-                              Container(
-                                margin: const EdgeInsets.only(right: 10,left: 10,top: 8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
-                                    CommonFun.textBold('\$120', 14, TextAlign.center, color: Colour.pink),
-                                  ],
-                                ),
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
+                                child: Image.asset('assets/images/image_3.png',width: double.infinity,height: 200,fit: BoxFit.fill,),
                               ),
+
                               Container(
-                                margin: const EdgeInsets.only(right: 10,left: 10,bottom: 8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.not_listed_location_sharp,color: Colour.black.withOpacity(.3),size: 15,),
-                                    CommonFun.textReg('Sour Mouse  New York, NY', 12, TextAlign.center, color: Colour.pink),
-                                  ],
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Colour.whiteApp,
+                                    borderRadius: BorderRadius.circular(2)
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: CommonFun.textReg('20 Apr, 2020', 12, TextAlign.center, color: Colour.pink),
                                 ),
                               ),
                             ],
                           ),
-                        )
+
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colour.white,
+                                borderRadius: const BorderRadiusDirectional.only(bottomStart: Radius.circular(15),bottomEnd: Radius.circular(15))
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10,left: 10,top: 8),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
+                                      CommonFun.textBold('\$120', 12, TextAlign.center, color: Colour.pink),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10,left: 10,bottom: 8),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset('assets/images/icon/location.png',width: 9,height: 13,),
+                                      const SizedBox(width: 3,),
+                                      CommonFun.textReg('Sour Mouse  New York, NY', 12, TextAlign.center, color: Colour.greyText2),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
 
 
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },),

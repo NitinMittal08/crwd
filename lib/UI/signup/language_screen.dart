@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../../values/commonFun.dart';
 
 class LanguageScreen extends StatefulWidget {
-  const LanguageScreen({Key? key}) : super(key: key);
+  int from;
+   LanguageScreen({Key? key,required this.from}) : super(key: key);
 
   @override
   State<LanguageScreen> createState() => _LanguageScreenState();
@@ -33,12 +34,24 @@ class _LanguageScreenState extends State<LanguageScreen> {
         child: Scaffold(
       appBar: AppBar(
         backgroundColor: Colour.bgColor,
-        title: CommonFun.textBold("Change Language", 16, TextAlign.center, color: Colour.black),
-        leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            color: Colors.black),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width/1.7,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+              const SizedBox(width: 10),
+              CommonFun.textBold(widget.from == 0?"Change Language":"Language", 16, TextAlign.center, color: Colour.black)
+            ],
+          ),
+        ),
       ),
       backgroundColor: Colour.bgColor,
       body: Column(
@@ -54,6 +67,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
+                        highlightColor: Colors.transparent,
+                        splashColor: Colors.transparent,
                         onTap: () {
                           setState(() {
                             // Reset all selection to false
@@ -62,31 +77,34 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             isSelected[index] = true;
                           });
                         },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/image_3.png',
-                                    width: 30,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  CommonFun.textMed(items[index], 16, TextAlign.center, color: Colour.black)
-                                ],
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/image_3.png',
+                                      width: 30,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    CommonFun.textMed(items[index], 16, TextAlign.center, color: Colour.black)
+                                  ],
+                                ),
                               ),
-                            ),
 
-                            Icon(!isSelected[index]?
-                              Icons.radio_button_off:
-                              Icons.radio_button_on
-                              ,color: Colour.greyText,)
-                          ],
+
+                              Image.asset(
+                                !isSelected[index]?
+                                'assets/images/icon/radio_off.png':'assets/images/icon/radio_on.png', width: 18,)
+                            ],
+                          ),
                         ),
                       ),
                       Container(

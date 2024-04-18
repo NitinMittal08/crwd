@@ -24,84 +24,95 @@ class _CreateProfileState extends State<CreateProfile> {
       child: Scaffold(
         backgroundColor: Colour.bgColor,
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colour.bgColor,
-          leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              color: Colors.black
-          ),
-
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width/1.7,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CommonFun.textBold("What’s Your Email?", 16, TextAlign.start, color: Colour.black),
-                CommonFun.textMed("Please enter your email to retrieve your account ", 12, TextAlign.start, color: Colour.greyText),
 
-                Container(
-                  margin: const EdgeInsets.only(left: 15,right: 15,top: 35),
-                  child: TextField(
-                    controller: emailId,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      height: 1.0,
-                      fontFamily: "poppins_Reg",
-                      color: Colour.black,
-                    ),
-                    keyboardType: TextInputType.emailAddress, //Set keyboard type for email address. This will show @ button on the primary section of the keyboard.
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
-                      suffixIcon: const Icon(Icons.email_outlined),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.pink, width: 2.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-
-                      labelText: "Email",
-                      labelStyle: const TextStyle(
-                          color: Colors.pink
-                      ),),
-                  ),
-                ),
-
-                Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(right: 15, left: 15,top: 100),
-                  width: double.infinity,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colour.pink,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ),
-                  child: InkWell(
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Center(
-                        child: CommonFun.textBold("Continue", 16, TextAlign.center,
-                            color: Colour.white),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const VerifyOtp()));
-                    },
-                  ),
-                ),
-
+                InkWell(
+                    onTap: () => Navigator.pop(context),
+                    child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                CommonFun.indicators(1),
               ],
             ),
           ),
-        ),),
+          automaticallyImplyLeading: false,
+
+        ),
+        body: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Container(
+                margin: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    CommonFun.textBold("What’s Your Email?", 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textMed("Please enter your email to retrieve your account ", 12, TextAlign.start, color: Colour.greyText),
+
+                    Container(
+                      decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
+                      margin: const EdgeInsets.only( top: 50),
+                      child: TextField(
+                        controller: emailId,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontFamily: "poppins_Reg",
+                          color: Colour.black,
+                        ),
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(vertical: 1.8, horizontal: 8.0),
+                          suffixIcon:  Container(
+                              padding: const EdgeInsets.all(12),
+                              child: Image.asset('assets/images/icon/email.png',width: 12,height: 12,fit: BoxFit.fitHeight)),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                          hintText: "Email",
+                          labelStyle: const TextStyle(color: Colors.pink),
+                        ),
+                      ),
+                    ),
+
+
+                    Expanded(child: Container(color: Colors.transparent)),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.all(10),
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colour.pink,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10.0),
+                        ),
+                      ),
+                      child: InkWell(
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: Center(
+                            child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                                color: Colour.white),
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const VerifyOtp()));
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        )),
     ));
   }
-  }
+
+}

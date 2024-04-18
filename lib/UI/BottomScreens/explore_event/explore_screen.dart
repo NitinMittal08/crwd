@@ -15,11 +15,11 @@ enum Swipe { left, right, none }
 
 class _SearchScreenState extends State<SearchScreen> {
   List<Profile> dragabbleItems = [
-    const Profile(name: 'nitin', distance: '10 miles away', imageAsset: 'assets/images/image_3.png'),
-    const Profile(name: 'ved', distance: '10 miles away', imageAsset: 'assets/images/image_3.png'),
-    const Profile(name: 'qwerty', distance: '10 miles away', imageAsset: 'assets/images/image_3.png'),
-    const Profile(name: 'qwew', distance: '10 miles away', imageAsset: 'assets/images/image_3.png'),
-    const Profile(name: 'qwew', distance: '10 miles away', imageAsset: 'assets/images/image_3.png'),
+    const Profile(name: 'nitin', distance: '10 km', imageAsset: 'assets/images/demo_image.png'),
+    const Profile(name: 'ved', distance: '10 km', imageAsset: 'assets/images/demo_image.png'),
+    const Profile(name: 'qwerty', distance: '10 km', imageAsset: 'assets/images/demo_image.png'),
+    const Profile(name: 'qwew', distance: '10 km', imageAsset: 'assets/images/demo_image.png'),
+    const Profile(name: 'qwew', distance: '10 km', imageAsset: 'assets/images/demo_image.png'),
   ];
 
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
@@ -30,40 +30,51 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
         backgroundColor: Colour.bgColor,
         appBar: AppBar(
+          elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colour.bgColor,
-          title: const Text(
-            'Explore Event',
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Nunito',
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
-            ),
-          ),
+          title: CommonFun.textBold('Explore Event', 16, TextAlign.start, color: Colour.black),
           actions: [
-            InkWell(
-                onTap: () => showModalBottomSheet(
-                    backgroundColor: Colors.transparent,
-                    context: context,
-                    isDismissible: false,
-                    isScrollControlled: true,
-                    builder: (context) {
-                      return FractionallySizedBox(child: _filterBottomSheet(context));
-                    }),
-                child: Image.asset(
-                  'assets/images/filter.png',
-                  width: 50,
-                  height: 30,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                Image.asset(
+                  'assets/images/icon/location.png',
+                  width: 13,
+                  height: 20,
                   fit: BoxFit.fill,
-                ))
+                ),
+                const SizedBox(width: 5),
+
+                InkWell(
+                    onTap: () => showModalBottomSheet(
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        isDismissible: false,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return FractionallySizedBox(child: _filterBottomSheet(context));
+                        }),
+                    child: Image.asset(
+                      'assets/images/filter.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.fill,
+                    )),
+
+                const SizedBox(width: 5),
+              ],
+            )
           ],
         ),
         body: Stack(
           clipBehavior: Clip.none,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(3),
               child: ValueListenableBuilder(
                 valueListenable: swipeNotifier,
                 builder: (context, swipe, _) => Stack(
@@ -79,6 +90,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
+
+
             Positioned(
               left: 0,
               child: DragTarget<int>(
@@ -102,7 +115,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
               ),
             ),
-            Positioned(
+      Positioned(
               right: 0,
               child: DragTarget<int>(
                 builder: (
@@ -180,6 +193,8 @@ class _DragWidgetState extends State<DragWidget> {
                     : const AlwaysStoppedAnimation(0),
                 child: Stack(
                   children: [
+
+
                     ProfileCard(profile: widget.profile),
                     swipe != Swipe.none
                         ? swipe == Swipe.right
@@ -206,6 +221,10 @@ class _DragWidgetState extends State<DragWidget> {
                                 ),
                               )
                         : const SizedBox.shrink(),
+
+
+
+
                   ],
                 ),
               );
@@ -255,28 +274,36 @@ class _ProfileCardState extends State<ProfileCard> {
       child: Container(
         height: 600,
         width: 340,
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 5),
         child: Stack(
           alignment: Alignment.topRight,
           children: [
+            
+            
+            
             Positioned.fill(
+              bottom: 40,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
                   widget.profile.imageAsset,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
+            
+            
+            
+            
             Positioned(
-              bottom: 0,
+              bottom: 40,
               child: Container(
-                height: 80,
+                height: 100,
                 width: 340,
                 decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                  color: Colors.black.withOpacity(.2),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
                   ),
                   shadows: <BoxShadow>[
                     BoxShadow(
@@ -285,76 +312,129 @@ class _ProfileCardState extends State<ProfileCard> {
                     ),
                   ],
                 ),
-                child: InkWell(
-                  onTap: () async {
-                    await showDialog(
-                      context: context,
-                      barrierDismissible: true,
-                      builder: (_) {
-                        return boostEventDialog();
-                      },
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          widget.profile.name,
-                          style: const TextStyle(
-                            fontFamily: 'Nunito',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 21,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colour.pink,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(6.0),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: InkWell(
+                                child: SizedBox(
+                                  child: Center(
+                                    child: CommonFun.textReg("Music", 12, TextAlign.start, color: Colour.white),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
                           ),
-                        ),
-                        Text(
-                          widget.profile.distance,
-                          style: const TextStyle(
-                            fontFamily: 'Nunito',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Colors.grey,
+                          CommonFun.textBold( widget.profile.name, 16, TextAlign.start, color: Colour.white),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset('assets/images/icon/location.png',width: 9,height: 13,color: Colour.white,),
+                              const SizedBox(width: 3,),
+                              Container(
+                                constraints: BoxConstraints(
+                                  maxWidth: MediaQuery.of(context).size.width * .45,
+                                ),
+                                alignment: Alignment.centerLeft,
+                                child: CommonFun.textReg("Sour Mouse  New York, NY", 12, TextAlign.start, color: Colour.white),
+                              )
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Image.asset('assets/images/icon/info.png',width: 20,height: 20,color: Colour.white,),
+                          const SizedBox(height: 5),
+                          CommonFun.textBold(widget.profile.distance, 12, TextAlign.start, color: Colour.white),
+                        ],
+                      )
+
+
+
+                      //
+
+                    ],
                   ),
                 ),
               ),
             ),
-
-
-
+            
+            
+            
+            
+            
             Positioned(
             top: 10,
               right: 10,
               child: Row(
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 30,height: 30,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                    image: AssetImage("assets/images/circle.png"),
-                    fit: BoxFit.fill,
-                  )),
-                  child: Container(
-                      transform: Matrix4.translationValues(0, 3, 0),
-                      child: Image.asset('assets/images/thunder.png', width: 30,height: 30,fit: BoxFit.fill,)),
+                  InkWell(
+                    onTap: () async {
+                      await showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (_) {
+                          return boostEventDialog();
+                        },
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 30,height: 30,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                      image: AssetImage("assets/images/circle.png"),
+                      fit: BoxFit.fill,
+                    )),
+                    child: Container(
+                        transform: Matrix4.translationValues(0, 0, 0),
+                        child: Image.asset('assets/images/thunder.png', width: 15,height: 20,fit: BoxFit.fill,)),
+                    ),
                   ),
                   const SizedBox(width: 10),
                   Container(
                     decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(3)),
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
-                      child: CommonFun.textReg('20 Apr,2022', 12, TextAlign.center, color: Colour.black),
+                      child: CommonFun.textReg('20 Apr,2022', 10, TextAlign.center, color: Colour.pink),
                     ),
                   ),
                 ],
               ),
             )
+            
+            
+            
+            
+            
+            
           ],
         ),
       ),
@@ -728,11 +808,7 @@ Widget boostEventDialog() {
             height: 65,
             width: 65,
             decoration: BoxDecoration(color: Colour.pink, borderRadius: BorderRadius.circular(50)),
-            child: Icon(
-              Icons.delete,
-              color: Colour.white,
-              size: 30,
-            ),
+            child: Center(child: Image.asset('assets/images/thunder.png', width: 20,height: 30,fit: BoxFit.fill,))
           ),
           const SizedBox(height: 20),
           CommonFun.textBold('Boost Event', 16, TextAlign.center, color: Colour.black),

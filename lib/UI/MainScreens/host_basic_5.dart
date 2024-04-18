@@ -28,161 +28,193 @@ class _HostBasicFiveState extends State<HostBasicFive> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     image.clear();
     image.add(File(""));
     reversedAnimals = image.reversed.toList();
   }
+
+
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
-      child: Scaffold(
-        backgroundColor: Colour.bgColor,
-        appBar: AppBar(
-          backgroundColor: Colour.bgColor,
-          title: CommonFun.textBold("Host Event", 16, TextAlign.start, color: Colour.black),
-          leading: BackButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              color: Colors.black),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(right: 15,left: 15,bottom: 5,top: 15),
-                    child: CommonFun.textBold("Upload Event Photos ", 18, TextAlign.start, color: Colour.black)),
-
-                Container(
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(right: 15,left: 15,bottom: 15),
-                    child:    CommonFun.textMed("Please add at least Five photo of Event", 12, TextAlign.start, color: Colour.greyText)),
 
 
-                Container(
-                  margin:const EdgeInsets.only(top: 20),
-                  height: 350,
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: false,
-                    physics:const  NeverScrollableScrollPhysics(),
-                    children: List.generate(reversedAnimals.length, (index) {
-                      return reversedAnimals[index]!.path.isEmpty
-                          ?InkWell(
-                          onTap: () async{
-                            await openImageSelectionDialog1(context);
+    var size = MediaQuery.of(context).size;
+    final double itemHeight = (size.height - kToolbarHeight - 90) / 2;
+    final double itemWidth = size.width / 2;
 
-                            if(reversedAnimals.length  >= 6){
-                              for(int i=0;i<reversedAnimals.length;i++){
-                                if(reversedAnimals[i]!.path.isEmpty){
-                                  reversedAnimals.removeAt(i);
-                                }
-                              }
-                              for(int i=0;i<image.length;i++){
-                                if(image[i]!.path.isEmpty){
-                                  image.removeAt(i);
-                                }
-                              }
-                            }
+    return SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+          child: Scaffold(
+              backgroundColor: Colour.whiteApp,
+              appBar: AppBar(
+                backgroundColor: Colour.whiteApp,
+                elevation: 0,
+                automaticallyImplyLeading: false,
+                title: SizedBox(
+                  width: MediaQuery.of(context).size.width/1.7,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
 
-
-
-                            debugPrint('reversedAnimals !  $reversedAnimals');
-                            debugPrint('reversedAnimals.length !  ${reversedAnimals.length}');
-                            setState(() {  });
-                          },
-                          child: Image.asset('assets/images/image_box.png',fit: BoxFit.fill,height: 200,))
-                          : Stack(
-                        alignment: Alignment.bottomRight,
-                        children: [
-                          Container(
-                              height: 200,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.file(File(reversedAnimals[index]!.path.toString()),fit: BoxFit.fill,),
-                              )),
-
-                          InkWell(
-                            onTap: () async{
-
-                              for (int i=0;i<reversedAnimals.length;i++) {
-                                if (reversedAnimals[i]!.path.isEmpty) {
-                                  containsEmptyItem = true;
-                                  break;
-                                }else{
-                                  containsEmptyItem = false;
-                                }
-                              }
-
-                              if (containsEmptyItem) {
-                                print("List contains an empty item.");
-                              } else {
-                                print("List does not contain an empty item.");
-                                image.add(File(""));
-                                reversedAnimals = image;
-                              }
-
-                              reversedAnimals.removeAt(index);
-
-                              debugPrint('reversedAnimals $reversedAnimals');
-                              debugPrint('reversedAnimals.length ${reversedAnimals.length}');
-                              setState(() {});
-                            },
-                            child: Image.asset('assets/images/cross.png',height: 25,),
-                          )
-                        ],
-                      );
-                    },),
+                      InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
+                      const SizedBox(width: 10),
+                      CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                    ],
                   ),
                 ),
+              ),
+              body: CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          CommonFun.textBold("Upload Your Photos", 16, TextAlign.start, color: Colour.black),
+                          CommonFun.textMed("Please add at least Five photo of yourself with nobody else in the picture", 12, TextAlign.start,
+                              color: Colour.greyText),
+                          Container(
+                            margin: const EdgeInsets.only(top: 15),
+                            height: 350,
+                            child: GridView.count(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 10,
+                              childAspectRatio: (itemWidth / itemHeight),
+                              mainAxisSpacing: 10,
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: false,
+                              physics: const NeverScrollableScrollPhysics(),
+                              children: List.generate(
+                                reversedAnimals.length,
+                                    (index) {
+                                  return reversedAnimals[index]!.path.isEmpty
+                                      ? InkWell(
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      onTap: () async {
+                                        await openImageSelectionDialog1(context);
 
+                                        if (reversedAnimals.length >= 6) {
+                                          for (int i = 0; i < reversedAnimals.length; i++) {
+                                            if (reversedAnimals[i]!.path.isEmpty) {
+                                              reversedAnimals.removeAt(i);
+                                            }
+                                          }
+                                          for (int i = 0; i < image.length; i++) {
+                                            if (image[i]!.path.isEmpty) {
+                                              image.removeAt(i);
+                                            }
+                                          }
+                                        }
 
+                                        debugPrint('reversedAnimals !  $reversedAnimals');
+                                        debugPrint('reversedAnimals.length !  ${reversedAnimals.length}');
+                                        setState(() {});
+                                      },
+                                      child: Image.asset(
+                                        'assets/images/image_box.png',
+                                        fit: BoxFit.fill,
+                                        height: 200,
+                                      ))
+                                      : Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      Container(
+                                          height: itemHeight,width: itemWidth,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(15),
+                                            child: Image.file(
+                                              File(reversedAnimals[index]!.path.toString()),
+                                              fit: BoxFit.fill,
+                                            ),
+                                          )),
+                                      InkWell(
+                                        onTap: () async {
+                                          for (int i = 0; i < reversedAnimals.length; i++) {
+                                            if (reversedAnimals[i]!.path.isEmpty) {
+                                              containsEmptyItem = true;
+                                              break;
+                                            } else {
+                                              containsEmptyItem = false;
+                                            }
+                                          }
 
+                                          if (containsEmptyItem) {
+                                            print("List contains an empty item.");
+                                          } else {
+                                            print("List does not contain an empty item.");
+                                            image.add(File(""));
+                                            reversedAnimals = image;
+                                          }
 
+                                          reversedAnimals.remove(image[index]);
+                                          image.remove(image[index]);
 
+                                          debugPrint('reversedAnimals $reversedAnimals');
+                                          debugPrint('reversedAnimals.length ${reversedAnimals.length}');
+                                          setState(() {});
+                                        },
+                                        child: Image.asset(
+                                          'assets/images/cross.png',
+                                          height: 25,
+                                        ),
+                                      )
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: CommonFun.textMed("Hold & Drag your photos change the order", 12, TextAlign.center,
+                                color: Colour.greyText),
+                          ),
 
-                Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(right: 15, left: 15,top: 100),
-                  width: double.infinity,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colour.pink,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ),
-                  child: InkWell(
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Center(
-                        child: CommonFun.textBold("Submit", 16, TextAlign.center,
-                            color: Colour.white),
+                          Expanded(child: Container(color: Colors.transparent)),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.all(10),
+                            width: double.infinity,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colour.pink,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(10.0),
+                              ),
+                            ),
+                            child: InkWell(
+                              child: SizedBox(
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: Center(
+                                  child: CommonFun.textBold("Continue", 16, TextAlign.center, color: Colour.white),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MainPage(index: 1,)));
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MainPage(index: 1,)));
-                    },
                   ),
-                ),
-              ],
-            ),
+                ],
+              )
           ),
-        ),),
-    ));
+        ));
   }
+
+
 
 
   //!@CameraCode

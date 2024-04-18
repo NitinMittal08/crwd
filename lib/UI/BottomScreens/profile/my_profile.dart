@@ -50,12 +50,24 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
         child:   Scaffold(
-          backgroundColor: Colour.bgColor,
+          backgroundColor: Colour.whiteApp,
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colour.black),
-            backgroundColor: Colour.bgColor,
-            title: const Text('Profile',style: TextStyle(color: Colors.black)),
+            backgroundColor: Colour.whiteApp,
+
+
+            title: SizedBox(
+              width: MediaQuery.of(context).size.width/1.7,
+              child: const Text('Profile',style: TextStyle(color: Colors.black)),
+            ),
+            elevation: 0,
+            automaticallyImplyLeading: false,
+
+
+
+
             actions: [
               Center(
                 child: Container(
@@ -75,159 +87,197 @@ class _MyProfileState extends State<MyProfile> {
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Container(
+                  margin: const EdgeInsets.only(top: 8,left: 10,right: 10),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const EditProfile())),
-                        child: Stack(
-                          alignment: Alignment.bottomRight,
-                          children: [
-                            Container(
-                              height: 60,
-                              width: 60,
-                              margin: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(color: Colour.pink, width: 3)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.asset(
-                                    'assets/images/image_3.png',
-                                    height: 60,
-                                    width: 60,
-                                    fit: BoxFit.fill,
+
+
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+
+                          InkWell(
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const EditProfile())),
+                            child: Stack(
+                              alignment: Alignment.bottomRight,
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 60,
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(color: Colour.pink, width: 3)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3.0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.asset(
+                                        'assets/images/image_3.png',
+                                        height: 60,
+                                        width: 60,
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 3, bottom: 3),
+                                  child: Image.asset(
+                                    'assets/images/icon/edit.png',
+                                    height: 22,width: 22,
+                                  ),
+                                )
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 3, bottom: 3),
-                              child: Image.asset(
-                                'assets/images/edit.png',
-                                height: 20,
-                              ),
-                            )
-                          ],
-                        ),
+                          ),
+
+
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CommonFun.textBold('Amie Rosie', 16, TextAlign.start, color: Colors.black),
+                                CommonFun.textReg('amierosie@yomail.com', 12, TextAlign.start,
+                                    color: Colour.greyText),
+                              ],
+                            ),
+                          ),
+
+
+
+                        ],
                       ),
+
                       Container(
-                        width: MediaQuery.of(context).size.width * .7,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyEvent()));
-                              },
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                    text: "120 \n",
-                                    style: TextStyle(
-                                        overflow: TextOverflow.ellipsis,
-                                        fontFamily: "poppins_Bold",
-                                        color: Colour.pink,
-                                        fontSize: 18),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: "Event",
-                                        style: TextStyle(
-                                            fontFamily: "poppins_Med",
-                                            color: Colour.greyText,
-                                            fontSize: 12),
-                                      ),
-                                    ]),
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowingScreen(tab:0)));
-                              },
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                    text: "120 \n",
-                                    style: TextStyle(
-                                        overflow: TextOverflow.ellipsis,
-                                        fontFamily: "poppins_Bold",
-                                        color: Colour.pink,
-                                        fontSize: 18),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: "Follower",
-                                        style: TextStyle(
-                                            fontFamily: "poppins_Med",
-                                            color: Colour.greyText,
-                                            fontSize: 12),
-                                      ),
-                                    ]),
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> FollowingScreen(tab: 1,)));
-                              },
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                    text: "120k \n",
-                                    style: TextStyle(
-                                        overflow: TextOverflow.ellipsis,
-                                        fontFamily: "poppins_Bold",
-                                        color: Colour.pink,
-                                        fontSize: 18),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: "Following",
-                                        style: TextStyle(
-                                            fontFamily: "poppins_Med",
-                                            color: Colour.greyText,
-                                            fontSize: 12),
-                                      ),
-                                    ]),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
+                        width: 42,height: 42,
+                          decoration: BoxDecoration(
+                            color: Colour.divideLine2,
+                            borderRadius: BorderRadiusDirectional.circular(50)
+                          ),
+                          child: Center(child: Image.asset('assets/images/icon/code.png',width: 22,height: 22,)))
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CommonFun.textBold('Amie Rosie', 12, TextAlign.start, color: Colors.black),
-                            CommonFun.textReg('amierosie@yomail.com', 12, TextAlign.start,
-                                color: Colour.greyText),
-                          ],
-                        ),
-                      ),
-                      Image.asset(
-                        model[1].image.toString(),
-                        height: 35,
-                      ),
-                    ],
+
+
+                Container(
+                    width: double.infinity,
+                  margin: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadiusDirectional.circular(15),
+                    color: Colour.white
                   ),
+                  child:  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10,left: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyEvent()));
+                            },
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                  text: "120 \n",
+                                  style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: "poppins_Bold",
+                                      color: Colour.pink,
+                                      fontSize: 18),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: "Event",
+                                      style: TextStyle(
+                                          fontFamily: "poppins_Bold",
+                                          color: Colour.black,
+                                          fontSize: 12),
+                                    ),
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                            child: VerticalDivider(
+                              color: Colour.divideLine,
+                              thickness: 1,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowingScreen(tab:0)));
+                            },
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                  text: "120 \n",
+                                  style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: "poppins_Bold",
+                                      color: Colour.pink,
+                                      fontSize: 18),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: "Follower",
+                                      style: TextStyle(
+                                          fontFamily: "poppins_Bold",
+                                          color: Colour.black,
+                                          fontSize: 12),
+                                    ),
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                            child: VerticalDivider(
+                              color: Colour.divideLine,
+                              thickness: 1,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FollowingScreen(tab: 1,)));
+                            },
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                  text: "120k \n",
+                                  style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: "poppins_Bold",
+                                      color: Colour.pink,
+                                      fontSize: 18),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: "Following",
+                                      style: TextStyle(
+                                          fontFamily: "poppins_Bold",
+                                          color: Colour.black,
+                                          fontSize: 12),
+                                    ),
+                                  ]),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+
                 ),
+
                 Container(
                   decoration:
-                  BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  BoxDecoration( borderRadius: BorderRadius.circular(10)),
                   margin: const EdgeInsets.all(10),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -254,20 +304,19 @@ class _MyProfileState extends State<MyProfile> {
                                   ),
 
 
+
                                   FlutterSwitch(
                                     activeColor: Colour.pink,
-                                    width: 40.0,
+                                    width: 35.0,
                                     height: 20.0,
                                     toggleSize: 20.0,
                                     value: status,
                                     borderRadius: 30.0,
-                                    padding: 3.0,
+                                    padding: 1.0,
                                     showOnOff: false,
                                     onToggle: (val) {
                                       setState(() {
                                         status = val;
-
-
 
 
                                       });
@@ -319,7 +368,7 @@ class _MyProfileState extends State<MyProfile> {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsPrivacy(from: 1)));
                               }
                               if(model[index].count==10){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>const LanguageScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>  LanguageScreen(from: 1,)));
                               }
                               if(model[index].count==11){
                                   await showDialog(
@@ -378,7 +427,7 @@ class _MyProfileState extends State<MyProfile> {
                     ],
                   ),
                 ),
-               /* Container(
+              Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(right: 15, left: 15, top: 50, bottom: 50),
                   width: double.infinity,
@@ -395,14 +444,14 @@ class _MyProfileState extends State<MyProfile> {
                       height: double.infinity,
                       child: Center(
                         child:
-                        CommonFun.textBold("Continue", 16, TextAlign.center, color: Colour.white),
+                        CommonFun.textBold("Logout", 16, TextAlign.center, color: Colour.white),
                       ),
                     ),
                     onTap: () {
                       Navigator.pop(context);
                     },
                   ),
-                ),*/
+                ),
               ],
             ),
           ),
@@ -457,7 +506,7 @@ class _MyProfileState extends State<MyProfile> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    CommonFun.textBold('Your Rating: ', 14, TextAlign.center, color: Colour.black.withOpacity(.3)),
+                    CommonFun.textBold('Your Rating: ', 14, TextAlign.center, color: Colour.greyText),
 
                     Container(
                       margin: const EdgeInsets.only(left: 5, right: 5),
@@ -507,13 +556,13 @@ class _MyProfileState extends State<MyProfile> {
                   color: Colour.black,
                 ),
                 keyboardType: TextInputType.visiblePassword, //Set keyboard type for email address. This will show @ button on the primary section of the keyboard.
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   fillColor:Colors.white,
-                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  hintText: "Bio",
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  hintText: "Leave Feedback (Optional)",
                   labelStyle: TextStyle(
-                      color: Colors.pink,
+                      color: Colour.greyText,
                     fontSize: 14
 
                   ),),
@@ -553,16 +602,16 @@ class _MyProfileState extends State<MyProfile> {
                 Container(
                   width: 100,
                   height: 40,
-                  decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.all(
+                  decoration: BoxDecoration(
+                    color: Colour.white,
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(10.0),
                     ),
                   ),
                   child: InkWell(
                     child: SizedBox(
                       child: Center(
-                        child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.pink),
+                        child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
                       ),
                     ),
                     onTap: () {
@@ -576,6 +625,8 @@ class _MyProfileState extends State<MyProfile> {
 
 
             const SizedBox(height: 20),
+
+
           ],
         );
       }),
