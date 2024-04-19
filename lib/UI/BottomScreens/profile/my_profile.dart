@@ -3,6 +3,7 @@ import 'package:crwd/UI/BottomScreens/profile/edit_profile.dart';
 import 'package:crwd/UI/BottomScreens/profile/following_screen.dart';
 import 'package:crwd/UI/BottomScreens/profile/payment_method.dart';
 import 'package:crwd/UI/BottomScreens/profile/refer_screen.dart';
+import 'package:crwd/UI/BottomScreens/profile/scan_qr.dart';
 import 'package:crwd/UI/BottomScreens/profile/terms_privacy.dart';
 import 'package:crwd/UI/signup/language_screen.dart';
 import 'package:crwd/values/colour.dart';
@@ -10,6 +11,7 @@ import 'package:crwd/values/commonFun.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import '../../signup/create_profile/interst_screen.dart';
 import 'about_info.dart';
 import 'change_password.dart';
@@ -157,13 +159,24 @@ class _MyProfileState extends State<MyProfile> {
                         ],
                       ),
 
-                      Container(
-                        width: 42,height: 42,
-                          decoration: BoxDecoration(
-                            color: Colour.divideLine2,
-                            borderRadius: BorderRadiusDirectional.circular(50)
-                          ),
-                          child: Center(child: Image.asset('assets/images/icon/code.png',width: 22,height: 22,)))
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const ScanQr()));
+                        },
+                        child: Container(
+                          width: 42,height: 42,
+                            decoration: BoxDecoration(
+                              color: Colour.divideLine2,
+                              borderRadius: BorderRadiusDirectional.circular(50)
+                            ),
+                            child: Center(child: QrImageView(
+                              data: '1234567890',
+                              version: QrVersions.auto,
+                              size: 200.0,
+                            ),
+
+                            )),
+                      )
                     ],
                   ),
                 ),

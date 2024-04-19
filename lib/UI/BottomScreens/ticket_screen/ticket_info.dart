@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../values/colour.dart';
 import '../../../values/commonFun.dart';
@@ -90,12 +91,18 @@ class _TicketInfoState extends State<TicketInfo> {
                      Container(
                        margin: const EdgeInsets.all(10),
                        width: 230,
-                       height: 160,
+                       height: 230,
                        decoration: BoxDecoration(
                            color: Colour.whiteApp,
                            borderRadius: BorderRadiusDirectional.circular(10)
                        ),
-                       child: Center(child: Image.asset('assets/images/icon/code.png',width: 128,height: 128,fit: BoxFit.fill,)),
+                       child: Center(child:
+                       QrImageView(
+                         data: '1234567890',
+                         version: QrVersions.auto,
+                         size: 200.0,
+                       ),
+                       ),
                      ),
 
 
