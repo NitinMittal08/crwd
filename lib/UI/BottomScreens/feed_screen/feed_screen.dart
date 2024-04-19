@@ -1,3 +1,4 @@
+import 'package:crwd/UI/BottomScreens/feed_screen/add_ad.dart';
 import 'package:crwd/UI/BottomScreens/feed_screen/feed_comments.dart';
 import 'package:crwd/UI/BottomScreens/feed_screen/status_show.dart';
 import 'package:crwd/values/colour.dart';
@@ -46,6 +47,7 @@ class _FeedScreenState extends State<FeedScreen> {
               child:   Row(
                 children: [
 
+
                   Column(
                     children: [
                       Stack(
@@ -79,6 +81,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       CommonFun.textMed('Your Story', 12, TextAlign.center, color: Colour.greyText)
                     ],
                   ),
+
 
                   SizedBox(
                     height: 98,
@@ -125,6 +128,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ],
               ),
             ),
+
 
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -322,14 +326,24 @@ class _FeedScreenState extends State<FeedScreen> {
                               ),
                             ),
                             const VerticalDivider(),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5, right: 1, left: 1, bottom: 5),
-                              child: Row(
-                                children: [
-                                  Image.asset('assets/images/share.png', height: 15),
-                                  const SizedBox(width: 5),
-                                  CommonFun.textReg("Share", 12, TextAlign.start, color: Colour.black),
-                                ],
+                            InkWell(
+                              onTap: () => showModalBottomSheet(
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  isDismissible: false,
+                                  isScrollControlled: true,
+                                  builder: (context) {
+                                    return _shareBottomSheet(context);
+                                  }),
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 5, right: 1, left: 1, bottom: 5),
+                                child: Row(
+                                  children: [
+                                    Image.asset('assets/images/share.png', height: 15),
+                                    const SizedBox(width: 5),
+                                    CommonFun.textReg("Share", 12, TextAlign.start, color: Colour.black),
+                                  ],
+                                ),
                               ),
                             ),
                             const VerticalDivider(),
@@ -457,4 +471,181 @@ class _FeedScreenState extends State<FeedScreen> {
       }),
     );
   }
+
+
+  List<String> items = ['Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin'];
+  List<bool> isSelected = List.generate(7, (index) => false);
+
+
+  Widget _shareBottomSheet(BuildContext context) {
+    return StatefulBuilder(builder: (context, myState) {
+      return Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            height: 360,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadiusDirectional.only(topEnd: Radius.circular(15), topStart: Radius.circular(15)),
+              color: Colour.white,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colour.greyTextField,
+                        borderRadius: BorderRadiusDirectional.circular(10)
+                    ),
+                    alignment: Alignment.center,
+                    height: 45,
+                    margin: const EdgeInsets.only(top: 10, bottom: 15),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontFamily: "poppins_Reg",
+                        color: Colour.black,
+                      ),
+                      keyboardType: TextInputType.visiblePassword,
+                      //Set keyboard type for email address. This will show @ button on the primary section of the keyboard.
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colour.grey,
+                        ),
+                        hintText: "Search here....",
+                        labelStyle: const TextStyle(color: Colors.pink),
+                      ),
+                    ),
+                  ),
+
+
+                  InkWell(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddAd()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadiusDirectional.circular(50),
+                            child: Image.asset(
+                              'assets/images/image_3.png',
+                              width: 22,height: 22,fit: BoxFit.fill,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          CommonFun.textMed('Add post your story', 12, TextAlign.center, color: Colour.black)
+                        ],
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios_rounded,color: Colour.greyText, size: 15,)
+                  ],
+                ),
+              ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.only(bottom: 45),
+                      physics: const BouncingScrollPhysics(),
+                      itemCount:items.length,
+                      itemBuilder: (context, index) {
+                        return  InkWell(
+                          highlightColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: () {
+                            myState(() {
+                              isSelected = List.generate(7, (index) => false);
+                              isSelected[index] = true;
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadiusDirectional.circular(50),
+                                      child: Image.asset(
+                                        'assets/images/image_3.png',
+                                        width: 22,height: 22,fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    CommonFun.textMed(items[index], 12, TextAlign.center, color: Colour.black)
+                                  ],
+                                ),
+                              ),
+
+
+                              Image.asset(
+                                !isSelected[index]?
+                                'assets/images/icon/radio_off.png':'assets/images/icon/radio_on.png', width: 14,)
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+          ),
+
+          Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
+            width: double.infinity,
+            height: 45,
+            decoration: BoxDecoration(
+              color: Colour.pink,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+            ),
+            child: InkWell(
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: Center(
+                  child:
+                  CommonFun.textBold("Share", 16, TextAlign.center, color: Colour.white),
+                ),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+
+        ],
+      );
+    });
+  }
+
+
+
+
 }

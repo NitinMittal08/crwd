@@ -13,6 +13,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import '../../signup/create_profile/interst_screen.dart';
 import 'about_info.dart';
 import 'change_password.dart';
+import 'help/help_support.dart';
 import 'my_event.dart';
 import 'my_fav.dart';
 
@@ -32,18 +33,19 @@ class _MyProfileState extends State<MyProfile> {
   @override
   void initState() {
     super.initState();
-    model.add(ModelClass('My Favourites', 1, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('My Interests ', 2, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('My Events', 3, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Payment Methods', 4, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Change Password', 5, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Add Ads', 6, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Refer User', 7, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Privacy Policy', 8, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Terms & Conditions', 9, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Select Language', 10, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('Rate Us', 11, 'assets/images/crwd_icon.png'));
-    model.add(ModelClass('About', 12, 'assets/images/crwd_icon.png'));
+    model.add(ModelClass('My Favourites', 1, 'assets/images/profile/my_fav.png'));
+    model.add(ModelClass('My Interests ', 2, 'assets/images/profile/my_interest.png'));
+    model.add(ModelClass('My Events', 3, 'assets/images/profile/my_event.png'));
+    model.add(ModelClass('Payment Methods', 4, 'assets/images/profile/payment.png'));
+    model.add(ModelClass('Change Password', 5, 'assets/images/profile/password.png'));
+    // model.add(ModelClass('Add Ads', 6, 'assets/images/crwd_icon.png'));
+    // model.add(ModelClass('Refer User', 7, 'assets/images/crwd_icon.png'));
+    model.add(ModelClass('Privacy Policy', 8, 'assets/images/profile/privacy.png'));
+    model.add(ModelClass('Terms & Conditions', 9, 'assets/images/profile/terms.png'));
+    model.add(ModelClass('Help Support', 13, 'assets/images/profile/help.png'));
+    model.add(ModelClass('Select Language', 10, 'assets/images/profile/language.png'));
+    model.add(ModelClass('Rate Us', 11, 'assets/images/profile/star.png'));
+    model.add(ModelClass('About', 12, 'assets/images/profile/about.png'));
   }
 
 
@@ -294,8 +296,8 @@ class _MyProfileState extends State<MyProfile> {
                                   Row(
                                     children: [
                                       Image.asset(
-                                        model[1].image.toString(),
-                                        height: 25,
+                                        'assets/images/profile/theme.png',
+                                        height: 16,
                                       ),
                                       const SizedBox(width: 10),
                                       CommonFun.textBold('Dark Theme', 12, TextAlign.start,
@@ -355,8 +357,8 @@ class _MyProfileState extends State<MyProfile> {
                               if(model[index].count == 5){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const ChangePassword()));
                               }
-                              if(model[index].count == 6){
-                                debugPrint('count ${model[index].count}--itemName ${model[index].name}');
+                              if(model[index].count == 13){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const HelpSupport()));
                               }
                               if(model[index].count == 7){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const ReferScreen()));
@@ -386,7 +388,7 @@ class _MyProfileState extends State<MyProfile> {
                               setState(() { });
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(3.0),
+                              padding: const EdgeInsets.only(top: 5,bottom: 5,right: 3,left: 3),
                               child: Column(
                                 children: [
                                   Padding(
@@ -398,7 +400,7 @@ class _MyProfileState extends State<MyProfile> {
                                           children: [
                                             Image.asset(
                                               model[index].image.toString(),
-                                              height: 25,
+                                              height: 17,
                                             ),
                                             const SizedBox(width: 10),
                                             CommonFun.textBold(
@@ -406,9 +408,11 @@ class _MyProfileState extends State<MyProfile> {
                                                 color: Colors.black),
                                           ],
                                         ),
-                                        Icon(
-                                          Icons.arrow_forward_ios_rounded,
-                                          color: Colour.greyText,
+                                        Center(
+                                          child: Icon(
+                                            Icons.arrow_forward_ios_rounded,
+                                            color: Colour.greyText,size: 15,
+                                          ),
                                         ),
                                       ],
                                     ),

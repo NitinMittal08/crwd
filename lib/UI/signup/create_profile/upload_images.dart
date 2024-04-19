@@ -18,10 +18,10 @@ class UploadImages extends StatefulWidget {
 }
 
 class _UploadImagesState extends State<UploadImages> {
-  XFile? _pickedFile;
+
   List<File?> image = [];
   List<File?> reversedAnimals = [];
-  CroppedFile? _croppedFile;
+
   bool containsEmptyItem = false;
 
   @override
@@ -33,8 +33,8 @@ class _UploadImagesState extends State<UploadImages> {
   }
 
 
-
-
+  XFile? _pickedFile;
+  CroppedFile? _croppedFile;
 
   @override
   Widget build(BuildContext context) {

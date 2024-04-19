@@ -11,6 +11,8 @@ class Colour{
   static Color black = const Color(0xFF000000);
   static Color blackNew = const Color(0xFF201315);
   static Color blackNew1 = const Color(0xFF130F26);
+  static Color startColor = const Color(0xFFFF9900);
+  static Color starUnselected = const Color(0xFFD0D0D0);
 
 
 
@@ -23,6 +25,7 @@ class Colour{
   static Color divideLine = const Color(0xFFE2E2E2);
   static Color divideLine1 = const Color(0xFFCDCDCD);
   static Color divideLine2 = const Color(0xFFF3F2F2);
+  static Color divideLine3 = const Color(0xFFEFEFEF);
 
 
 

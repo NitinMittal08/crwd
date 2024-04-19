@@ -18,7 +18,7 @@ class _HostBasicOneState extends State<HostBasicOne> {
 
   bool status = false;
   double _lowerValue = 18;
-  double _upperValue = 22;
+  double _upperValue = 18;
 
   int attendeesCount = 0;
 
@@ -193,14 +193,13 @@ class _HostBasicOneState extends State<HostBasicOne> {
 
                                     ),
                                     activeTrackBar: BoxDecoration(color: Colour.pink),
-                                      inactiveTrackBarHeight: 6,
-                                      activeTrackBarHeight: 6,
+                                      inactiveTrackBarHeight: 7,
+                                      activeTrackBarHeight: 7,
                                     ),
-
                                     disabled: false,
 
-                                    handler: customHandler(),
-                                    rightHandler: customHandler(),
+                                    handler: customHandler(_lowerValue.toString()),
+                                    rightHandler: customHandler(_upperValue.toString()),
                                     step: const FlutterSliderStep(step: 4),
                                     jump: true,
                                     tooltip: FlutterSliderTooltip(
@@ -370,16 +369,31 @@ class _HostBasicOneState extends State<HostBasicOne> {
 
 
 
-  customHandler() {
+  customHandler(String value ) {
     return FlutterSliderHandler(
       decoration: const BoxDecoration(),
-      child: Container(
-        width: 15,height: 15,
-        decoration: BoxDecoration(
-          color: Colour.white,
-          borderRadius: BorderRadiusDirectional.circular(50),
-         border: Border.all(color: Colour.pink,width: 2)
-        ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+
+
+          Container(
+            width: 12,height: 12,
+            decoration: BoxDecoration(
+              color: Colour.white,
+              borderRadius: BorderRadiusDirectional.circular(50),
+             border: Border.all(color: Colour.pink,width: 2)
+            ),
+          ),
+
+          Container(
+              transform: Matrix4.translationValues(0, -20, 0),
+              child: CommonFun.textReg(value, 12, TextAlign.center, color: Colour.black)),
+          Container(
+              transform: Matrix4.translationValues(0, -20, 0),
+              child: CommonFun.textReg(value, 12, TextAlign.center, color: Colour.black)),
+
+        ],
       ),
     );
   }

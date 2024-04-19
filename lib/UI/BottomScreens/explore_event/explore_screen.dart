@@ -2,6 +2,7 @@ import 'package:crwd/UI/BottomScreens/explore_event/explore_details.dart';
 import 'package:crwd/values/colour.dart';
 import 'package:crwd/values/commonFun.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:intl/intl.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -23,6 +24,13 @@ class _SearchScreenState extends State<SearchScreen> {
   ];
 
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
+
+
+  double _lowerValue = 18;
+  double _upperValue = 18;
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -430,16 +438,14 @@ class _ProfileCardState extends State<ProfileCard> {
               ),
             )
             
-            
-            
-            
-            
-            
           ],
         ),
       ),
     );
   }
+
+
+
 }
 
 class TagWidget extends StatelessWidget {
@@ -478,6 +484,12 @@ class TagWidget extends StatelessWidget {
 Widget _filterBottomSheet(BuildContext context) {
   double _value = 30;
   double _value1 = 30;
+
+  double _lowerValue = 18;
+  double _upperValue = 18;
+
+  double _lowerValue1 = 18;
+  double _upperValue1 = 18;
 
   bool categoryListOpen = false;
 
@@ -543,7 +555,7 @@ Widget _filterBottomSheet(BuildContext context) {
                               color: Colour.grey,
                             ),
                             hintText: "Select Category",
-                            labelStyle: TextStyle(color: Colors.pink),
+                            labelStyle: const TextStyle(color: Colors.pink),
                           ),
                           onTap: () {
                             categoryListOpen = !categoryListOpen;
@@ -610,20 +622,57 @@ Widget _filterBottomSheet(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CommonFun.textBold('Age Range', 16, TextAlign.center, color: Colour.black),
-                      Container(
-                        margin: const EdgeInsets.only(top: 5),
-                        child: Slider(
-                          activeColor: Colour.pink,
-                          value: _value1,
-                          max: 100,
-                          divisions: 3,
-                          label: _value1.round().toString(),
-                          min: 1,
-                          onChanged: (double value) async {
-                            _value1 = value;
-                            myState(() {});
-                          },
-                        ),
+                      Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Container(
+                              alignment: Alignment.centerLeft,decoration:  BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(10)
+                          ),
+                              child: FlutterSlider(
+                                decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10)),
+                                values: [_lowerValue, _upperValue],
+                                rangeSlider: true,
+                                max: 50,
+                                min: 18,
+                                trackBar: FlutterSliderTrackBar(
+                                  inactiveTrackBar: BoxDecoration(
+                                      color: Colour.greyText,borderRadius: BorderRadiusDirectional.circular(10)
+
+                                  ),
+                                  activeTrackBar: BoxDecoration(color: Colour.pink),
+                                  inactiveTrackBarHeight: 7,
+                                  activeTrackBarHeight: 7,
+                                ),
+                                disabled: false,
+
+                                handler: customHandler(_lowerValue.toString()),
+                                rightHandler: customHandler(_upperValue.toString()),
+                                step: const FlutterSliderStep(step: 4),
+                                jump: true,
+                                tooltip: FlutterSliderTooltip(
+                                  alwaysShowTooltip: Paint.enableDithering,
+                                  textStyle: const TextStyle(fontSize: 17, color: Colors.black45),
+                                ),
+
+                                onDragging: (handlerIndex, lowerValue, upperValue) {
+                                  _lowerValue = lowerValue;
+                                  _upperValue = upperValue;
+                                  myState(() {});
+                                },
+                              )),
+                          Container(
+                            margin: const EdgeInsets.only(right: 15,left: 15,bottom: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CommonFun.textReg('18', 12, TextAlign.center, color: Colour.black),
+                                CommonFun.textReg('50', 12, TextAlign.center, color: Colour.black),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
@@ -635,20 +684,57 @@ Widget _filterBottomSheet(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CommonFun.textBold('Distance', 16, TextAlign.center, color: Colour.black),
-                      Container(
-                        margin: const EdgeInsets.only(top: 5),
-                        child: Slider(
-                          activeColor: Colour.pink,
-                          value: _value,
-                          max: 100,
-                          divisions: 3,
-                          label: _value.round().toString(),
-                          min: 1,
-                          onChanged: (double value) async {
-                            _value = value;
-                            myState(() {});
-                          },
-                        ),
+                      Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Container(
+                              alignment: Alignment.centerLeft,decoration:  BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(10)
+                          ),
+                              child: FlutterSlider(
+                                decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10)),
+                                values: [_lowerValue1, _upperValue1],
+                                rangeSlider: true,
+                                max: 50,
+                                min: 18,
+                                trackBar: FlutterSliderTrackBar(
+                                  inactiveTrackBar: BoxDecoration(
+                                      color: Colour.greyText,borderRadius: BorderRadiusDirectional.circular(10)
+
+                                  ),
+                                  activeTrackBar: BoxDecoration(color: Colour.pink),
+                                  inactiveTrackBarHeight: 7,
+                                  activeTrackBarHeight: 7,
+                                ),
+                                disabled: false,
+
+                                handler: customHandler(_lowerValue1.toString()),
+                                rightHandler: customHandler(_upperValue1.toString()),
+                                step: const FlutterSliderStep(step: 4),
+                                jump: true,
+                                tooltip: FlutterSliderTooltip(
+                                  alwaysShowTooltip: Paint.enableDithering,
+                                  textStyle: const TextStyle(fontSize: 17, color: Colors.black45),
+                                ),
+
+                                onDragging: (handlerIndex, lowerValue, upperValue) {
+                                  _lowerValue1 = lowerValue;
+                                  _upperValue1 = upperValue;
+                                  myState(() {});
+                                },
+                              )),
+                          Container(
+                            margin: const EdgeInsets.only(right: 15,left: 15,bottom: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CommonFun.textReg('18', 12, TextAlign.center, color: Colour.black),
+                                CommonFun.textReg('50', 12, TextAlign.center, color: Colour.black),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
@@ -691,19 +777,19 @@ Widget _filterBottomSheet(BuildContext context) {
                       Flexible(
                         flex: 1,
                         child: Container(
-                          margin: const EdgeInsets.only(right: 5),
+                          margin: const EdgeInsets.only(right: 5,left: 5),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10), color: Colour.greyTextField),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 15, left: 15, top: 8, bottom: 8),
-                            child: CommonFun.textBold('Clear', 16, TextAlign.center, color: Colour.pink),
+                            child: CommonFun.textBold('Clear', 16, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                       ),
                       Flexible(
                         flex: 1,
                         child: Container(
-                          margin: const EdgeInsets.only(right: 5),
+                          margin: const EdgeInsets.only(right: 5,left: 5),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10), color: Colour.pink),
                           child: Padding(
@@ -739,6 +825,35 @@ Widget _filterBottomSheet(BuildContext context) {
           ],
         );
       }));
+}
+
+customHandler(String value) {
+  return FlutterSliderHandler(
+    decoration: const BoxDecoration(),
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+
+
+        Container(
+          width: 12,height: 12,
+          decoration: BoxDecoration(
+              color: Colour.white,
+              borderRadius: BorderRadiusDirectional.circular(50),
+              border: Border.all(color: Colour.pink,width: 2)
+          ),
+        ),
+
+        Container(
+            transform: Matrix4.translationValues(0, -20, 0),
+            child: CommonFun.textReg(value, 12, TextAlign.center, color: Colour.black)),
+        Container(
+            transform: Matrix4.translationValues(0, -20, 0),
+            child: CommonFun.textReg(value, 12, TextAlign.center, color: Colour.black)),
+
+      ],
+    ),
+  );
 }
 
 Future<DateTime?> pickDate(BuildContext context) async {
@@ -813,9 +928,25 @@ Widget boostEventDialog() {
           const SizedBox(height: 20),
           CommonFun.textBold('Boost Event', 16, TextAlign.center, color: Colour.black),
           const SizedBox(height: 10),
-          CommonFun.textReg('It is a long established fact that a\n  reader will be distracted.', 12, TextAlign.center, color: Colour.black),
+          Container(
+              margin: const EdgeInsets.only(right: 15,left: 15),
+              child: CommonFun.textReg('It is a long established fact that a reader will be distracted.', 16, TextAlign.center, color: Colour.greyText)),
           const SizedBox(height: 20),
-          CommonFun.textBold('\$60/month', 14, TextAlign.center, color: Colour.pink),
+
+
+          RichText(
+            textAlign: TextAlign.start,
+            text: TextSpan(
+                text: "\$60",
+                style: TextStyle(overflow: TextOverflow.ellipsis, fontFamily: "poppins_Bold", color: Colour.pink, fontSize: 20),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: "/month",
+                    style: TextStyle(fontFamily: "poppins_Bold", color: Colour.greyText, fontSize: 16),
+                  ),
+                ]),
+          ),
+
           const SizedBox(height: 20),
           Container(
             height: 40,
@@ -845,4 +976,6 @@ Widget boostEventDialog() {
       );
     }),
   );
+
 }
+

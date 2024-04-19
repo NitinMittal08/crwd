@@ -302,15 +302,12 @@ class _MyEventState extends State<MyEvent> {
                               ],
                             ),
                           )
-
-
                         ],
                       ),
                     ),
                   );
                 },),
             ),
-
         ],
       ),
 

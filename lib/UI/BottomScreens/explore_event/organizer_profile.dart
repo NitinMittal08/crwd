@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:sticky_headers/sticky_headers/widget.dart';
 import '../../../values/colour.dart';
 import '../../../values/commonFun.dart';
 
@@ -162,11 +161,11 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
 
                     Flexible(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10,bottom: 10),
+                        margin: const EdgeInsets.only(top: 10,bottom: 10,right: 5,left: 5),
                         alignment: Alignment.center,
                         height: 40,
                         decoration: BoxDecoration(
-                          color:currentTab == 1 ?Colour.pink: Colour.bgColor,
+                          color:currentTab == 1 ?Colour.pink: Colour.white,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
                           ),
@@ -192,11 +191,11 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10,bottom: 10),
+                        margin: const EdgeInsets.only(top: 10,bottom: 10,right: 5,left: 5),
                         alignment: Alignment.center,
                         height: 40,
                         decoration: BoxDecoration(
-                          color:currentTab == 2? Colour.pink:Colour.bgColor,
+                          color:currentTab == 2? Colour.pink:Colour.white,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
                           ),
@@ -222,11 +221,11 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                     ),
                     Flexible(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10,bottom: 10),
+                        margin: const EdgeInsets.only(top: 10,bottom: 10,right: 5,left: 5),
                         alignment: Alignment.center,
                         height: 40,
                         decoration: BoxDecoration(
-                          color:currentTab == 3?Colour.pink:Colour.bgColor,
+                          color:currentTab == 3?Colour.pink:Colour.white,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
                           ),

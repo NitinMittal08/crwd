@@ -1,3 +1,4 @@
+import 'package:crwd/UI/BottomScreens/explore_event/payment_screen/check_out.dart';
 import 'package:flutter/material.dart';
 
 import '../../../values/colour.dart';
@@ -257,7 +258,9 @@ class _BookTicketState extends State<BookTicket> {
                           child: CommonFun.textBold("Check out", 14, TextAlign.center, color: Colour.white),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const CheckOut()));
+                      },
                     ),
                   ),
                 ],

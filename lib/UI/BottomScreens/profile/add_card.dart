@@ -71,9 +71,6 @@ class _AddCardState extends State<AddCard> {
                           ),
                         ),
 
-
-
-
                         //textField
                         Container(
                           decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
@@ -96,7 +93,6 @@ class _AddCardState extends State<AddCard> {
                             ),
                           ),
                         ),
-
 
                         Row(
                           children: [
@@ -148,8 +144,6 @@ class _AddCardState extends State<AddCard> {
                             ),
                           ],
                         ),
-
-
 
                         Container(
                           decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
