@@ -44,7 +44,7 @@ class _AddAdState extends State<AddAd> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Add Ad', 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1('Add Ad', 16, TextAlign.center, color: Colour.black),
                   ],
                 ),
               ),
@@ -142,7 +142,7 @@ class _AddAdState extends State<AddAd> {
                           height: double.infinity,
                           child: Center(
                             child:
-                            CommonFun.textBold("Add Ad", 16, TextAlign.center, color: Colour.white),
+                            CommonFun.textBold1("Add Ad", 16, TextAlign.center, color: Colour.white),
                           ),
                         ),
                         onTap: () {

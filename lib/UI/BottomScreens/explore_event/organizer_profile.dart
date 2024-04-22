@@ -13,7 +13,6 @@ class OrganizerProfile extends StatefulWidget {
 
 class _OrganizerProfileState extends State<OrganizerProfile> {
 
-  final ScrollController _scrollController = ScrollController();
 
   String qw ='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  making it look like readable English.';
   int currentTab = 1;
@@ -38,7 +37,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                       onTap: () => Navigator.pop(context),
                       child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                   const SizedBox(width: 10),
-                  CommonFun.textBold('Organizer Profile', 16, TextAlign.center, color: Colour.black),
+                  CommonFun.textBold1('Organizer Profile', 16, TextAlign.center, color: Colour.black),
                 ],
               ),
             ),
@@ -71,7 +70,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
 
                               Container(
                                   margin: const EdgeInsets.only(top: 8, left: 10),
-                                  child: CommonFun.textBold(
+                                  child: CommonFun.textBold1(
                                       'Amie Rosie', 16, TextAlign.center, color: Colour.black)),
                               Container(
                                   margin: const EdgeInsets.only(left: 10),
@@ -176,8 +175,8 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                             child: SizedBox(
                               width: 100,
                               child: Center(
-                                child: CommonFun.textBold("Events", 14, TextAlign.center,
-                                    color:currentTab == 1 ?Colour.bgColor :Colour.pink),
+                                child: CommonFun.textBold1("Events", 14, TextAlign.center,
+                                    color:currentTab == 1 ?Colour.bgColor :Colour.greyText),
                               ),
                             ),
                           ),
@@ -206,8 +205,8 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                             child: SizedBox(
                               width: 100,
                               child: Center(
-                                child: CommonFun.textBold("Past", 14, TextAlign.center,
-                                    color:currentTab ==2 ?Colour.bgColor :Colour.pink),
+                                child: CommonFun.textBold1("Past", 14, TextAlign.center,
+                                    color:currentTab ==2 ?Colour.bgColor :Colour.greyText),
                               ),
                             ),
                           ),
@@ -236,8 +235,8 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                             child: SizedBox(
                               width: 100,
                               child: Center(
-                                child: CommonFun.textBold("About", 14, TextAlign.center,
-                                    color:currentTab == 3? Colour.bgColor:Colour.pink),
+                                child: CommonFun.textBold1("About", 14, TextAlign.center,
+                                    color:currentTab == 3? Colour.bgColor:Colour.greyText),
                               ),
                             ),
                           ),
@@ -326,7 +325,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                                         Container(
                                             width: 180,
                                             margin: const EdgeInsets.only(top: 3, left: 10),
-                                            child: CommonFun.textBold(
+                                            child: CommonFun.textBold1(
                                                 'Amie Rosie', 16, TextAlign.start, color: Colour.black)),
 
 
@@ -335,7 +334,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
 
                                         Container(
                                           width: 180,
-                                          margin: EdgeInsets.only( left: 10),
+                                          margin: const EdgeInsets.only(left: 10),
                                           child: RichText(
                                             textAlign: TextAlign.start,
                                             text: TextSpan(
@@ -384,7 +383,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                                       Image.asset('assets/images/like.png',color: Colour.pink,height: 15,),
 
                                       Container(
-                                          child: CommonFun.textBold(
+                                          child: CommonFun.textBold1(
                                               '\$200', 12, TextAlign.center, color: Colour.pink)),
                                     ],
                                   ),
@@ -460,7 +459,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                                         Container(
                                             width: 180,
                                             margin: const EdgeInsets.only(top: 3, left: 10),
-                                            child: CommonFun.textBold(
+                                            child: CommonFun.textBold1(
                                                 'Amie Rosie', 16, TextAlign.start, color: Colour.black)),
 
 
@@ -518,7 +517,7 @@ class _OrganizerProfileState extends State<OrganizerProfile> {
                                       Image.asset('assets/images/like.png',color: Colour.pink,height: 15,),
 
                                       Container(
-                                          child: CommonFun.textBold(
+                                          child: CommonFun.textBold1(
                                               '\$200', 12, TextAlign.center, color: Colour.pink)),
                                     ],
                                   ),

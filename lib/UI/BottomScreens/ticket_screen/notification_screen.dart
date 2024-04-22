@@ -24,7 +24,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         elevation: 0,
         title: SizedBox(
           width: MediaQuery.of(context).size.width / 1.7,
-          child: CommonFun.textBold('Ticket', 16, TextAlign.start, color: Colour.black),
+          child: CommonFun.textBold1('Ticket', 16, TextAlign.start, color: Colour.black),
         ),
         automaticallyImplyLeading: false,
       ),
@@ -53,7 +53,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       height: 60,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(color: currentTab == 0 ? Colour.pink : Colour.bgColor, borderRadius: BorderRadius.circular(30)),
-                      child: CommonFun.textBold('Upcoming', 16, TextAlign.center, color: currentTab == 0 ? Colour.white : Colour.greyText),
+                      child: CommonFun.textBold1('Upcoming', 16, TextAlign.center, color: currentTab == 0 ? Colour.white : Colour.greyText),
                     ),
                   ),
                 ),
@@ -69,7 +69,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       width: MediaQuery.of(context).size.width * .44,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(color: currentTab == 1 ? Colour.pink : Colour.bgColor, borderRadius: BorderRadius.circular(30)),
-                      child: CommonFun.textBold('Past Tickets', 16, TextAlign.center, color: currentTab == 1 ? Colour.white : Colour.greyText),
+                      child: CommonFun.textBold1('Past Tickets', 16, TextAlign.center, color: currentTab == 1 ? Colour.white : Colour.greyText),
                     ),
                   ),
                 ),
@@ -116,7 +116,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        CommonFun.textBold("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.black),
+                                        CommonFun.textBold1("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.black),
                                         CommonFun.textReg("19 May 2022-4:30 PM", 12, TextAlign.start, color: Colour.greyText),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.start,
@@ -138,7 +138,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                   )
                                 ],
                               ),
-                              CommonFun.textBold('\$600', 12, TextAlign.center, color: Colour.pink)
+                              CommonFun.textBold1('\$600', 12, TextAlign.center, color: Colour.pink)
                             ],
                           ),
                         ),
@@ -238,7 +238,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
-                                              CommonFun.textBold("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.black),
+                                              CommonFun.textBold1("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.black),
                                               CommonFun.textReg("19 May 2022-4:30 PM", 12, TextAlign.start, color: Colour.greyText),
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -260,7 +260,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                         )
                                       ],
                                     ),
-                                    CommonFun.textBold('\$600', 12, TextAlign.center, color: Colour.pink)
+                                    CommonFun.textBold1('\$600', 12, TextAlign.center, color: Colour.pink)
                                   ],
                                 ),
                               ),

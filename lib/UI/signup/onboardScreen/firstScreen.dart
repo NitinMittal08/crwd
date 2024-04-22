@@ -37,7 +37,7 @@ class _FirstScreenState extends State<FirstScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
-            CommonFun.textBold('Welcome to \n Event Organizer App', 20, TextAlign.center, color: Colors.black),
+            CommonFun.textBold1('Welcome to \n Event Organizer App', 20, TextAlign.center, color: Colors.black),
             CommonFun.textMed('Refrence site about loreum lspum,giving information origins', 16, TextAlign.center, color: Colors.black),
 
             Container(
@@ -57,7 +57,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   width: double.infinity,
                   height: double.infinity,
                   child: Center(
-                    child: CommonFun.textBold(
+                    child: CommonFun.textBold1(
                         "Next"
                         , 16, TextAlign.center, color: Colour.white),
                   ),
@@ -86,7 +86,7 @@ class _FirstScreenState extends State<FirstScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
-            CommonFun.textBold('Unlimites \n Event Explore', 20, TextAlign.center, color: Colors.black),
+            CommonFun.textBold1('Unlimites \n Event Explore', 20, TextAlign.center, color: Colors.black),
             CommonFun.textMed('Refrence site about loreum lspum,giving information origins', 16, TextAlign.center, color: Colors.black),
 
             Container(
@@ -106,7 +106,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   width: double.infinity,
                   height: double.infinity,
                   child: Center(
-                    child: CommonFun.textBold(
+                    child: CommonFun.textBold1(
                         "Next"
                         , 16, TextAlign.center, color: Colour.white),
                   ),
@@ -135,7 +135,7 @@ class _FirstScreenState extends State<FirstScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
-            CommonFun.textBold('Easy to Buy \n and Sell Ticket', 20, TextAlign.center, color: Colors.black),
+            CommonFun.textBold1('Easy to Buy \n and Sell Ticket', 20, TextAlign.center, color: Colors.black),
             CommonFun.textMed('Refrence site about loreum lspum,giving information origins', 16, TextAlign.center, color: Colors.black),
 
             Container(
@@ -155,7 +155,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   width: double.infinity,
                   height: double.infinity,
                   child: Center(
-                    child: CommonFun.textBold(
+                    child: CommonFun.textBold1(
                         "Get Started"
                         , 16, TextAlign.center, color: Colour.white),
                   ),
@@ -226,7 +226,7 @@ class _FirstScreenState extends State<FirstScreen> {
                               splashColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const LastScreen())),
-                              child: CommonFun.textBold(
+                              child: CommonFun.textBold1(
                                   "Skip"
                                   , 16, TextAlign.center, color: Colour.black),
                             )

@@ -45,7 +45,7 @@ class _HelpSupport1State extends State<HelpSupport1> {
                     fit: BoxFit.fill,
                   )),
               const SizedBox(width: 10),
-              const Text('Guideline', style: TextStyle(color: Colors.black)),
+              CommonFun.textBold1('Guideline', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -58,7 +58,7 @@ class _HelpSupport1State extends State<HelpSupport1> {
         children: [
           Container(
               margin: const EdgeInsets.only(top: 15, left: 15, bottom: 10),
-              child: CommonFun.textBold('Guidelines', 16, TextAlign.start, color: Colour.black)),
+              child: CommonFun.textBold1('Guidelines', 16, TextAlign.start, color: Colour.black)),
           const Divider(
             height: 1,
             thickness: 1,

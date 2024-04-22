@@ -21,7 +21,7 @@ class _UploadImagesState extends State<UploadImages> {
 
   List<File?> image = [];
   List<File?> reversedAnimals = [];
-
+  List<File?> reversedAnimals1 = [];
   bool containsEmptyItem = false;
 
   @override
@@ -31,7 +31,6 @@ class _UploadImagesState extends State<UploadImages> {
     image.add(File(""));
     reversedAnimals = image.reversed.toList();
   }
-
 
   XFile? _pickedFile;
   CroppedFile? _croppedFile;
@@ -82,7 +81,7 @@ class _UploadImagesState extends State<UploadImages> {
                      mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      CommonFun.textBold("Upload Your Photos", 16, TextAlign.start, color: Colour.black),
+                      CommonFun.textBold1("Upload Your Photos", 16, TextAlign.start, color: Colour.black),
                       CommonFun.textMed("Please add at least Five photo of yourself with nobody else in the picture", 12, TextAlign.start,
                           color: Colour.greyText),
                       Container(
@@ -131,7 +130,7 @@ class _UploadImagesState extends State<UploadImages> {
                                   : Stack(
                                 alignment: Alignment.bottomRight,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: itemHeight,width: itemWidth,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(15),
@@ -142,28 +141,40 @@ class _UploadImagesState extends State<UploadImages> {
                                       )),
                                   InkWell(
                                     onTap: () async {
+
                                       for (int i = 0; i < reversedAnimals.length; i++) {
                                         if (reversedAnimals[i]!.path.isEmpty) {
                                           containsEmptyItem = true;
-                                          break;
                                         } else {
                                           containsEmptyItem = false;
                                         }
                                       }
 
+
+
+
+
                                       if (containsEmptyItem) {
-                                        print("List contains an empty item.");
+                                        debugPrint("List contains an empty item.");
                                       } else {
-                                        print("List does not contain an empty item.");
+                                        debugPrint("List does not contain an empty item.");
                                         image.add(File(""));
                                         reversedAnimals = image;
                                       }
 
-                                      reversedAnimals.remove(image[index]);
-                                      image.remove(image[index]);
+
+
+
+                                      reversedAnimals.remove(reversedAnimals[index]);
+                                      reversedAnimals1 = reversedAnimals.reversed.toList();
+                                      image.clear();
+                                      image = reversedAnimals1;
+
+
 
                                       debugPrint('reversedAnimals $reversedAnimals');
                                       debugPrint('reversedAnimals.length ${reversedAnimals.length}');
+
                                       setState(() {});
                                     },
                                     child: Image.asset(
@@ -200,7 +211,7 @@ class _UploadImagesState extends State<UploadImages> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Continue", 16, TextAlign.center, color: Colour.white),
+                              child: CommonFun.textBold1("Continue", 16, TextAlign.center, color: Colour.white),
                             ),
                           ),
                           onTap: () {
@@ -253,6 +264,7 @@ class _UploadImagesState extends State<UploadImages> {
         if (croppedFile != null) {
           _croppedFile = croppedFile;
           image.add(File(_croppedFile!.path.toString()));
+
 
           reversedAnimals = image.reversed.toList();
         }

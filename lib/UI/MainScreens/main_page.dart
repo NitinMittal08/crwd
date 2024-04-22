@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../BottomScreens/profile/my_profile.dart';
+import 'host_basic.dart';
 
 class MainPage extends StatefulWidget {
   int index;
@@ -48,7 +49,6 @@ class _HomePageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xffC4DFCB),
       backgroundColor: Colour.white,
       body: pages[pageIndex],
       bottomNavigationBar: buildMyBottomNav(context),
@@ -57,7 +57,9 @@ class _HomePageState extends State<MainPage> {
 
       floatingActionButton: FloatingActionButton(
         focusElevation: 0,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HostBasic(from: 0,)));
+        },
         child: Image.asset('assets/images/crwd_icon.png'),
       ),
 

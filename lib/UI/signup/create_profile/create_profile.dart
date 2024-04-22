@@ -53,7 +53,7 @@ class _CreateProfileState extends State<CreateProfile> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    CommonFun.textBold("What’s Your Email?", 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1("What’s Your Email?", 16, TextAlign.start, color: Colour.black),
                     CommonFun.textMed("Please enter your email to retrieve your account ", 12, TextAlign.start, color: Colour.greyText),
 
                     Container(
@@ -97,7 +97,7 @@ class _CreateProfileState extends State<CreateProfile> {
                           width: double.infinity,
                           height: double.infinity,
                           child: Center(
-                            child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                            child: CommonFun.textBold1("Continue", 16, TextAlign.center,
                                 color: Colour.white),
                           ),
                         ),

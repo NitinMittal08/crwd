@@ -53,7 +53,7 @@ class _BookTicketState extends State<BookTicket> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 8),
-              CommonFun.textBold('Book Ticket', 16, TextAlign.center, color: Colour.black),
+              CommonFun.textBold1('Book Ticket', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -102,7 +102,7 @@ class _BookTicketState extends State<BookTicket> {
                                           borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                                           color: Colour.greyBorder,
                                         ),
-                                        child: CommonFun.textBold(model[index].count.toString(), 21, TextAlign.center, color: Colour.greyText),
+                                        child: CommonFun.textBold1(model[index].count.toString(), 21, TextAlign.center, color: Colour.greyText),
                                       ),
                                       const SizedBox(width: 5),
                                       Column(
@@ -111,7 +111,7 @@ class _BookTicketState extends State<BookTicket> {
                                         children: [
                                           Container(
                                             margin: const EdgeInsets.only(top: 10),
-                                            child: CommonFun.textBold(model[index].name.toString(), 14, TextAlign.center, color: Colour.black),
+                                            child: CommonFun.textBold1(model[index].name.toString(), 14, TextAlign.center, color: Colour.black),
                                           ),
                                           RichText(
                                             textAlign: TextAlign.start,
@@ -234,10 +234,10 @@ class _BookTicketState extends State<BookTicket> {
                   Row(
                     children: [
                       Container(
-                        child: CommonFun.textBold('Total : ', 14, TextAlign.start, color: Colour.black),
+                        child: CommonFun.textBold1('Total : ', 14, TextAlign.start, color: Colour.black),
                       ),
                       Container(
-                        child: CommonFun.textBold("\$${qwerty.toString()}", 14, TextAlign.start, color: Colour.greyText),
+                        child: CommonFun.textBold1("\$${qwerty.toString()}", 14, TextAlign.start, color: Colour.pink),
                       ),
                     ],
                   ),
@@ -255,7 +255,7 @@ class _BookTicketState extends State<BookTicket> {
                       child: Container(
                         margin: const EdgeInsets.only(right: 5, left: 5),
                         child: Center(
-                          child: CommonFun.textBold("Check out", 14, TextAlign.center, color: Colour.white),
+                          child: CommonFun.textBold1("Check out", 14, TextAlign.center, color: Colour.white),
                         ),
                       ),
                       onTap: () {

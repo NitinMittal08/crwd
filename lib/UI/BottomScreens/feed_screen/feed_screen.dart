@@ -17,7 +17,11 @@ class FeedScreen extends StatefulWidget {
 enum SampleItem { edit, delete }
 
 class _FeedScreenState extends State<FeedScreen> {
+
   SampleItem? selectedItem;
+  List<String> items = ['Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin'];
+  List<bool> isSelected = List.generate(7, (index) => false);
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +30,9 @@ class _FeedScreenState extends State<FeedScreen> {
       backgroundColor: Colour.bgColor,
       appBar: AppBar(
           backgroundColor: Colour.bgColor,
-          title:  CommonFun.textBold('Story', 16, TextAlign.start, color: Colour.black),
+          title:  CommonFun.textBold1('Story', 16, TextAlign.start, color: Colour.black),
           elevation: 0,
           automaticallyImplyLeading: false),
-
-
-
-
-
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -132,7 +131,7 @@ class _FeedScreenState extends State<FeedScreen> {
 
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: CommonFun.textBold("Feed", 16, TextAlign.start, color: Colour.black),
+              child: CommonFun.textBold1("Feed", 16, TextAlign.start, color: Colour.black),
             ),
 
 
@@ -175,7 +174,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        CommonFun.textBold("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.blackNew),
+                                        CommonFun.textBold1("Sunday Sqool Comedy", 16, TextAlign.start, color: Colour.blackNew),
                                         CommonFun.textReg("2 hr ago", 12, TextAlign.start, color: Colour.greyText),
                                       ],
                                     ),
@@ -368,12 +367,14 @@ class _FeedScreenState extends State<FeedScreen> {
           ],
         ),
       ),
+          floatingActionButton: SizedBox(
+            width: 50,height: 50,
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colour.pink,
+              child: Center(child: Image.asset('assets/images/icon/add.png',width: 29,height: 29,)),
 
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colour.pink,
-            child: Center(child: Image.asset('assets/images/icon/add.png',width: 29,height: 29,)),
-
+            ),
           ),
     ));
   }
@@ -410,7 +411,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Delete Feed', 20, TextAlign.center, color: Colour.blackNew1),
+                CommonFun.textBold1('Delete Feed', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
                 CommonFun.textReg('Are you sure you want to  \n this feed', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
@@ -430,7 +431,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
+                            child: CommonFun.textBold1("Cancel", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {
@@ -452,7 +453,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         child: InkWell(
                           child: SizedBox(
                             child: Center(
-                              child: CommonFun.textBold("Delete", 14, TextAlign.center, color: Colour.white),
+                              child: CommonFun.textBold1("Delete", 14, TextAlign.center, color: Colour.white),
                             ),
                           ),
                           onTap: () {
@@ -471,11 +472,6 @@ class _FeedScreenState extends State<FeedScreen> {
       }),
     );
   }
-
-
-  List<String> items = ['Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin', 'Afshin'];
-  List<bool> isSelected = List.generate(7, (index) => false);
-
 
   Widget _shareBottomSheet(BuildContext context) {
     return StatefulBuilder(builder: (context, myState) {
@@ -631,7 +627,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 height: double.infinity,
                 child: Center(
                   child:
-                  CommonFun.textBold("Share", 16, TextAlign.center, color: Colour.white),
+                  CommonFun.textBold1("Share", 16, TextAlign.center, color: Colour.white),
                 ),
               ),
               onTap: () {
@@ -644,8 +640,4 @@ class _FeedScreenState extends State<FeedScreen> {
       );
     });
   }
-
-
-
-
 }

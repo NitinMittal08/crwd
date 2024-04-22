@@ -1,8 +1,6 @@
 
 
 import 'dart:async';
-
-import 'package:crwd/UI/MainScreens/main_page.dart';
 import 'package:crwd/UI/signup/onboardScreen/firstScreen.dart';
 import 'package:crwd/Util/shared_keys.dart';
 import 'package:crwd/values/colour.dart';
@@ -17,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
+  String screenWay='';
 
 
   @override
@@ -26,8 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(Duration.zero,() async{
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      String screenWay = prefs.getString(SharedKeys.onBoardScreenOn).toString();
-      debugPrint('sharedPref value is :  $screenWay');
+
+
+        screenWay = prefs.getString(SharedKeys.onBoardScreenOn).toString();
+        debugPrint('sharedPref value is :  $screenWay');
 
       Timer(const Duration(seconds: 3), ()=>Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const FirstScreen())));

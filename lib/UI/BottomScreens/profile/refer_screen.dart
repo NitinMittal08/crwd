@@ -54,7 +54,7 @@ class _ReferScreenState extends State<ReferScreen> {
            width: double.infinity,height: double.infinity,
            child: Column(
              children: [
-               CommonFun.textBold('Invite your friends', 14, TextAlign.center, color: Colour.black),
+               CommonFun.textBold1('Invite your friends', 14, TextAlign.center, color: Colour.black),
                CommonFun.textReg('Copy your code,share it with your friends.', 12, TextAlign.center, color: Colour.black.withOpacity(.3)),
 
 
@@ -90,7 +90,7 @@ class _ReferScreenState extends State<ReferScreen> {
                            child: InkWell(
                              child: SizedBox(
                                child: Center(
-                                 child: CommonFun.textBold("Copy", 12, TextAlign.center, color: Colour.white),
+                                 child: CommonFun.textBold1("Copy", 12, TextAlign.center, color: Colour.white),
                                ),
                              ),
                              onTap: () {
@@ -140,7 +140,7 @@ class _ReferScreenState extends State<ReferScreen> {
                                Container(
                                  alignment: Alignment.center,
                                    width: 60,
-                                   child: CommonFun.textBold(list[index].name.toString(), 14, TextAlign.center, color: Colour.black)),
+                                   child: CommonFun.textBold1(list[index].name.toString(), 14, TextAlign.center, color: Colour.black)),
 
 
                              ],

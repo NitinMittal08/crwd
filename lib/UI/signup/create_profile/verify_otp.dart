@@ -50,7 +50,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CommonFun.textBold("Verify Your Email", 16, TextAlign.start, color: Colour.black),
+                CommonFun.textBold1("Verify Your Email", 16, TextAlign.start, color: Colour.black),
                 CommonFun.textMed("Please enter your 4 digit code below to verify your Email Address", 12, TextAlign.start, color: Colour.greyText),
 
 
@@ -103,7 +103,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       width: double.infinity,
                       height: double.infinity,
                       child: Center(
-                        child: CommonFun.textBold("Resend Code", 16, TextAlign.center,
+                        child: CommonFun.textBold1("Resend Code", 16, TextAlign.center,
                             color: Colour.pink),
                       ),
                     ),
@@ -129,7 +129,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       width: double.infinity,
                       height: double.infinity,
                       child: Center(
-                        child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                        child: CommonFun.textBold1("Continue", 16, TextAlign.center,
                             color: Colour.white),
                       ),
                     ),

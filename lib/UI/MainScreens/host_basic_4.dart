@@ -34,7 +34,7 @@ class _HostBasicFourState extends State<HostBasicFour> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1('Host Event', 16, TextAlign.center, color: Colour.black),
                   ],
                 ),
               ),
@@ -50,7 +50,7 @@ class _HostBasicFourState extends State<HostBasicFour> {
                       Container(
                           alignment: Alignment.centerLeft,
                           margin: const EdgeInsets.all(15),
-                          child: CommonFun.textBold("Event Ticket Pricing", 18, TextAlign.start, color: Colour.black)),
+                          child: CommonFun.textBold1("Event Ticket Pricing", 18, TextAlign.start, color: Colour.black)),
 
                       Container(
                         margin: const EdgeInsets.only(right: 15, left: 15, top: 15),
@@ -192,7 +192,7 @@ class _HostBasicFourState extends State<HostBasicFour> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+                              child: CommonFun.textBold1("Next", 16, TextAlign.center, color: Colour.white),
                             ),
                           ),
                           onTap: () {

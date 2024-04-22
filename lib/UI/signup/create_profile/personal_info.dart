@@ -59,7 +59,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    CommonFun.textBold("Personal Information", 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1("Personal Information", 16, TextAlign.start, color: Colour.black),
                     CommonFun.textMed("Please enter your details below", 12, TextAlign.start, color: Colour.greyText),
 
                     //textField
@@ -244,7 +244,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           width: double.infinity,
                           height: double.infinity,
                           child: Center(
-                            child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                            child: CommonFun.textBold1("Continue", 16, TextAlign.center,
                                 color: Colour.white),
                           ),
                         ),

@@ -33,7 +33,7 @@ class _HostBasicTwoState extends State<HostBasicTwo> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold("Host Event", 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1("Host Event", 16, TextAlign.start, color: Colour.black),
                   ],
                 ),
               ),
@@ -48,7 +48,7 @@ class _HostBasicTwoState extends State<HostBasicTwo> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        CommonFun.textBold("Event Location Details", 18, TextAlign.start, color: Colour.black),
+                        CommonFun.textBold1("Event Location Details", 18, TextAlign.start, color: Colour.black),
 
                         //textField
                         Container(
@@ -170,7 +170,7 @@ class _HostBasicTwoState extends State<HostBasicTwo> {
                               height: double.infinity,
                               child: Center(
                                 child:
-                                CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+                                CommonFun.textBold1("Next", 16, TextAlign.center, color: Colour.white),
                               ),
                             ),
                             onTap: () {

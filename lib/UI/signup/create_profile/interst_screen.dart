@@ -4,16 +4,37 @@ import '../../../values/colour.dart';
 import '../../../values/commonFun.dart';
 
 class InterestScreen extends StatefulWidget {
-  int from;
 
-  InterestScreen({Key? key, required this.from}) : super(key: key);
+
+  InterestScreen({Key? key,}) : super(key: key);
 
   @override
   State<InterestScreen> createState() => _InterestScreenState();
 }
+class ModelInterest {
+  String? image;
+  String? name;
+
+  ModelInterest(this.image, this.name);
+}
+
 
 class _InterestScreenState extends State<InterestScreen> {
-  List<String> interestList = ['Music', 'Art', 'Sport', 'Party', 'Food', 'Travel'];
+
+  List<ModelInterest> interestList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    interestList.add(ModelInterest('assets/images/profile/music.png', 'Music'));
+    interestList.add(ModelInterest('assets/images/profile/art.png', 'Art'));
+    interestList.add(ModelInterest('assets/images/profile/sport.png', 'Sport'));
+    interestList.add(ModelInterest('assets/images/profile/party.png', 'Party'));
+    interestList.add(ModelInterest('assets/images/profile/food.png', 'Food'));
+    interestList.add(ModelInterest('assets/images/profile/traval.png', 'Travel'));
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +61,7 @@ class _InterestScreenState extends State<InterestScreen> {
                         height: 10,
                         fit: BoxFit.fill,
                       )),
-                  (widget.from == 0) ? CommonFun.indicators(7) : CommonFun.textBold('My Interest', 14, TextAlign.center, color: Colour.black),
+               CommonFun.indicators(7)
                 ],
               ),
             ),
@@ -51,12 +72,12 @@ class _InterestScreenState extends State<InterestScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CommonFun.textBold("Select Your Interest", 16, TextAlign.start, color: Colour.black),
+                CommonFun.textBold1("Select Your Interest", 16, TextAlign.start, color: Colour.black),
                 CommonFun.textMed("Please select at least one category ", 12, TextAlign.start, color: Colour.greyText),
 
 
                 const SizedBox(height: 15),
-                Expanded(
+               /* Expanded(
                   child: GridView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: 5,
@@ -91,7 +112,35 @@ class _InterestScreenState extends State<InterestScreen> {
                       );
                     },
                   ),
+                ),*/
+
+                SizedBox(
+                  height: 450,
+                  child: GridView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: 5,
+                    shrinkWrap: false,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        child: Center(
+                          child: Image.asset(
+                            interestList[index].image.toString(),
+                            height: 74,
+                            width: 83,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
+
+
                 Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(right: 15, left: 15, top: 15),
@@ -108,15 +157,11 @@ class _InterestScreenState extends State<InterestScreen> {
                       width: double.infinity,
                       height: double.infinity,
                       child: Center(
-                        child: CommonFun.textBold("Continue", 16, TextAlign.center, color: Colour.white),
+                        child: CommonFun.textBold1("Continue", 16, TextAlign.center, color: Colour.white),
                       ),
                     ),
                     onTap: () {
-                      if (widget.from == 0) {
                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>MainPage(index: 0,)), (route) => false);
-                      } else {
-                        Navigator.pop(context);
-                      }
                     },
                   ),
                 ),

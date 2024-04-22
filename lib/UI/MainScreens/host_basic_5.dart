@@ -23,6 +23,7 @@ class _HostBasicFiveState extends State<HostBasicFive> {
   XFile? _pickedFile;
   List<File?> image=[];
   List<File?> reversedAnimals=[];
+  List<File?> reversedAnimals1=[];
   CroppedFile? _croppedFile;
   bool containsEmptyItem = false;
 
@@ -63,7 +64,7 @@ class _HostBasicFiveState extends State<HostBasicFive> {
                           onTap: () => Navigator.pop(context),
                           child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                       const SizedBox(width: 10),
-                      CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Host Event', 16, TextAlign.center, color: Colour.black),
                     ],
                   ),
                 ),
@@ -78,7 +79,7 @@ class _HostBasicFiveState extends State<HostBasicFive> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          CommonFun.textBold("Upload Your Photos", 16, TextAlign.start, color: Colour.black),
+                          CommonFun.textBold1("Upload Your Photos", 16, TextAlign.start, color: Colour.black),
                           CommonFun.textMed("Please add at least Five photo of yourself with nobody else in the picture", 12, TextAlign.start,
                               color: Colour.greyText),
                           Container(
@@ -155,8 +156,10 @@ class _HostBasicFiveState extends State<HostBasicFive> {
                                             reversedAnimals = image;
                                           }
 
-                                          reversedAnimals.remove(image[index]);
-                                          image.remove(image[index]);
+                                          reversedAnimals.remove(reversedAnimals[index]);
+                                          reversedAnimals1 = reversedAnimals.reversed.toList();
+                                          image.clear();
+                                          image = reversedAnimals1;
 
                                           debugPrint('reversedAnimals $reversedAnimals');
                                           debugPrint('reversedAnimals.length ${reversedAnimals.length}');
@@ -196,7 +199,7 @@ class _HostBasicFiveState extends State<HostBasicFive> {
                                 width: double.infinity,
                                 height: double.infinity,
                                 child: Center(
-                                  child: CommonFun.textBold("Continue", 16, TextAlign.center, color: Colour.white),
+                                  child: CommonFun.textBold1("Continue", 16, TextAlign.center, color: Colour.white),
                                 ),
                               ),
                               onTap: () {
@@ -253,7 +256,6 @@ class _HostBasicFiveState extends State<HostBasicFive> {
         if (croppedFile != null) {
           _croppedFile = croppedFile;
           image.add(File(_croppedFile!.path.toString()));
-
           reversedAnimals = image.reversed.toList();
         }
       }

@@ -33,7 +33,7 @@ class _FeedLikesState extends State<FeedLikes> {
                     onTap: () => Navigator.pop(context),
                     child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                 const SizedBox(width: 10),
-                CommonFun.textBold('Like', 16, TextAlign.start, color: Colour.black),
+                CommonFun.textBold1('Like', 16, TextAlign.start, color: Colour.black),
               ],
             ),
           ),
@@ -118,7 +118,7 @@ class _FeedLikesState extends State<FeedLikes> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          CommonFun.textBold("Afshin", 14, TextAlign.start, color: Colour.black),
+                                          CommonFun.textBold1("Afshin", 14, TextAlign.start, color: Colour.black),
                                           CommonFun.textReg("2 mutual friend", 12, TextAlign.start, color: Colour.greyText),
                                         ],
                                       ),

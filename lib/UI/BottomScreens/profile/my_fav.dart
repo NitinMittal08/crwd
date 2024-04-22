@@ -39,7 +39,7 @@ class _MyFavState extends State<MyFav> {
                       onTap: () => Navigator.pop(context),
                       child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                   const SizedBox(width: 10),
-                  CommonFun.textBold('My Favourite', 16, TextAlign.center, color: Colour.black),
+                  CommonFun.textBold1('My Favourite', 16, TextAlign.center, color: Colour.black),
                 ],
               ),
             ),
@@ -161,7 +161,7 @@ class _MyFavState extends State<MyFav> {
                                       Container(
                                           width: 180,
                                           margin: const EdgeInsets.only(top: 4, left: 10),
-                                          child: CommonFun.textBold(
+                                          child: CommonFun.textBold1(
                                               'Amie Rosie', 16, TextAlign.start, color: Colour.black)),
 
 
@@ -248,7 +248,7 @@ class _MyFavState extends State<MyFav> {
                                       Container(
                                           width: 180,
                                           margin: EdgeInsets.only(top: 8, left: 10),
-                                          child: CommonFun.textBold(
+                                          child: CommonFun.textBold1(
                                               'Amie Rosie', 16, TextAlign.start, color: Colour.black)),
                                       Container(
                                           width: 180,
@@ -278,7 +278,7 @@ class _MyFavState extends State<MyFav> {
                                     Image.asset('assets/images/like.png',color: Colour.pink,height: 15,),
 
                                     Container(
-                                        child: CommonFun.textBold(
+                                        child: CommonFun.textBold1(
                                             '200', 12, TextAlign.center, color: Colour.pink)),
                                   ],
                                 ),

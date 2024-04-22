@@ -46,7 +46,7 @@ class _HostBasicThreeState extends State<HostBasicThree> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1('Host Event', 16, TextAlign.center, color: Colour.black),
                   ],
                 ),
               ),
@@ -61,7 +61,7 @@ class _HostBasicThreeState extends State<HostBasicThree> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        CommonFun.textBold("Event Date and Time ", 18, TextAlign.start, color: Colour.black),
+                        CommonFun.textBold1("Event Date and Time ", 18, TextAlign.start, color: Colour.black),
 
 
                         //textField
@@ -169,7 +169,7 @@ class _HostBasicThreeState extends State<HostBasicThree> {
                               width: double.infinity,
                               height: double.infinity,
                               child: Center(
-                                child: CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+                                child: CommonFun.textBold1("Next", 16, TextAlign.center, color: Colour.white),
                               ),
                             ),
                             onTap: () {

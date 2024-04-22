@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../values/colour.dart';
-import '../../MainScreens/host_basic_1.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -52,7 +51,7 @@ class _EditProfileState extends State<EditProfile> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              CommonFun.textBold("Edit Profile", 16, TextAlign.start, color: Colour.black),
+              CommonFun.textBold1("Edit Profile", 16, TextAlign.start, color: Colour.black),
             ],
           ),
         ),
@@ -384,12 +383,11 @@ class _EditProfileState extends State<EditProfile> {
                         width: double.infinity,
                         height: double.infinity,
                         child: Center(
-                          child: CommonFun.textBold("Save", 16, TextAlign.center, color: Colour.white),
+                          child: CommonFun.textBold1("Save", 16, TextAlign.center, color: Colour.white),
                         ),
                       ),
                       onTap: () {
-                        // Navigator.pop(context);
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const HostBasicOne()));
+                        Navigator.pop(context);
                       },
                     ),
                   ),

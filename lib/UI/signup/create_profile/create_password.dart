@@ -56,7 +56,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    CommonFun.textBold("Create a Password", 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1("Create a Password", 16, TextAlign.start, color: Colour.black),
                     CommonFun.textMed("Please create your password", 12, TextAlign.start, color: Colour.greyText),
 
                     //textField
@@ -141,7 +141,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                           width: double.infinity,
                           height: double.infinity,
                           child: Center(
-                            child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                            child: CommonFun.textBold1("Continue", 16, TextAlign.center,
                                 color: Colour.white),
                           ),
                         ),

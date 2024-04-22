@@ -37,7 +37,7 @@ class _MyEventState extends State<MyEvent> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              CommonFun.textBold('My Event', 16, TextAlign.start, color: Colour.black),
+              CommonFun.textBold1('My Event', 16, TextAlign.start, color: Colour.black),
 
             ],
           ),
@@ -121,7 +121,7 @@ class _MyEventState extends State<MyEvent> {
                           color: currentTab == 0?Colour.pink: Colour.bgColor,
                           borderRadius: BorderRadius.circular(30)
                       ),
-                      child: CommonFun.textBold('Upcoming', 16, TextAlign.center, color: currentTab == 0?Colour.white: Colour.greyText),
+                      child: CommonFun.textBold1('Upcoming', 16, TextAlign.center, color: currentTab == 0?Colour.white: Colour.greyText),
                     ),
                   ),
                 ),
@@ -141,7 +141,7 @@ class _MyEventState extends State<MyEvent> {
                           color: currentTab == 1?Colour.pink: Colour.bgColor,
                           borderRadius: BorderRadius.circular(30)
                       ),
-                      child: CommonFun.textBold('Past Event', 16, TextAlign.center,  color: currentTab == 1?Colour.white: Colour.greyText ),
+                      child: CommonFun.textBold1('Past Event', 16, TextAlign.center,  color: currentTab == 1?Colour.white: Colour.greyText ),
                     ),
                   ),
                 ),
@@ -203,8 +203,8 @@ class _MyEventState extends State<MyEvent> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
-                                    CommonFun.textBold('\$120', 12, TextAlign.center, color: Colour.pink),
+                                    CommonFun.textBold1('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
+                                    CommonFun.textBold1('\$120', 12, TextAlign.center, color: Colour.pink),
                                   ],
                                 ),
                               ),
@@ -282,8 +282,8 @@ class _MyEventState extends State<MyEvent> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
-                                      CommonFun.textBold('\$120', 12, TextAlign.center, color: Colour.pink),
+                                      CommonFun.textBold1('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
+                                      CommonFun.textBold1('\$120', 12, TextAlign.center, color: Colour.pink),
                                     ],
                                   ),
                                 ),

@@ -14,10 +14,25 @@ class CommonFun{
     return Text(
       stringName,
       style:
+      TextStyle(fontFamily: "poppins_bold", fontSize: fontSize, color: color, decoration: TextDecoration.none),
+      textAlign: align,
+    );
+  }
+
+  static Widget textBold1(String stringName, double fontSize, TextAlign align,
+      {required Color color}) {
+    return Text(
+      stringName,
+      style:
       TextStyle(fontFamily: "poppins_bold", fontSize: fontSize, color: color, decoration: TextDecoration.none, overflow: TextOverflow.ellipsis),
       textAlign: align,
     );
   }
+
+
+
+
+
   //!!text(Med)
   static Widget textMed(String stringName, double fontSize, TextAlign align,
       {required Color color}) {

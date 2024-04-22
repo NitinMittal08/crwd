@@ -48,7 +48,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              CommonFun.textBold(widget.from == 0?"Change Language":"Language", 16, TextAlign.center, color: Colour.black)
+              CommonFun.textBold1(widget.from == 0?"Change Language":"Language", 16, TextAlign.center, color: Colour.black)
             ],
           ),
         ),
@@ -139,7 +139,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 width: double.infinity,
                 height: double.infinity,
                 child: Center(
-                  child: CommonFun.textBold("Save", 16, TextAlign.center,
+                  child: CommonFun.textBold1("Save", 16, TextAlign.center,
                       color: Colour.white),
                 ),
               ),

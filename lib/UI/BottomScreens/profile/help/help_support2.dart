@@ -37,7 +37,7 @@ class _HelpSupport2State extends State<HelpSupport2> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              const Text('Guideline',style: TextStyle(color: Colors.black)),
+              CommonFun.textBold1('Guideline', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -54,7 +54,7 @@ class _HelpSupport2State extends State<HelpSupport2> {
 
             Container(
                 margin: const EdgeInsets.only(top: 15 ,bottom: 10),
-                child: CommonFun.textBold('How to connect wallet', 16, TextAlign.start, color: Colour.black)),
+                child: CommonFun.textBold1('How to connect wallet', 16, TextAlign.start, color: Colour.black)),
 
 
             CommonFun.textReg(para1, 12, TextAlign.start, color: Colour.greyText),

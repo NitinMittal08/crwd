@@ -42,7 +42,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                     transform: Matrix4.translationValues(0, MediaQuery.of(context).size.height/3, 0),
                     child: Column(
                       children: [
-                        CommonFun.textBold("Forgot Password Link Sent Sucessfuly", 16, TextAlign.center, color: Colour.blackNew),
+                        CommonFun.textBold1("Forgot Password Link Sent Sucessfuly", 16, TextAlign.center, color: Colour.blackNew),
                         const SizedBox(height: 10,),
                         CommonFun.textMed("Forgot password link sent your registered \n email Id ${widget.email}", 12, TextAlign.center, color: Colour.greyText),
                       ],
@@ -67,7 +67,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                         width: double.infinity,
                         height: double.infinity,
                         child: Center(
-                          child: CommonFun.textBold("Continue", 16, TextAlign.center,
+                          child: CommonFun.textBold1("Continue", 16, TextAlign.center,
                               color: Colour.white),
                         ),
                       ),

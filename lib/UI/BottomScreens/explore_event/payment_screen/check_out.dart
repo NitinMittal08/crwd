@@ -39,7 +39,7 @@ class _CheckOutState extends State<CheckOut> {
                         fit: BoxFit.fill,
                       )),
                   const SizedBox(width: 10),
-                  CommonFun.textBold('Check Out', 16, TextAlign.center, color: Colour.black),
+                  CommonFun.textBold1('Check Out', 16, TextAlign.center, color: Colour.black),
                 ],
               ),
             ),
@@ -56,7 +56,7 @@ class _CheckOutState extends State<CheckOut> {
                 children: [
                   Container(
                       margin: const EdgeInsets.only(top: 15, bottom: 10, left: 8, right: 8),
-                      child: CommonFun.textBold('Payment Method', 16, TextAlign.start, color: Colour.black)),
+                      child: CommonFun.textBold1('Payment Method', 16, TextAlign.start, color: Colour.black)),
                   Container(
                     decoration: BoxDecoration(borderRadius: const BorderRadiusDirectional.only(topStart: Radius.circular(15),topEnd:Radius.circular(15) ), border: Border.all(color: Colour.divideLine)),
                     child: Padding(
@@ -102,7 +102,6 @@ class _CheckOutState extends State<CheckOut> {
                                 child: TextField(
                                   style: TextStyle(
                                     fontSize: 14.0,
-                                    height: 1.0,
                                     fontFamily: "poppins_Reg",
                                     color: Colour.black,
                                   ),
@@ -149,11 +148,10 @@ class _CheckOutState extends State<CheckOut> {
                                     flex: 1,
                                     child: Container(
                                       decoration: BoxDecoration(color: Colour.whiteApp, borderRadius: BorderRadiusDirectional.circular(10)),
-                                      margin: const EdgeInsets.only(right: 10,left: 10,  top: 8),
+                                      margin: const EdgeInsets.only(top: 8),
                                       child: TextField(
                                         style: TextStyle(
                                           fontSize: 14.0,
-                                          height: 1.0,
                                           fontFamily: "poppins_Reg",
                                           color: Colour.black,
                                         ),
@@ -168,15 +166,15 @@ class _CheckOutState extends State<CheckOut> {
                                     ),
                                   ),
 
+                                  const SizedBox(width: 10),
                                   Flexible(
                                     flex: 1,
                                     child: Container(
                                       decoration: BoxDecoration(color: Colour.whiteApp, borderRadius: BorderRadiusDirectional.circular(10)),
-                                      margin: const EdgeInsets.only(right: 10,left: 10,  top: 8),
+                                      margin: const EdgeInsets.only(top: 8),
                                       child: TextField(
                                         style: TextStyle(
                                           fontSize: 14.0,
-                                          height: 1.0,
                                           fontFamily: "poppins_Reg",
                                           color: Colour.black,
                                         ),
@@ -199,7 +197,6 @@ class _CheckOutState extends State<CheckOut> {
                                 child: TextField(
                                   style: TextStyle(
                                     fontSize: 14.0,
-                                    height: 1.0,
                                     fontFamily: "poppins_Reg",
                                     color: Colour.black,
                                   ),
@@ -285,7 +282,7 @@ class _CheckOutState extends State<CheckOut> {
                                     height: double.infinity,
                                     child: Center(
                                       child:
-                                      CommonFun.textBold("PayPal", 16, TextAlign.center, color: Colour.white),
+                                      CommonFun.textBold1("PayPal", 16, TextAlign.center, color: Colour.white),
                                     ),
                                   ),
                                   onTap: () {
@@ -305,7 +302,7 @@ class _CheckOutState extends State<CheckOut> {
 
                   Container(
                       margin: const EdgeInsets.only(top: 15, bottom: 10, left: 8, right: 8),
-                      child: CommonFun.textBold('Saved Card', 16, TextAlign.start, color: Colour.black)),
+                      child: CommonFun.textBold1('Saved Card', 16, TextAlign.start, color: Colour.black)),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -439,7 +436,7 @@ class _CheckOutState extends State<CheckOut> {
                         height: double.infinity,
                         child: Center(
                           child:
-                          CommonFun.textBold("Pay Now", 16, TextAlign.center, color: Colour.white),
+                          CommonFun.textBold1("Pay Now", 16, TextAlign.center, color: Colour.white),
                         ),
                       ),
                       onTap: () {

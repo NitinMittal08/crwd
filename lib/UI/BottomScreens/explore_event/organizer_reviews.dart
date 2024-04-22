@@ -39,7 +39,7 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
                     fit: BoxFit.fill,
                   )),
               const SizedBox(width: 10),
-              CommonFun.textBold('Organizer Reviews', 16, TextAlign.center, color: Colour.black),
+              CommonFun.textBold1('Organizer Reviews', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -70,11 +70,11 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(color: Colour.pink, borderRadius: BorderRadius.circular(50)),
-                          child: Center(child: CommonFun.textBold('4.4', 14, TextAlign.center, color: Colour.white)),
+                          child: Center(child: CommonFun.textBold1('4.4', 14, TextAlign.center, color: Colour.white)),
                         ),
                         Container(
                             margin: const EdgeInsets.only(top: 8, left: 10),
-                            child: CommonFun.textBold('520 reviews', 12, TextAlign.center, color: Colour.black)),
+                            child: CommonFun.textBold1('520 reviews', 12, TextAlign.center, color: Colour.black)),
                         Container(
                           margin: const EdgeInsets.only(left: 5, right: 5),
                           child: RatingBar.builder(
@@ -130,9 +130,9 @@ class _OrganizerReviewsState extends State<OrganizerReviews> {
               Card(
                 shape: OutlineInputBorder(borderRadius: BorderRadius.circular(15),borderSide: BorderSide.none),
                 elevation: 1,
-                color: Colour.greyLight,
-                shadowColor: Colour.greyLight,
-                surfaceTintColor: Colour.greyLight,
+                // color: Colour.greyLight,
+                // shadowColor: Colour.greyLight,
+                // surfaceTintColor: Colour.greyLight,
                 child: ListView.builder(
                   itemCount: 10,
                   shrinkWrap: true,

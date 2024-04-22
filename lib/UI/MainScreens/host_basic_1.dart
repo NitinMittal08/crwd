@@ -43,7 +43,7 @@ class _HostBasicOneState extends State<HostBasicOne> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Host Event', 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1('Host Event', 16, TextAlign.center, color: Colour.black),
                   ],
                 ),
               ),
@@ -57,7 +57,7 @@ class _HostBasicOneState extends State<HostBasicOne> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
 
-                    CommonFun.textBold("Basic Information", 18, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1("Basic Information", 18, TextAlign.start, color: Colour.black),
  
 
                     //textField
@@ -172,7 +172,7 @@ class _HostBasicOneState extends State<HostBasicOne> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CommonFun.textBold('Age Minimum', 16, TextAlign.center, color: Colour.black),
+                          CommonFun.textBold1('Age Minimum', 16, TextAlign.center, color: Colour.black),
 
                           Stack(
                             alignment: Alignment.bottomCenter,
@@ -347,7 +347,7 @@ class _HostBasicOneState extends State<HostBasicOne> {
                           height: double.infinity,
                           child: Center(
                             child:
-                            CommonFun.textBold("Next", 16, TextAlign.center, color: Colour.white),
+                            CommonFun.textBold1("Next", 16, TextAlign.center, color: Colour.white),
                           ),
                         ),
                         onTap: () {

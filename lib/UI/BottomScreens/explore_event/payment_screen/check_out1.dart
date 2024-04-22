@@ -35,7 +35,7 @@ class _CheckOut1State extends State<CheckOut1> {
                           fit: BoxFit.fill,
                         )),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Check Completed', 16, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1('Check Completed', 16, TextAlign.center, color: Colour.black),
                   ],
                 ),
               ),
@@ -59,7 +59,7 @@ class _CheckOut1State extends State<CheckOut1> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset('assets/images/profile/check_image.png', width: 230, height: 230),
-                                CommonFun.textBold('Order Completed', 20, TextAlign.center, color: Colour.black),
+                                CommonFun.textBold1('Order Completed', 20, TextAlign.center, color: Colour.black),
                                 CommonFun.textReg('See you at the event!', 12, TextAlign.center, color: Colour.greyText),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +69,7 @@ class _CheckOut1State extends State<CheckOut1> {
                                       decoration: BoxDecoration(color: Colour.divideLine3, borderRadius: BorderRadiusDirectional.circular(10)),
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Image.asset('assets/images/icon/share.png', width: 18, height: 18),
+                                        child: Image.asset('assets/images/icon/share.png', width: 18, height: 18,color: Colour.pink,),
                                       ),
                                     ),
                                     const SizedBox(width: 15),
@@ -81,7 +81,7 @@ class _CheckOut1State extends State<CheckOut1> {
                                           'assets/images/icon/calender.png',
                                           width: 18,
                                           height: 18,
-                                          color: Colour.greyText,
+                                          color: Colour.pink,
                                         ),
                                       ),
                                     ),
@@ -108,7 +108,7 @@ class _CheckOut1State extends State<CheckOut1> {
                                     width: double.infinity,
                                     height: double.infinity,
                                     child: Center(
-                                      child: CommonFun.textBold("View Ticket", 16, TextAlign.center, color: Colour.white),
+                                      child: CommonFun.textBold1("View Ticket", 16, TextAlign.center, color: Colour.white),
                                     ),
                                   ),
                                   onTap: () {

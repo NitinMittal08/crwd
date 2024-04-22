@@ -32,7 +32,7 @@ class _FeedCommentsState extends State<FeedComments> {
                     onTap: () => Navigator.pop(context),
                     child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                 const SizedBox(width: 10),
-                CommonFun.textBold('Comment', 16, TextAlign.start, color: Colour.black),
+                CommonFun.textBold1('Comment', 16, TextAlign.start, color: Colour.black),
               ],
             ),
           ),
@@ -175,7 +175,7 @@ class _FeedCommentsState extends State<FeedComments> {
                                                       text:  "@afshin ",
                                                       style: TextStyle(
                                                           fontFamily: "poppins_Reg",
-                                                          color: Colour.greyText,
+                                                          color: Colour.pink,
                                                           fontSize: 10),
                                                     ),
                                                     TextSpan(

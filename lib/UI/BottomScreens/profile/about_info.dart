@@ -32,7 +32,7 @@ class _AboutInfoState extends State<AboutInfo> {
                     onTap: () => Navigator.pop(context),
                     child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                 const SizedBox(width: 10),
-                CommonFun.textBold('About Information', 16, TextAlign.start, color: Colour.black),
+                CommonFun.textBold1('About Information', 16, TextAlign.start, color: Colour.black),
               ],
             ),
           ),
@@ -52,7 +52,7 @@ class _AboutInfoState extends State<AboutInfo> {
 
                 Container(
                     margin: const EdgeInsets.only(right: 15,left: 15,top: 15),
-                    child: CommonFun.textBold('Information', 16, TextAlign.start, color: Colour.black)),
+                    child: CommonFun.textBold1('Information', 16, TextAlign.start, color: Colour.black)),
 
 
                 const Divider(
@@ -107,7 +107,7 @@ class _AboutInfoState extends State<AboutInfo> {
 
           Container(
               margin: const EdgeInsets.only(right: 15,left: 15,top: 15),
-              child: CommonFun.textBold('About App', 16, TextAlign.start, color: Colour.black)),
+              child: CommonFun.textBold1('About App', 16, TextAlign.start, color: Colour.black)),
 
 
 

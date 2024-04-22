@@ -37,7 +37,7 @@ class _HelpSupportState extends State<HelpSupport> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              const Text('Help & Support',style: TextStyle(color: Colors.black)),
+              CommonFun.textBold1('Help & Support', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),

@@ -42,7 +42,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         onTap: () => Navigator.pop(context),
                         child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                     const SizedBox(width: 10),
-                    CommonFun.textBold('Change Password', 16, TextAlign.start, color: Colour.black),
+                    CommonFun.textBold1('Change Password', 16, TextAlign.start, color: Colour.black),
                   ],
                 ),
               ),
@@ -176,7 +176,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           width: double.infinity,
                           height: double.infinity,
                           child: Center(
-                            child: CommonFun.textBold("Change Password", 16, TextAlign.center, color: Colour.white),
+                            child: CommonFun.textBold1("Change Password", 16, TextAlign.center, color: Colour.white),
                           ),
                         ),
                         onTap: () {

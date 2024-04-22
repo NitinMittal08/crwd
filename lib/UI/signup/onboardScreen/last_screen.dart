@@ -77,7 +77,7 @@ class _LastScreenState extends State<LastScreen> {
                         width: double.infinity,
                         height: double.infinity,
                         child: Center(
-                          child: CommonFun.textBold(
+                          child: CommonFun.textBold1(
                               "Sign Up"
                               , 16, TextAlign.center, color: Colour.greyText),
                         ),
@@ -106,7 +106,7 @@ class _LastScreenState extends State<LastScreen> {
                         width: double.infinity,
                         height: double.infinity,
                         child: Center(
-                          child: CommonFun.textBold(
+                          child: CommonFun.textBold1(
                               "Sign In"
                               , 16, TextAlign.center, color: Colour.white),
                         ),

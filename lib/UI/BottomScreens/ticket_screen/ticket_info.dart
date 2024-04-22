@@ -35,7 +35,7 @@ class _TicketInfoState extends State<TicketInfo> {
                     onTap: () => Navigator.pop(context),
                     child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                 const SizedBox(width: 8),
-                CommonFun.textBold('Ticket Details', 16, TextAlign.center, color: Colour.black),
+                CommonFun.textBold1('Ticket Detail', 16, TextAlign.center, color: Colour.black),
               ],
             ),
           ),
@@ -132,7 +132,7 @@ class _TicketInfoState extends State<TicketInfo> {
                                      text:  " in order to know how to get in the event",
                                      style: TextStyle(
                                          fontFamily: "poppins_Reg",
-                                         color: Colour.pink,
+                                         color: Colour.greyText,
                                          fontSize: 14),
                                    ),
 
@@ -143,7 +143,7 @@ class _TicketInfoState extends State<TicketInfo> {
                                width: double.infinity,
                                child: Image.asset('assets/images/line.png')),
 
-                           CommonFun.textBold('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
+                           CommonFun.textBold1('Sunday Sqool Comedy', 16, TextAlign.center, color: Colour.black),
 
                            Padding(
                              padding: const EdgeInsets.all(8.0),
@@ -273,7 +273,7 @@ class _TicketInfoState extends State<TicketInfo> {
                      height: double.infinity,
                      child: Center(
                        child:
-                       CommonFun.textBold("Cancel Ticket", 16, TextAlign.center, color: Colour.white),
+                       CommonFun.textBold1("Cancel Ticket", 16, TextAlign.center, color: Colour.white),
                      ),
                    ),
                    onTap: () async {
@@ -330,7 +330,7 @@ class _TicketInfoState extends State<TicketInfo> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Cancel Ticket', 20, TextAlign.center, color: Colour.blackNew1),
+                CommonFun.textBold1('Cancel Ticket', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
                 CommonFun.textReg('Are you sure you want to cancel \n the ticket', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
@@ -350,7 +350,7 @@ class _TicketInfoState extends State<TicketInfo> {
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("No", 14, TextAlign.center, color: Colour.greyText),
+                            child: CommonFun.textBold1("No", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {
@@ -372,7 +372,7 @@ class _TicketInfoState extends State<TicketInfo> {
                         child: InkWell(
                           child: SizedBox(
                             child: Center(
-                              child: CommonFun.textBold("Yes", 14, TextAlign.center, color: Colour.white),
+                              child: CommonFun.textBold1("Yes", 14, TextAlign.center, color: Colour.white),
                             ),
                           ),
                           onTap: () {

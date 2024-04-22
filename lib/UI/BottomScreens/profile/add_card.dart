@@ -34,7 +34,7 @@ class _AddCardState extends State<AddCard> {
                           onTap: () => Navigator.pop(context),
                           child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                       const SizedBox(width: 10),
-                      CommonFun.textBold('Add New Card', 16, TextAlign.start, color: Colour.black),
+                      CommonFun.textBold1('Add New Card', 16, TextAlign.start, color: Colour.black),
                     ],
                   ),
                 ),
@@ -54,7 +54,6 @@ class _AddCardState extends State<AddCard> {
                           child: TextField(
                             style: TextStyle(
                               fontSize: 14.0,
-                              height: 1.0,
                               fontFamily: "poppins_Reg",
                               color: Colour.black,
                             ),
@@ -101,11 +100,10 @@ class _AddCardState extends State<AddCard> {
                               flex: 1,
                               child: Container(
                                 decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
-                                margin: const EdgeInsets.only(right: 10,left: 10,  top: 15),
+                                margin: const EdgeInsets.only( top: 15),
                                 child: TextField(
                                   style: TextStyle(
                                     fontSize: 14.0,
-                                    height: 1.0,
                                     fontFamily: "poppins_Reg",
                                     color: Colour.black,
                                   ),
@@ -119,16 +117,15 @@ class _AddCardState extends State<AddCard> {
                                 ),
                               ),
                             ),
-
+                            const SizedBox(width: 10),
                             Flexible(
                               flex: 1,
                               child: Container(
                                 decoration: BoxDecoration(color: Colour.white, borderRadius: BorderRadiusDirectional.circular(10)),
-                                margin: const EdgeInsets.only(right: 10,left: 10,  top: 15),
+                                margin: const EdgeInsets.only( top: 15),
                                 child: TextField(
                                   style: TextStyle(
                                     fontSize: 14.0,
-                                    height: 1.0,
                                     fontFamily: "poppins_Reg",
                                     color: Colour.black,
                                   ),
@@ -151,7 +148,6 @@ class _AddCardState extends State<AddCard> {
                           child: TextField(
                             style: TextStyle(
                               fontSize: 14.0,
-                              height: 1.0,
                               fontFamily: "poppins_Reg",
                               color: Colour.black,
                             ),
@@ -185,7 +181,7 @@ class _AddCardState extends State<AddCard> {
                               width: double.infinity,
                               height: double.infinity,
                               child: Center(
-                                child: CommonFun.textBold("Save Card", 16, TextAlign.center, color: Colour.white),
+                                child: CommonFun.textBold1("Save Card", 16, TextAlign.center, color: Colour.white),
                               ),
                             ),
                             onTap: () {

@@ -55,7 +55,7 @@ class _TermsPrivacyState extends State<TermsPrivacy> {
                     onTap: () => Navigator.pop(context),
                     child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
                 const SizedBox(width: 10),
-                CommonFun.textBold((widget.from == 0) ?'Privacy': 'Terms & Conditions', 16, TextAlign.center, color: Colour.black),
+                CommonFun.textBold1((widget.from == 0) ?'Privacy': 'Terms & Conditions', 16, TextAlign.center, color: Colour.black),
               ],
             ),
           ),

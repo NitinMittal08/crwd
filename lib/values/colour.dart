@@ -26,6 +26,7 @@ class Colour{
   static Color divideLine1 = const Color(0xFFCDCDCD);
   static Color divideLine2 = const Color(0xFFF3F2F2);
   static Color divideLine3 = const Color(0xFFEFEFEF);
+  static Color divideLine4 = const Color(0xFF8D8687);
 
 
 

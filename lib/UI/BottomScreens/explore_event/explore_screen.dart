@@ -26,12 +26,6 @@ class _SearchScreenState extends State<SearchScreen> {
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
 
 
-  double _lowerValue = 18;
-  double _upperValue = 18;
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colour.bgColor,
-          title: CommonFun.textBold('Explore Event', 16, TextAlign.start, color: Colour.black),
+          title: CommonFun.textBold1('Explore Event', 16, TextAlign.start, color: Colour.black),
           actions: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -354,7 +348,7 @@ class _ProfileCardState extends State<ProfileCard> {
                               ),
                             ),
                           ),
-                          CommonFun.textBold( widget.profile.name, 16, TextAlign.start, color: Colour.white),
+                          CommonFun.textBold1( widget.profile.name, 16, TextAlign.start, color: Colour.white),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -380,7 +374,7 @@ class _ProfileCardState extends State<ProfileCard> {
 
                           Image.asset('assets/images/icon/info.png',width: 20,height: 20,color: Colour.white,),
                           const SizedBox(height: 5),
-                          CommonFun.textBold(widget.profile.distance, 12, TextAlign.start, color: Colour.white),
+                          CommonFun.textBold1(widget.profile.distance, 12, TextAlign.start, color: Colour.white),
                         ],
                       )
 
@@ -482,8 +476,6 @@ class TagWidget extends StatelessWidget {
 }
 
 Widget _filterBottomSheet(BuildContext context) {
-  double _value = 30;
-  double _value1 = 30;
 
   double _lowerValue = 18;
   double _upperValue = 18;
@@ -512,7 +504,7 @@ Widget _filterBottomSheet(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CommonFun.textBold('Filter', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Filter', 16, TextAlign.center, color: Colour.black),
                       InkWell(
                         onTap: () {
                           Navigator.pop(context);
@@ -533,7 +525,7 @@ Widget _filterBottomSheet(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonFun.textBold('Category', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Category', 16, TextAlign.center, color: Colour.black),
                       Container(
                         margin: const EdgeInsets.only(top: 5),
                         decoration: BoxDecoration(color: Colour.greyTextField, borderRadius: BorderRadius.circular(10)),
@@ -621,7 +613,7 @@ Widget _filterBottomSheet(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonFun.textBold('Age Range', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Age Range', 16, TextAlign.center, color: Colour.black),
                       Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
@@ -683,7 +675,7 @@ Widget _filterBottomSheet(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonFun.textBold('Distance', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Distance', 16, TextAlign.center, color: Colour.black),
                       Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
@@ -746,7 +738,7 @@ Widget _filterBottomSheet(BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonFun.textBold('Attendee', 16, TextAlign.center, color: Colour.black),
+                      CommonFun.textBold1('Attendee', 16, TextAlign.center, color: Colour.black),
                       SizedBox(
                         height: 40,
                         child: ListView.builder(
@@ -782,7 +774,7 @@ Widget _filterBottomSheet(BuildContext context) {
                           decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10), color: Colour.greyTextField),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 15, left: 15, top: 8, bottom: 8),
-                            child: CommonFun.textBold('Clear', 16, TextAlign.center, color: Colour.greyText),
+                            child: CommonFun.textBold1('Clear', 16, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                       ),
@@ -794,7 +786,7 @@ Widget _filterBottomSheet(BuildContext context) {
                           decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(10), color: Colour.pink),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 15, left: 15, top: 8, bottom: 8),
-                            child: CommonFun.textBold('Apply Filter', 14, TextAlign.center, color: Colour.greyTextField),
+                            child: CommonFun.textBold1('Apply Filter', 14, TextAlign.center, color: Colour.greyTextField),
                           ),
                         ),
                       ),
@@ -905,7 +897,7 @@ Widget boostEventDialog() {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CommonFun.textBold('Boost Event', 14, TextAlign.center, color: Colour.white),
+                    CommonFun.textBold1('Boost Event', 14, TextAlign.center, color: Colour.white),
                     InkWell(
                         onTap: () {
                           Navigator.pop(context);
@@ -926,7 +918,7 @@ Widget boostEventDialog() {
             child: Center(child: Image.asset('assets/images/thunder.png', width: 20,height: 30,fit: BoxFit.fill,))
           ),
           const SizedBox(height: 20),
-          CommonFun.textBold('Boost Event', 16, TextAlign.center, color: Colour.black),
+          CommonFun.textBold1('Boost Event', 16, TextAlign.center, color: Colour.black),
           const SizedBox(height: 10),
           Container(
               margin: const EdgeInsets.only(right: 15,left: 15),
@@ -962,7 +954,7 @@ Widget boostEventDialog() {
               child: InkWell(
                 child: SizedBox(
                   child: Center(
-                    child: CommonFun.textBold("Boost Event", 14, TextAlign.center, color: Colour.white),
+                    child: CommonFun.textBold1("Boost Event", 14, TextAlign.center, color: Colour.white),
                   ),
                 ),
                 onTap: () {

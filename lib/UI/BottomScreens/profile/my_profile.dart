@@ -5,6 +5,8 @@ import 'package:crwd/UI/BottomScreens/profile/payment_method.dart';
 import 'package:crwd/UI/BottomScreens/profile/refer_screen.dart';
 import 'package:crwd/UI/BottomScreens/profile/scan_qr.dart';
 import 'package:crwd/UI/BottomScreens/profile/terms_privacy.dart';
+import 'package:crwd/UI/MainScreens/host_basic.dart';
+import 'package:crwd/UI/MainScreens/host_basic_1.dart';
 import 'package:crwd/UI/signup/language_screen.dart';
 import 'package:crwd/values/colour.dart';
 import 'package:crwd/values/commonFun.dart';
@@ -82,7 +84,7 @@ class _MyProfileState extends State<MyProfile> {
                   decoration: BoxDecoration(
                       color: Colour.grey,
                       borderRadius: BorderRadius.circular(15)),
-                  child: CommonFun.textBold('\$200', 12, TextAlign.center,color: Colors.pink),
+                  child: CommonFun.textBold1('\$200', 12, TextAlign.center,color: Colors.pink),
                 ),
               )
             ],
@@ -147,7 +149,7 @@ class _MyProfileState extends State<MyProfile> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CommonFun.textBold('Amie Rosie', 16, TextAlign.start, color: Colors.black),
+                                CommonFun.textBold1('Amie Rosie', 16, TextAlign.start, color: Colors.black),
                                 CommonFun.textReg('amierosie@yomail.com', 12, TextAlign.start,
                                     color: Colour.greyText),
                               ],
@@ -313,7 +315,7 @@ class _MyProfileState extends State<MyProfile> {
                                         height: 16,
                                       ),
                                       const SizedBox(width: 10),
-                                      CommonFun.textBold('Dark Theme', 12, TextAlign.start,
+                                      CommonFun.textBold1('Dark Theme', 12, TextAlign.start,
                                           color: Colors.black),
                                     ],
                                   ),
@@ -359,7 +361,7 @@ class _MyProfileState extends State<MyProfile> {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyFav()));
                               }
                               if (model[index].count == 2) {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> InterestScreen(from: 1,)));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> HostBasic(from: 1)));
                               }
                               if(model[index].count == 3){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyEvent()));
@@ -416,7 +418,7 @@ class _MyProfileState extends State<MyProfile> {
                                               height: 17,
                                             ),
                                             const SizedBox(width: 10),
-                                            CommonFun.textBold(
+                                            CommonFun.textBold1(
                                                 model[index].name.toString(), 12, TextAlign.start,
                                                 color: Colors.black),
                                           ],
@@ -461,7 +463,7 @@ class _MyProfileState extends State<MyProfile> {
                       height: double.infinity,
                       child: Center(
                         child:
-                        CommonFun.textBold("Logout", 16, TextAlign.center, color: Colour.white),
+                        CommonFun.textBold1("Logout", 16, TextAlign.center, color: Colour.white),
                       ),
                     ),
                     onTap: () {
@@ -504,7 +506,7 @@ class _MyProfileState extends State<MyProfile> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CommonFun.textBold('Rate App', 14, TextAlign.center, color: Colour.white),
+                      CommonFun.textBold1('Rate App', 14, TextAlign.center, color: Colour.white),
                       InkWell(
                           onTap: () {
                             Navigator.pop(context);
@@ -523,7 +525,7 @@ class _MyProfileState extends State<MyProfile> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    CommonFun.textBold('Your Rating: ', 14, TextAlign.center, color: Colour.greyText),
+                    CommonFun.textBold1('Your Rating: ', 14, TextAlign.center, color: Colour.greyText),
 
                     Container(
                       margin: const EdgeInsets.only(left: 5, right: 5),
@@ -606,7 +608,7 @@ class _MyProfileState extends State<MyProfile> {
                     child: InkWell(
                       child: SizedBox(
                         child: Center(
-                          child: CommonFun.textBold("Submit", 14, TextAlign.center, color: Colour.white),
+                          child: CommonFun.textBold1("Submit", 14, TextAlign.center, color: Colour.white),
                         ),
                       ),
                       onTap: () {
@@ -628,7 +630,7 @@ class _MyProfileState extends State<MyProfile> {
                   child: InkWell(
                     child: SizedBox(
                       child: Center(
-                        child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
+                        child: CommonFun.textBold1("Cancel", 14, TextAlign.center, color: Colour.greyText),
                       ),
                     ),
                     onTap: () {

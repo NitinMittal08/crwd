@@ -36,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child:   Row(
                   children: [
                     Icon(Icons.language,color: Colour.black,),
-                    CommonFun.textBold("EN", 14, TextAlign.center, color: Colour.black),
+                    CommonFun.textBold1("EN", 14, TextAlign.center, color: Colour.black),
                     const SizedBox(width: 10),
                   ],
                 ),
@@ -52,14 +52,14 @@ class _SignInScreenState extends State<SignInScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                  flex: 5,
+                  flex: 6,
                   child: Image.asset('assets/images/crwd_logo.png',height: 68,width: 247,)),
 
 
 
 
               Expanded(
-                  flex:6,
+                  flex:4,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
-                              child: CommonFun.textBold("Sign In With Email", 16, TextAlign.center,
+                              child: CommonFun.textBold1("Sign In With Email", 16, TextAlign.center,
                                   color: Colour.white),
                             ),
                           ),
@@ -142,7 +142,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   Container(
                                       padding: const EdgeInsets.all(10),
                                       child: Image.asset('assets/images/icon/facebook.png',width: 8,height: 17,fit: BoxFit.fitHeight)),
-                                  CommonFun.textBold("Sign In With Facebook", 16, TextAlign.center,
+                                  CommonFun.textBold1("Sign In With Facebook", 16, TextAlign.center,
                                       color: Colour.white),
                                 ],
                               ),

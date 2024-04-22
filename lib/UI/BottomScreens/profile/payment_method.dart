@@ -32,7 +32,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   onTap: () => Navigator.pop(context),
                   child: Image.asset('assets/images/icon/back_icon.png',width: 16,height: 10 ,fit: BoxFit.fill,)),
               const SizedBox(width: 10),
-              CommonFun.textBold('Payment Method', 16, TextAlign.center, color: Colour.black),
+              CommonFun.textBold1('Payment Method', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -60,7 +60,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
         children: [
           Container(
               margin: const EdgeInsets.all(10),
-              child: CommonFun.textBold('Saved Card', 16, TextAlign.start, color: Colour.black)),
+              child: CommonFun.textBold1('Saved Card', 16, TextAlign.start, color: Colour.black)),
           Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
@@ -169,7 +169,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                CommonFun.textBold('Delete Saved Card', 20, TextAlign.center, color: Colour.blackNew1),
+                CommonFun.textBold1('Delete Saved Card', 20, TextAlign.center, color: Colour.blackNew1),
                 const SizedBox(height: 10),
                 CommonFun.textReg('Are you sure you want to delete \n this card', 12, TextAlign.center, color: Colour.greyText1),
                 const SizedBox(height: 20),
@@ -189,7 +189,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       child: InkWell(
                         child: SizedBox(
                           child: Center(
-                            child: CommonFun.textBold("Cancel", 14, TextAlign.center, color: Colour.greyText),
+                            child: CommonFun.textBold1("Cancel", 14, TextAlign.center, color: Colour.greyText),
                           ),
                         ),
                         onTap: () {
@@ -211,7 +211,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                         child: InkWell(
                           child: SizedBox(
                             child: Center(
-                              child: CommonFun.textBold("Delete", 14, TextAlign.center, color: Colour.white),
+                              child: CommonFun.textBold1("Delete", 14, TextAlign.center, color: Colour.white),
                             ),
                           ),
                           onTap: () {

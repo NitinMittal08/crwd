@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 
@@ -51,7 +51,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
                     fit: BoxFit.fill,
                   )),
               const SizedBox(width: 8),
-              CommonFun.textBold('Explore detail', 16, TextAlign.center, color: Colour.black),
+              CommonFun.textBold1('Explore detail', 16, TextAlign.center, color: Colour.black),
             ],
           ),
         ),
@@ -506,7 +506,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
                     width: double.infinity,
                     height: double.infinity,
                     child: Center(
-                      child: CommonFun.textBold("Buy Ticket", 16, TextAlign.center, color: Colour.white),
+                      child: CommonFun.textBold1("Buy Ticket", 16, TextAlign.center, color: Colour.white),
                     ),
                   ),
                   onTap: () {
